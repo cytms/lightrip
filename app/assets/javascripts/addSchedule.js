@@ -10,3 +10,4 @@ function addSchedule(){
     $('#mySchedule').append('<li class="block spotinfo" id="'+newSpotID+'" name="'+newSpotName+'" zoom="1.0" lat="'+newSpotLat+'" lon="'+newSpotLon+'" address="'+newSpotAddress+'" info="'+newSpotText+'" in = "1" style="z-index: 3; "><a href="javascript:lightbox(\''+newSpotName+'\')">'+newSpotName+'</a><img src="/img/1" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">4hr</div></div></li>')
     //this.setIcon("http://maps.google.com/mapfiles/markerB.png");//加入schedule 後要改變圖示
 }
+
