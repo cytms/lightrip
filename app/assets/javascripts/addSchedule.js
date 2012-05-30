@@ -1,8 +1,9 @@
 function addSchedule(){ 
 	var counter = 0;
 	var find = 0;
-	while ((counter < $(li.block spotinfo).size)&&(find==0)){
-		if ($(li.block spotinfo).eq(counter).name == $('#infoWindow ul li a').html() )
+	alert($(li.block.spotinfo).size());
+	while ((counter < $(li.block.spotinfo).size())&&(find==0)){
+		if ($(li.block.spotinfo).eq(counter).name == $('#infoWindow ul li a').html() )
 			{find =1;}
 		counter++;
 	}
