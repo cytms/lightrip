@@ -5,6 +5,7 @@
 <%= javascript_include_tag "jquery.tinyMap-2.0.1.min.js" %>
 <%= javascript_include_tag "create_spots.js" %>
 <%= javascript_include_tag "google_direction_api.js" %>
+
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <div id="main">
   <ul id="buttonFrame">
@@ -127,6 +128,43 @@
 </div><!-- End of #myMap -->
 <div>
 <script type="text/javascript">
+  var pos = new google.maps.LatLng(23.996733, 120.212465);
+  var myOptions = {
+    zoom: 8,
+    center: pos,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("myMap"), myOptions);
+  <% @spots.each do |spot|%>
+  console.log(<%= spot.lat%>);
+  console.log("aaa");
+  var spotName = '<%= spot.name %>';
+  var text = '<%= spot.info %>';
+  var address = '<%= spot.address %>';
+  var lat1 = <%= spot.lat %>;
+  var log1 = <%= spot.lon %>;
+  var pos = new google.maps.LatLng(lat1, log1);
+  var i = 0;
+  var marker = new google.maps.Marker({
+      position: pos,
+      animation: google.maps.Animation.DROP,
+      title: spotName});
+  marker.setMap(map);
+  var counter= 0;
+  while ($("li.block a").size()>counter){
+    var scheduleName = $("li.block a").eq(counter).html();
+    if (spotName == scheduleName){
+        marker.setIcon("http://maps.google.com/mapfiles/markerA.png");
+    }
+    counter++;
+  }  
+  console.log(spotName);
+  information(spotName, text, address);
+
+  <% end %>
+  //addSchedule();
+  if ($('#infoWindow ul li a').html() != null)
+    {addSchedule();}
   init();
 </script>
 </div>
