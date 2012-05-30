@@ -153,6 +153,8 @@
       title: spotName});
   marker.setMap(map);
   var counter= 0;
+  //changeMarker();
+  //function changeMarker(){
   while ($("li.block a").size()>counter){
     var scheduleName = $("li.block a").eq(counter).html();
     if (spotName == scheduleName){
@@ -160,6 +162,7 @@
     }
     counter++;
   }  
+//}
   //console.log(spotName, lat1, log1, text, address);
   information(id, spotName, lat1, log1, text, address);
 
