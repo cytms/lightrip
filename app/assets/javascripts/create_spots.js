@@ -41,7 +41,7 @@ function init() {
     'mapTypeId': google.maps.MapTypeId.ROADMAP,
     'scaleControl': true
   }
-  map = new google.maps.Map(document.getElementById("myMap"), mapOptions);
+  map = new google.maps.Map(document.getElementById("map"), mapOptions);
   
   geocoder = new google.maps.Geocoder();
   

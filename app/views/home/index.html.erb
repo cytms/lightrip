@@ -15,7 +15,7 @@
   </ul>
 
   <div id="menu" class="menu">
-    <h2 style="color:#fff;">LighTrip來去旅遊吧！</h2>
+    <h2 style="color:#fff;">LighTrip! 來去旅遊吧!</h2>
     <div class="map">        
       <div style="position:absolute; top:50px; left:70px; text-align:right;"><%= image_tag("taiwan_map.gif")%></div>
        <div style="position:absolute; top:0; left:0; width: 241px;"><h1>Step 1 選擇旅遊區塊</h1></div>
@@ -70,9 +70,9 @@
     </form>
   </div> <!-- end of .menu -->
 
-  <!--<div class="firstpage"></div>-->
+  <div class="firstpage"></div>
   <div class="menu" id="insert-spots" style="display:none;">
-    <h1>搜尋景點</h1>
+    <h2 style="color:#fff;">搜尋景點</h2>
     <div id="inputForm">
       <div id="instructions">你可以輸入地址或直接於地圖上點選</div>
       <div>
@@ -108,7 +108,7 @@
   </div> <!-- end of #insert-spots -->
 
   <div id="scheduleFrame" class="menu" style="display:none;">
-    <h2 style="color:#fff;">LighTrip</h2>  
+    <h2 style="color:#fff;">我的行程</h2>  
     <div style="position:absolute; left:20px; top:40px; height:400px;">
     <ul id='mySchedule' class='connectedSortable'>
       </ul>
@@ -124,10 +124,13 @@
   </div> <!-- End of #scheduleFrame -->
 
 </div><!-- End of #main -->
-<div id="myMap">
-</div><!-- End of #myMap -->
+<div id="myMap"></div><!-- End of #myMap -->
+<div id="map"></div><!-- End of #myMap -->
+
+
 <div>
 <script type="text/javascript">
+  
   var pos = new google.maps.LatLng(23.996733, 120.212465);
   var myOptions = {
     zoom: 8,
@@ -137,9 +140,10 @@
   var map = new google.maps.Map(document.getElementById("myMap"), myOptions);
   <% @spots.each do |spot|%>
   console.log(<%= spot.lat%>);
-  console.log("aaa");
   var spotName = '<%= spot.name %>';
+  console.log(spotName);
   var text = '<%= spot.info %>';
+  console.log(text);
   var address = '<%= spot.address %>';
   var lat1 = <%= spot.lat %>;
   var log1 = <%= spot.lon %>;
@@ -158,14 +162,14 @@
     }
     counter++;
   }  
-  console.log(spotName);
-  information(spotName, text, address);
+  //console.log(spotName, lat1, log1, text, address);
+  information(spotName, lat1, log1, text, address);
 
   <% end %>
   //addSchedule();
   if ($('#infoWindow ul li a').html() != null)
     {addSchedule();}
-  init();
+  //init();
 </script>
 </div>
 
