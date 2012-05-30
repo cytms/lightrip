@@ -5,6 +5,7 @@
 <%= javascript_include_tag "jquery.tinyMap-2.0.1.min.js" %>
 <%= javascript_include_tag "create_spots.js" %>
 <%= javascript_include_tag "google_direction_api.js" %>
+<%= javascript_include_tag "save.js" %>
 
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <div id="main">
@@ -119,7 +120,7 @@
       <input type="button" value="Share" onclick="submitQuery()"/>
       <input type="button" value="New" onclick="submitQuery()"/>
       <input type="button" value="Open" onclick="submitQuery()"/>
-      <input type="button" value="Save" onclick="submitQuery()"/>
+      <input type="button" value="Save" onclick="save_json();"/>
     </div>
   </div> <!-- End of #scheduleFrame -->
 
@@ -170,6 +171,8 @@
   if ($('#infoWindow ul li a').html() != null)
     {addSchedule();}
   //init();
+
+
 </script>
 </div>
 
