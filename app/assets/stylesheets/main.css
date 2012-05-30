@@ -10,7 +10,7 @@
   color: #222222;
 }
 #insert-spots {
-	width:330px;
+	width:210px;
 	height:550px;
 }
 #boundsLegend,#viewportLegend {
@@ -47,7 +47,7 @@
   margin-left: 0px;
   border: 1px solid #999999;
   padding: 0px;
-  width: 320px;
+  width: 200px;
   display: none;
   font-size:6px;
 }
@@ -68,6 +68,7 @@
   height: 120px;
   overflow: hidden;
   color: #000;
+  font-size:6px;
 }
 
 .tabContent {
@@ -78,7 +79,7 @@
 
 #matches {
   margin-top: 10px;
-  width: 320px;
+  width: 200px;
   height: 300px;
   float: left;
   border: 1px solid #666666;
@@ -87,7 +88,7 @@
 }
 
 #inputForm {
-  width: 320px;
+  width: 200px;
   margin-top: 10px;
 }
 
@@ -96,7 +97,7 @@
   font-family: sans-serif;
   font-size: 8pt;
   clear: both;
-  width: 320px;
+  width: 200px;
   border-top: 1px solid #999999;
 }
 
@@ -195,13 +196,13 @@
 
 #scheduleFrame {
 	height:550px;
-	width:330px;
+	width:210px;
 }
 #mySchedule {
 	float:left;
 	margin: 0px;
 	padding: 0px;
-	height:420px;
+	height:480px;
 	width:190px;
 	z-index:3;
 	overflow-y: auto;
@@ -371,7 +372,16 @@
 	width: 290px;
 }
 
+.infoWindow {
+	font-family: "新微軟正黑體","微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:10px;
+}
 
+.infoWindow img {
+	border-radius:5px;
+	height:60%;
+	width:90%;
+}
 
 ul#mySchedule li.spotinfo
 {
@@ -397,13 +407,14 @@ ul#mySchedule li.spotinfo img
 }
 
 ul#mySchedule li.trans{
-	height: 20px;
+	height: 40px;
 	width: 130px;
 	padding: 10px;
 	margin: 0px 0px 5px 0px;
 	background: gray;  
 	color: white;
 	text-align: center;
+	font-size: 10px;
 	border-radius: 3px;
 	line-height: 1.6em;
 	border: 2px solid gray;
