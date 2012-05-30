@@ -155,16 +155,18 @@
   var counter= 0;
   //changeMarker();
   //function changeMarker(){
-  while ($("li.block a").size()>counter){
+  var spotIn = 0;//解決產生schedule與marker先後順序問題
+  while (($("li.block a").size()>counter)&&(spotIn!=1)){
     var scheduleName = $("li.block a").eq(counter).html();
     if (spotName == scheduleName){
         marker.setIcon("http://maps.google.com/mapfiles/markerA.png");
+        spotIn = 1;
     }
     counter++;
   }  
 //}
   //console.log(spotName, lat1, log1, text, address);
-  information(id, spotName, lat1, log1, text, address);
+  information(id, spotName, lat1, log1, text, address, spotIn);
 
   <% end %>
   //addSchedule();
