@@ -30,6 +30,7 @@
         </div>
         <div style="position:absolute; left:145px; top:60px;">
           <%= @me['name'] %>
+          <p id='userid' hidden= 'true'><%= @me['id'] %></p>
         </div>
       <% else %>
         <p><%= link_to "Click me to login!", login_path %></br>當然你也可以選擇忽略該步驟！</p>
