@@ -140,14 +140,12 @@
   };
   var map = new google.maps.Map(document.getElementById("myMap"), myOptions);
   <% @spots.each do |spot|%>
-  console.log(<%= spot.lat%>);
   var spotName = '<%= spot.name %>';
-  console.log(spotName);
   var text = '<%= spot.info %>';
-  console.log(text);
   var address = '<%= spot.address %>';
   var lat1 = <%= spot.lat %>;
   var log1 = <%= spot.lon %>;
+  var id = <%= spot.id %>
   var pos = new google.maps.LatLng(lat1, log1);
   var i = 0;
   var marker = new google.maps.Marker({
@@ -156,6 +154,8 @@
       title: spotName});
   marker.setMap(map);
   var counter= 0;
+  //changeMarker();
+  //function changeMarker(){
   while ($("li.block a").size()>counter){
     var scheduleName = $("li.block a").eq(counter).html();
     if (spotName == scheduleName){
@@ -163,8 +163,9 @@
     }
     counter++;
   }  
+//}
   //console.log(spotName, lat1, log1, text, address);
-  information(spotName, lat1, log1, text, address);
+  information(id, spotName, lat1, log1, text, address);
 
   <% end %>
   //addSchedule();

@@ -440,8 +440,9 @@ function lightbox(content) {
 					//$("li.block:even").append()
 					//$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
 					for ( var i = 0; i < data.length ; i++) {
+
 						$('ul#mySchedule').append('<li class="block spotinfo" spotid="' + data[i]['id'] + '" name="' + data[i]['name'] + '" zoom="' + data[i]['zoom'] + '" lat="' + data[i]['lat'] + '" lon="' + data[i]['lon'] + '" address="' + data[i]['address'] + '" in="' + data[i]['attr1'] + '" info="' + data[i]['info']+ '" ><a href=javascript:lightbox("' + data[i]['name'] + '")>' + data[i]['name'] + '</a></li>');
-						
+			
 
 						if( i != (data.length - 1)){
 							var origin1 = data[i]['address'];
