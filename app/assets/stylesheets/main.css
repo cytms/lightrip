@@ -1,0 +1,392 @@
+@charset "utf-8";
+/* CSS Document */
+#insert-spots {
+	width:330px;
+	height:550px;
+}
+#boundsLegend,#viewportLegend {
+  position: absolute;
+  background-color: white;
+  right: 1px;
+  font-family: sans-serif;
+  font-size: small;
+  padding: 2px;
+  color: #222222;
+  display: none;
+}
+
+#boundsLegend {
+  border: 1px solid red;
+  bottom: 40px;
+}
+
+#viewportLegend {
+  border: 1px solid blue;
+  bottom: 15px;
+}
+
+#responseStatus {
+  display: none;
+}
+
+#responseCount {
+  display: none;
+}
+
+#responseInfo {
+  margin-top: 10px;
+  margin-left: 0px;
+  border: 1px solid #999999;
+  padding: 0px;
+  width: 320px;
+  display: none;
+  font-size:6px;
+}
+
+.info {
+  border-top: 1px solid #666666;
+  padding: 4px;
+  padding-left: 8px;
+  font: 10pt sans-serif;
+  margin-left: 4px;
+  margin-right: 4px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.infoWindowContent {
+  width: 250px;
+  height: 120px;
+  overflow: hidden;
+  color: #000;
+}
+
+.tabContent {
+  font: 10pt sans-serif;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+#matches {
+  margin-top: 10px;
+  width: 320px;
+  height: 300px;
+  float: left;
+  border: 1px solid #666666;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#inputForm {
+  width: 320px;
+  margin-top: 10px;
+}
+
+#footer {
+  padding-top: 4px;
+  font-family: sans-serif;
+  font-size: 8pt;
+  clear: both;
+  width: 320px;
+  border-top: 1px solid #999999;
+}
+
+#instructions {
+  font-size:6px;
+}
+
+.key {
+  text-align: right;
+  font-weight: bold;
+  vertical-align: top;
+  white-space: nowrap 
+}
+
+.value {
+  vertical-align: top;  
+}
+
+#options {
+  margin-top: 5px;
+  font-size:6px;
+  display: none;
+}
+
+#biasViewport,#country {
+  margin-right: 16px;
+}
+
+#newFeatures {
+  position: absolute;
+  top: 1px;
+  right: -2px;
+  background-color: #ffffd0;
+  border: 1px solid black;
+  font-family: sans-serif;
+  font-size: 8pt;
+  padding: 2px;
+}
+/*---------------------------------------------------*/
+#menu {
+	width:610px;
+	height:450px;
+}
+
+/*---------------------------------------------------*/
+#main li {
+	list-style-type:none;
+}
+
+#main a {
+	color:#000;
+	text-decoration:none;
+}
+
+#main h2 {
+	margin:5px;
+	text-align:center;
+}
+#main {
+	font-family: "新微軟正黑體","微軟正黑體", Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	margin:0 auto;
+	width:1000px;
+	height:560px;
+}
+#mapFrame {
+	float:right;
+	width:100%;
+	height:50px;
+}
+#myMap {
+	float:right;
+	background-color:#dedede;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:1;
+}
+#drag {
+	position: absolute;
+	left:70px;
+	right:30px;
+}
+
+#scheduleFrame {
+	height:550px;
+	width:220px;
+}
+#mySchedule {
+	float:left;
+	margin: 0px;
+	padding: 0px;
+	height:420px;
+	width:190px;
+	z-index:3;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.block {
+	width:150px;
+	height:100px;
+	background-color:#CCC;
+	margin:5px;
+	line-height:40px;
+	font-size:13px;
+	text-align:center;
+	cursor:move;
+	z-index:3;
+}
+#buttonFrame {
+	position:absolute;
+	left:20px;
+	top:0;
+	height:320px;
+	width:30px;
+	padding:0;
+	z-index:2;
+}
+.button {
+	float:left;
+	width:80px;
+	height:30px;
+	text-align: center;
+	line-height:30px;
+	margin-bottom:55px;
+	border-top-left-radius:2px;
+	border-top-right-radius:2px;
+	background-color:#666666;
+	color:#CCCCCC;
+	cursor:pointer;
+	z-index:3;
+	-moz-transform-origin:right bottom;
+	-moz-transform:rotate(-90deg);
+	-webkit-transform-origin:right bottom;
+	-webkit-transform:rotate(-90deg);
+	-o-transform-origin:right bottom;
+	-o-transform:rotate(-90deg);
+	-ms-transform-origin:right bottom;
+	-ms-transform:rotate(-90deg);
+	transform-origin:right bottom;
+	transform:rotate(-90deg);
+}
+.button:hover {
+	background-color:#999;
+	color:#333;
+}
+
+.bg {
+	width:100%;
+	height:100%;
+	background-color:#000000;
+	position:absolute;
+	top:0;
+	left:0;
+	opacity:0.7;
+	z-index:4;
+}
+.framebox {
+	display:none;
+	z-index:5;
+	width:100%;
+	height:100%;
+	background-color:#FFFFFF;
+}
+.lightbox {
+	display:none;
+	background-color:#000;
+	width:700px;
+	height:450px;
+	position:absolute;
+	top: 10%;
+	left: 20%;
+	padding-top:20px;
+	padding-left:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+	text-align:center;
+	border-radius:15px;
+	z-index:6;
+}
+
+.firstpage {
+	position:absolute;
+	background-color: #000;
+	opacity: .3;
+	-moz-opacity: 0.3;
+	filter:alpha(opacity=.3);
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:1100;	
+}
+
+.menu {
+	position:absolute;
+	background-color:#333333;
+	position:absolute;
+	left:100px;
+	top:20px;
+	z-index:1111;
+	border-radius:2px;
+	padding:10px;
+	/*text-shadow: 0 1px 1px rgba(255,255,255,.7);*/
+	-moz-box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
+	-webkit-box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
+	box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
+}
+.menu h1	{
+	font-size:20px;
+	line-height:20px;
+	text-align:center;
+}
+.menu div {
+	padding:2px;
+	border-radius:2px;
+}
+
+.title {
+	position:absolute;
+	top:10px;
+	left:10px;
+	right:10px;
+	height:40px;
+	color:#FFFFFF;
+	border-bottom: 2px solid #CCC;
+}
+.map {
+	position:absolute;
+	top:55px;
+	left:10px;
+	height: 400px;
+	width: 300px;
+}
+.attri {
+	position:absolute;
+	top:70px;
+	right:0;
+	left:320px;
+	height:180px;
+	width: 290px;
+	background-color: #666;
+}
+.guider {
+	position:absolute;
+	top:265px;
+	left:320px;
+	height:115px;
+	right:0;
+	width: 290px;
+	background-color: #666;
+}
+
+.active {
+	position:absolute;
+	top:395px;
+	right:0;
+	left:320px;
+	height:50px;
+	background-color: #CCC;
+	width: 290px;
+}
+
+
+
+ul#mySchedule li.spotinfo
+{
+	height: 104px;
+	width: 130px;
+	margin: 0px 0px 5px 0px;
+	padding: 10px;
+	background: gray;  
+	color: white;
+	text-align: center;
+	border-radius: 3px;
+	line-height: 1.6em;
+	border: 2px solid gray;
+
+}
+
+ul#mySchedule li.spotinfo img
+{
+	border-radius: 5px;
+	height: 60%;
+	width: 90%;
+
+}
+
+ul#mySchedule li.trans{
+	height: 20px;
+	width: 130px;
+	padding: 10px;
+	margin: 0px 0px 5px 0px;
+	background: gray;  
+	color: white;
+	text-align: center;
+	border-radius: 3px;
+	line-height: 1.6em;
+	border: 2px solid gray;
+}
