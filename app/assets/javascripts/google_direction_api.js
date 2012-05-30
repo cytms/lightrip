@@ -78,8 +78,7 @@
             //console.log(results)              //顯示回傳的物件內容
             for (var j = 0; j < results.length; j++) {
              // addMarker(destinations[j], true);   //可以當作按下交通資訊時的事件
-              outputDiv.innerHTML += "driving for " + results[j].distance.text + " in "
-                  + results[j].duration.text + "<br />";
+              outputDiv.innerHTML += "<div onclick='change_to_walking(\""+ id +"\");'>driving</div>"+"<div class='distance' style='display:none;'>" + results[j].distance.text + "</div>" +"<div class='duration'>"+ results[j].duration.text + "</div>" +"<div class='duration_value' style='display:none;'>"+ results[j].duration.value + "</div>";
               //console.log("outputDiv.innerHTML:" +outputDiv.innerHTML);
             
               //$('#traffic_info_temp2').html(1);
