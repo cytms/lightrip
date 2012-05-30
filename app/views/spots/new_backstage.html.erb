@@ -1,6 +1,23 @@
 
 <%= stylesheet_link_tag "index" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>LigiTrip</title>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAsYV7UusYC8W-CUCDLpFQYRREFBcOGxpqCCUdK6ZnJW0Tb_Kj_BRWDfzZYc6lwJiQloNiuOKFThoUBQ"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script src="http://www.google.com/jsapi?key=AIzaSyA5m1Nc8ws2BbmPRwKu5gFradvD_hgq6G0" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../stylesheets/index.css" media="screen">
+</head>
+<body >
 <h1>backstage input</h1>
+
+
 
 <div id="left">
   <div id ="form">
@@ -122,16 +139,16 @@
   </div>
 
 <script type="text/javascript">
-  var pos = new google.maps.LatLng(23.996733, 120.212465);
-  var myOptions = {
-    zoom: 8,
-    center: pos,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  var map = new google.maps.Map(document.getElementById("myMap"), myOptions);
+var myMap = new GMap2(document.getElementById("myMap"));  
+var myLatLng = new GLatLng(25.04763902653048, 121.51715755462646);  
+myMap.setCenter(myLatLng, 15);  
+//myMap.addControl(new GSmallMapControl() );  
+myMap.addControl(new GMenuMapTypeControl() );
+myMap.enableGoogleBar();
+myMap.enableScrollWheelZoom();
+//document.getElementById('inLatLng').value = myLatLng.toString();  
   
-  
-var myMarker = new google.maps.Marker( myLatLng, {draggable: true} );  //myMarker是目前單擊位置
+var myMarker = new GMarker( myLatLng, {draggable: true} );  //myMarker是目前單擊位置
 var iconA = new GIcon(G_DEFAULT_ICON, "http://maps.google.com/mapfiles/markerA.png"); 
 var mysMarker = new GMarker(new GLatLng(25, 121), {icon: iconA});//mysMarker為搜尋的marker
 myMap.addOverlay(mysMarker);  
@@ -230,3 +247,6 @@ function addressGps() {
  
 
 </script>
+</body>
+</html>
+
