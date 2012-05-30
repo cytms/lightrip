@@ -19,6 +19,7 @@ google.load("jqueryui", "1.8");
 google.setOnLoadCallback(function() {
 	$('#main').css('-moz-user-select', 'none'); //禁止fx選取文字
 	$('#main').get(0).onselectstart = function(){return false;}; //禁止IE選取文字
+	
 	var temp_counter = 0;
 	// 所有行程
 	$(function() {
@@ -300,22 +301,31 @@ google.setOnLoadCallback(function() {
 			$("#buttonFrame").show();
 			$(".firstpage").hide();
 		});*/
+		$("#map").hide();
 		$("#b1").click(function() {
 			$(".menu").hide();
 			//$(".firstpage").show();
 			$("#insert-spots").show();
+			$("#map").show();
+			$("#myMap").hide();
+			$(".firstpage").hide();
 			//嵌入body裡面會不會比較好
 		});
 		$("#b2").click(function() {
 			$(".menu").hide();
+			
 			//$(".firstpage").show();
 			$("#scheduleFrame").show();
+			$("#map").hide();
+			$("#myMap").show();
+			$(".firstpage").hide();
 			//嵌入body裡面會不會比較好
 		});
 		$("#b3").click(function() {
 			$(".menu").hide();
 			$(".firstpage").show();
 			$("#menu").show();
+			
 			//嵌入body裡面會不會比較好
 		});
 
@@ -430,7 +440,7 @@ function lightbox(content) {
 					//$("li.block:even").append()
 					//$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
 					for ( var i = 0; i < data.length ; i++) {
-						$('ul#mySchedule').append('<li class="block spotinfo" id="' + data[i]['id'] + '" name="' + data[i]['name'] + '" zoom="' + data[i]['zoom'] + '" lat="' + data[i]['lat'] + '" lon="' + data[i]['lon'] + '" address="' + data[i]['address'] +'" ><a href=javascript:lightbox("' + data[i]['address'] + '")>' + data[i]['name'] + '</a></li>');
+						$('ul#mySchedule').append('<li class="block spotinfo" id="' + data[i]['id'] + '" name="' + data[i]['name'] + '" zoom="' + data[i]['zoom'] + '" lat="' + data[i]['lat'] + '" lon="' + data[i]['lon'] + '" address="' + data[i]['address'] +'" ><a href=javascript:lightbox("' + data[i]['name'] + '")>' + data[i]['name'] + '</a></li>');
 						
 
 						if( i != (data.length - 1)){

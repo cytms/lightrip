@@ -1,6 +1,9 @@
 function addSchedule(){ 
-    var newSpot = $('#infoWindow ul li a').html();
-    alert(newSpot);
-    $('#mySchedule').append('<li class="block ui-resizable" style="position: relative; z-index: 3; top: 0px; left: 0px; width: 150px; height: 97px; "><a href="javascript:lightbox(\''+newSpot+'\')">'+newSpot+'</a><div class="ui-resizable-handle ui-resizable-e" style="" unselectable="on"></div><div class="ui-resizable-handle ui-resizable-s" style="" unselectable="on"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 1001; " unselectable="on"></div></li>');
+    var newSpotName = $('#infoWindow ul li a').html();
+    var newSpotLat = $('#infoWindow ul li p').html();
+    var newSpotLon = $('#infoWindow ul li p').eq(1).html();
+    var newSpotAddress = $('#infoWindow ul li p').eq(2).html();
+    var newSpotText = $('#infoWindow ul li p').eq(3).html();
+    //if 已經在schedule則不append 可以用img判斷
+    $('#mySchedule').append('<li class="block spotinfo" id="1" name="'+newSpotName+'" zoom="1.0" lat="'+newSpotLat+'" lon="'+newSpotLon+'" address="'+newSpotAddress+'" info="'+newSpotText+'" style="z-index: 3; "><a href="javascript:lightbox(\''+newSpotName+'\')">'+newSpotName+'</a><img src="/img/1" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">4hr</div></div></li>')
     //this.setIcon("http://maps.google.com/mapfiles/markerB.png");//加入schedule 後要改變圖示
-}
