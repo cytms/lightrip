@@ -120,7 +120,7 @@
       <input type="button" value="Share" onclick="submitQuery()"/>
       <input type="button" value="New" onclick="submitQuery()"/>
       <input type="button" value="Open" onclick="submitQuery()"/>
-      <input type="button" value="Save" onclick="save_json();"/>
+      <input id="save_button" type="button" value="Save" onclick="save()"/>
     </div>
   </div> <!-- End of #scheduleFrame -->
 
@@ -131,7 +131,7 @@
 
 <div>
 <script type="text/javascript">
-  
+
   var pos = new google.maps.LatLng(23.996733, 120.212465);
   var myOptions = {
     zoom: 8,

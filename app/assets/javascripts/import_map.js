@@ -459,8 +459,7 @@ function lightbox(content) {
 					}
 
 				}
-			}
-			);
+			});
 		});
 	});
 })(jQuery);
