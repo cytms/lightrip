@@ -48,12 +48,13 @@ class HomeController < ApplicationController
     #  end
     #end
     
-    @spots = Spot.all
-    @spots.each{|hashelement|
+    # @spots = Spot.all
+    @spots = Spot.find(2)
+    # @spots.each{|hashelement|
 
-      hashelement['attr1'] = 1 
+      # hashelement['attr1'] = 1 
 
-    }
+    # }
     hash = {:test => "YOYO"}
     render json: @spots
   end

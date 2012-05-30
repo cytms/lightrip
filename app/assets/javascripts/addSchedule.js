@@ -1,22 +1,53 @@
 function addSchedule(){ 
 	var counter = 0;
 	var find = 0;
-	alert($(li.block.spotinfo).size());
-	while ((counter < $(li.block.spotinfo).size())&&(find==0)){
-		if ($(li.block.spotinfo).eq(counter).name == $('#infoWindow ul li a').html() )
-			{find =1;}
+	//console.log($('li.block.spotinfo').size());
+	//console.log($('#infoWindow ul li a').html());
+	while ((counter < $('li.block.spotinfo').size())&&(find==0)){
+		//console.log($('li.block.spotinfo').size(),"inner");
+		//console.log(counter);
+		//console.log($('li.block.spotinfo').eq(counter).attr("name"));
+		//console.log($('#infoWindow ul li a').html());
+		if (($('li.block.spotinfo').eq(counter).attr("name")) == ($('#infoWindow ul li a').html()) )
+			{//console.log($('li.block.spotinfo').eq(counter).name);
+				find =1;}
 		counter++;
 	}
 	if (find !=1){
+		//alert($('li.block.spotinfo').size());
+		var size = $('li.block.spotinfo').size();
+
 		var newSpotName = $('#infoWindow ul li a').html();
-    var newSpotID = $('#infoWindow ul li p').html();
-    var newSpotLat = $('#infoWindow ul li p').eq(1).html();
-    var newSpotLon = $('#infoWindow ul li p').eq(2).html();
-    var newSpotAddress = $('#infoWindow ul li p').eq(3).html();
-    var newSpotText = $('#infoWindow ul li p').eq(4).html(); 
-    var newSpotIn = $('#infoWindow ul li p').eq(5).html(); 
-    $('#mySchedule').append('<li class="block spotinfo" id="'+newSpotID+'" name="'+newSpotName+'" zoom="1.0" lat="'+newSpotLat+'" lon="'+newSpotLon+'" address="'+newSpotAddress+'" info="'+newSpotText+'" spotin = "1" style="z-index: 3; "><a href="javascript:lightbox(\''+newSpotName+'\')">'+newSpotName+'</a><img src="/img/1" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">4hr</div></div></li>')
-	}
+	    var newSpotID = $('#infoWindow ul li p').html();
+	    var newSpotLat = $('#infoWindow ul li p').eq(1).html();
+	    var newSpotLon = $('#infoWindow ul li p').eq(2).html();
+	    var newSpotAddress = $('#infoWindow ul li p').eq(3).html();
+	    var newSpotText = $('#infoWindow ul li p').eq(4).html(); 
+	    var newSpotIn = $('#infoWindow ul li p').eq(5).html(); 
+	    $('#mySchedule').append('<li class="block spotinfo" id="'+newSpotID+'" name="'+newSpotName+'" zoom="1.0" lat="'+newSpotLat+'" lon="'+newSpotLon+'" address="'+newSpotAddress+'" info="'+newSpotText+'" spotin = "1" style="z-index: 3; "><a href="javascript:lightbox(\''+newSpotName+'\')">'+newSpotName+'</a><img src="/img/1" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">4hr</div></div></li>')
+		if(size > 0){
+		var origin_before = $('#mySchedule > li').last().prev().attr('address');
+		//console.log("origin_before = ");
+		//console.log(origin_before);
+
+		var destination_before = $('#mySchedule > li').last().attr("address");
+		//console.log($('#mySchedule > li').last().next());
+		//console.log("destination_before = ");
+		//console.log(destination_before);
+
+		var traffic_id_before = "";
+		traffic_id_before = "traffic_" + origin_before;
+		traffic_id_before += "_";
+		traffic_id_before += destination_before;
+
+		if($('#mySchedule > li').last() != null){
+			//console.log("AAAAAA");
+			$('<li class="trans ui-state-disabled" id="' + traffic_id_before + '"></li>').insertBefore($('#mySchedule > li').last());
+		}
+		calculateDistances_walking(origin_before,destination_before,traffic_id_before);
+		}
+	
+}
 	/*
     var newSpotIn = $('#infoWindow ul li p').eq(5).html(); 
     //if 已經在schedule則不append 可以用img判斷
