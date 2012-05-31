@@ -123,6 +123,7 @@
       <input type="button" value="Share" onclick="submitQuery()"/>
       <input type="button" value="New" onclick="submitQuery()"/>
       <input type="button" value="Open" onclick="openschedule()"/>
+
       <input id="save_button" type="button" value="Save" onclick="save()"/>
     </div>
   </div> <!-- End of #scheduleFrame -->
@@ -185,15 +186,17 @@
 
 $("#schedule_name").click(function(){
  // alert("click!!");
-  $(this).parentsUntil("#main").append("<input class='input_travel_time' value='???' size='20'>");
+  $(this).parentsUntil("#main").append("<input class='input_travel_time' value='請輸入你的行程' size='30'>");
   $(this).css("display","none");
    $(".input_travel_time").keypress(function(e){
       if(e.keyCode == 13){
+        $("#schedule_name").html($(this).val());
+        $("#schedule_name").css("display","block");
         $(this).blur();
-
-
-        $(this).after('<h2 id="schedule_name" style="color:#fff;">' + $(this).val() + '</h2>');
+       // $(this).after('<h2 id="schedule_name" style="color:#fff;">' + $(this).val() + '</h2>');
         $(this).remove();
+        
+        
 
 
 
