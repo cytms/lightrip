@@ -2,9 +2,10 @@
 // (function ($){
   //$(document).ready(function(){
     //$('#save_button').click(function(){
-      console.log("click!!")
+      //console.log("click!!")
+      if ($('#userid').html()!=null){
       var content = save_json();
-      console.log(save_json());
+      //console.log(save_json());
       //alert("Handler for .click() called.");
       $.ajax({
         type: 'GET',
@@ -26,11 +27,18 @@
           //$("#buttonFrame").show();
           //$("li.block:even").append()
           //$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
-          console.log(data);
+          //console.log(data);
 
         }
       });
-    
+    }
+    else{
+      console.log($('#userid').html());
+      alert("please login first");
+      $(".menu").hide();
+      $(".firstpage").show();
+      $("#menu").show();
+    }
   //});
 }
 
@@ -44,7 +52,7 @@ function save_json(){
     // console.log(element);
       if( $(this).hasClass('ui-state-disabled') ==false)
       {
-        console.log(counter);
+        //console.log(counter);
         temp = {
           'spotid' : $(this).attr('spotid'),
           'name' : $(this).attr('name'),
@@ -56,7 +64,7 @@ function save_json(){
       }
     else
     {
-      console.log(counter);
+      //console.log(counter);
         temp['method'] = $(this).children().first().html();
         temp['time_text'] = $(this).children('.duration').html();
         temp['time_value'] = $(this).children('.duration_value').html();
@@ -66,7 +74,7 @@ function save_json(){
       temp = null;
       counter++;
     }
-    console.log(temp);
+    //console.log(temp);
     if ($('ul#mySchedule > li').size() == (counter - 1))
     {schedule_array.push(temp);}//ths last one
 
