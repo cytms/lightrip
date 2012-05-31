@@ -110,7 +110,8 @@
   </div> <!-- end of #insert-spots -->
 
   <div id="scheduleFrame" class="menu" style="display:none;">
-    <h2 style="color:#fff;">我的行程</h2>  
+    <h2 id="schedule_name" style="color:#fff;">我的行程</h2>
+    <!--<div id="schedule_name">幫行程取個名字吧(click)</div> --> 
     <div style="position:absolute; left:20px; top:40px; height:400px;">
     <ul id='mySchedule' class='connectedSortable'>
       </ul>
@@ -181,6 +182,25 @@
     {addSchedule();}
   //init();
 
+$("#schedule_name").click(function(){
+  alert("click!!");
+  $(this).parentsUntil("#main").append("<input class='input_travel_time' value='???' size='20'>");
+  $(this).css("display","none");
+   $(".input_travel_time").keypress(function(e){
+      if(e.keyCode == 13){
+        $(this).blur();
+
+
+        $(this).after('<h2 id="schedule_name" style="color:#fff;">' + $(this).val() + '</h2>');
+        $(this).remove();
+
+
+
+
+      }
+    }); 
+
+})
 
 </script>
 </div>
