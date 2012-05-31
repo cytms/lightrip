@@ -6,6 +6,7 @@
 <%= javascript_include_tag "create_spots.js" %>
 <%= javascript_include_tag "google_direction_api.js" %>
 <%= javascript_include_tag "save.js" %>
+<%= javascript_include_tag "map-identify.js" %>
 
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <div id="main">
@@ -17,10 +18,7 @@
 
   <div id="menu" class="menu">
     <h2 style="color:#fff;">LighTrip! 來去旅遊吧!</h2>
-    <div class="map">        
-      <div style="position:absolute; top:50px; left:70px; text-align:right;"><%= image_tag("taiwan_map.gif")%></div>
-       <div style="position:absolute; top:0; left:0; width: 241px;"><h1>Step 1 選擇旅遊區塊</h1></div>
-    </div>
+  
 
     <div class="guider">
         <% if @access_token %>
