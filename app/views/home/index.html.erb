@@ -148,6 +148,11 @@
   var lat1 = <%= spot.lat %>;
   var log1 = <%= spot.lon %>;
   var id = <%= spot.id %>
+  <% string_path = '/img/' + spot.id.to_s %> 
+  var image =  '<%= string_path%>';
+         //<%= image_tag(string_path, :size => "50x50")%>
+ // var image = '<%= spot.picture %>'
+  console.log(image);
   var pos = new google.maps.LatLng(lat1, log1);
   var i = 0;
   var marker = new google.maps.Marker({
@@ -169,7 +174,7 @@
   }  
 //}
   //console.log(spotName, lat1, log1, text, address);
-  information(id, spotName, lat1, log1, text, address, spotIn);
+  information(id, spotName, lat1, log1, text, address, spotIn, image);
 
   <% end %>
   //addSchedule();
