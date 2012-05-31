@@ -102,5 +102,11 @@ class SchedulesController < ApplicationController
      render json: params
   end
 
+  def show_user_schedule
+    @schedule = Schedule.where(:user => params[:user])
+
+    render json: @schedule
+  end
+
 
 end
