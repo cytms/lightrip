@@ -9,8 +9,8 @@
       //alert("Handler for .click() called.");
       $.ajax({
         type: 'GET',
-        data: { user: "bbb",
-         schedule_name: "name",//,
+        data: { user: $('p#userid').html(),
+         schedule_name: $('h2#schedule_name').html(),//,
          content: JSON.stringify(content)
          //attr4: $( "#amount4" ).val(),
          //attr5: $( "#amount5" ).val()
@@ -20,7 +20,7 @@
         //url: "http://lightrip-cytms.herokuapp.com/step3",
         datatype: 'json',
         success: function(data, textSatus){
-          //alert("ajax success");
+          alert("Save successfully!");
           //$(".firstpage").hide();//處裡消掉的東西
           //$(".menu").hide();//嵌入body裡面會不會比較好
           //$("#scheduleFrame").show();
