@@ -20,6 +20,7 @@ function MM_swapImage() { //v3.0
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
 function spanid(CityName,point1,point2){
+	alert('hello');
         document.getElementById('CityName').innerHTML=CityName;
         document.getElementById('point1').innerHTML="";
         document.getElementById('point2').innerHTML="";

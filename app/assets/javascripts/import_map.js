@@ -29,6 +29,7 @@ google.setOnLoadCallback(function() {
 			connectWith: ".connectedSortable",
 			cancel: ".ui-state-disabled",
 			start: function(event, ui) {
+				$('#infoWindow').parent().attr('style');
 			//alert("activate!!")
 			console.log("ui-item=============:",ui.item);
 			//console.log(ui.placeholder);
