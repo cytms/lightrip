@@ -430,6 +430,7 @@ ul#mySchedule li.trans{
 	border-radius: 3px;
 	line-height: 1.6em;
 	border: 2px solid gray;
+	cursor: pointer;
 }
 #right{
 	position:absolute;
