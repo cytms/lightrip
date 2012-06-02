@@ -415,6 +415,7 @@ function lightbox(content) {
 (function($){
 	$(document).ready(function(){
 		$('.active').click(function(){
+			clearschedule();   // 清空schedule
 			$(".firstpage").hide();
 			$(".menu").hide();
 			$("#scheduleFrame").show();

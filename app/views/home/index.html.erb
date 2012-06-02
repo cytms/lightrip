@@ -8,6 +8,7 @@
 <%= javascript_include_tag "save.js" %>
 <%= javascript_include_tag "map-identify.js" %>
 <%= javascript_include_tag "open.js" %>
+<%= javascript_include_tag "new.js" %>
 
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <div id="main">
@@ -166,7 +167,7 @@
     <div style="position:absolute; right:5px; left:5px; bottom:20px; height:30px; text-align:center;">
       <hr>
       <input type="button" value="Share" onclick="submitQuery()"/>
-      <input type="button" value="New" onclick="submitQuery()"/>
+      <input type="button" value="New" onclick="clearschedule()"/>
       <input type="button" value="Open" onclick="openschedule()"/>
 
       <input id="save_button" type="button" value="Save" onclick="save()"/>
