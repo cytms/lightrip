@@ -23,49 +23,51 @@
     <div class="map">
 
 
-    <div id="container">
+<div id="container">
 
         <!-- 景點地圖 start -->
         <div id="map_area">
             <div class="maps">
-            <div class="tw_map" style="position:absolute; top:50px; left:70px; text-align:right;"><%= image_tag("taiwan_map.gif")%>
-<area shape="poly" coords="139,33,146,37,150,23,143,14,134,22,139,33" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;台北市&#39;,&#39;187&#39;,&#39;4259&#39;);" alt="台北市" title="台北市">
-<area shape="poly" coords="151,21,160,28,167,20,159,14,151,19" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;基隆市&#39;,&#39;30&#39;,&#39;291&#39;);" alt="基隆市" title="基隆市">
-<area shape="poly" coords="161,30,151,24,147,37,138,35,134,23,138,15,145,13,149,20,157,13,145,4,134,10,122,22,129,33,123,43,127,49,138,67,149,57,169,40,178,31,175,22,168,21" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;新北市&#39;,&#39;257&#39;,&#39;3395&#39;);" alt="新北市" title="新北市">
-<area shape="poly" coords="125,33,119,42,137,69,128,77,112,53,91,40,104,24,118,20" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;桃園縣&#39;,&#39;64&#39;,&#39;1113&#39;);" alt="桃園縣" title="桃園縣">
-<area shape="poly" coords="90,39,113,53,128,78,118,88,102,81,98,72,87,61,100,58,88,48,93,40" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;新竹縣&#39;,&#39;50&#39;,&#39;834&#39;);" alt="新竹縣" title="新竹縣">
-<area shape="poly" coords="84,60,96,57,88,48,84,58" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;新竹市&#39;,&#39;23&#39;,&#39;352&#39;);" alt="新竹市" title="新竹市">
-<area shape="poly" coords="95,70,99,81,119,89,100,100,75,103,58,86,81,60"  onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;苗栗縣&#39;,&#39;51&#39;,&#39;866&#39;);" alt="苗栗縣" title="苗栗縣">
-<area title="台中市" alt="台中市" onmouseover="spanid(&#39;台中市&#39;,&#39;70&#39;,&#39;1034&#39;);" onmouseout="spanidrestore();MM_swapImgRestore()"  coords="76,104,102,101,121,91,132,94,128,108,80,121,73,133,59,122,53,117,46,110,59,88,76,104" shape="poly">
-<area shape="poly" coords="60,126,73,135,80,122,127,110,110,169,100,188,77,184,73,173,59,156,59,146"  onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;南投縣&#39;,&#39;162&#39;,&#39;1629&#39;);" alt="南投縣" title="南投縣">
-<area shape="poly" coords="44,112,59,127,57,152,24,148" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;彰化縣&#39;,&#39;34&#39;,&#39;435&#39;);" alt="彰化縣" title="彰化縣">
-<area shape="poly" coords="11,178,32,171,74,179,56,154,23,149,15,162,12,181" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;雲林縣&#39;,&#39;107&#39;,&#39;459&#39;);" alt="雲林縣" title="雲林縣">
-<area shape="poly" coords="31,172,70,179,82,188,61,212,49,205,48,182,38,180,34,185,40,191,21,202,12,196,13,179" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;嘉義縣&#39;,&#39;59&#39;,&#39;359&#39;);" alt="嘉義縣" title="嘉義縣">
-<area shape="poly" coords="34,185,40,182,46,183,47,195,40,189" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;嘉義市&#39;,&#39;7&#39;,&#39;17&#39;);" alt="嘉義市" title="嘉義市">
-<area title="台南市" alt="台南市" onmouseover="spanid(&#39;台南市&#39;,&#39;98&#39;,&#39;833&#39;);" onmouseout="spanidrestore();MM_swapImgRestore()" coords="12,198,21,203,42,192,48,196,49,206,61,212,39,239,24,241,16,243,15,232,6,226" shape="poly">
-<area title="高雄市" alt="高雄市" onmouseover="spanid(&#39;高雄市&#39;,&#39;138&#39;,&#39;984&#39;);" onmouseout="spanidrestore();MM_swapImgRestore()"  coords="17,243,40,240,85,186,101,189,96,200,77,247,46,248,43,288,28,272,24,257" shape="poly">
-<area shape="poly" coords="46,250,75,248,82,254,78,261,68,269,72,302,79,306,84,306,78,339,64,337,61,308,39,287" onmouseover="spanid(&#39;屏東縣&#39;,&#39;113&#39;,&#39;732&#39;);" alt="屏東縣" title="屏東縣">
-<area shape="poly" coords="78,245,86,253,72,271,75,301,83,305,100,264,131,220,138,188,132,189,119,221,96,203" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;台東縣&#39;,&#39;141&#39;,&#39;912&#39;);" alt="台東縣" title="台東縣">
-<area shape="poly" coords="161,102,132,94,112,164,96,202,117,219,136,186"  onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;花蓮縣&#39;,&#39;167&#39;,&#39;1320&#39;);" alt="花蓮縣" title="花蓮縣">
-<area shape="poly" coords="180,32,141,66,120,89,161,100,172,76,170,55" onmouseout="spanidrestore();MM_swapImgRestore()" onmouseover="spanid(&#39;宜蘭縣&#39;,&#39;108&#39;,&#39;1433&#39;);" alt="宜蘭縣" title="宜蘭縣">
-            </div></div>
+            <div class="tw_map"><img src="http://www.im.ntu.edu.tw/~b98006/taiwan_map.gif" width="189" height="343" usemap="#Map01Map" name="map" border="0" alt="台灣地圖導覽"></div>
+            </div>
 
 
-            <!-- 景點計數:start 
+            <!-- 景點計數:start -->
             <div class="scenic">
               <ul class="city">
               <li>縣市名：<span id="CityName"></span>&nbsp;</li>
-              <li>景點數：<span id="point1"></span>&nbsp;</li>
-              <li>圖片數：<span id="point2"></span>&nbsp;</li>
               </ul>
+              <div id="chosenSpots">
+                已選擇的旅遊地區：</br>
+              </div>
             </div>
-             景點計數:end -->
+            
+            <!-- 景點計數:end -->
   </div>
           <!-- 景點地圖 end -->
 
+<map name="Map01Map" id="Map01Map"> 
+<area id="taipei" shape="poly" coords="139,33,146,37,150,23,143,14,134,22,139,33" onclick="spanidrestore('台北市');" onmouseover="spanid('台北市','187','4259');" alt="台北市" title="台北市">
+<area shape="poly" coords="151,21,160,28,167,20,159,14,151,19" onclick="spanidrestore('基隆市');" onmouseover="spanid('基隆市','30','291');" alt="基隆市" title="基隆市">
+<area shape="poly" coords="161,30,151,24,147,37,138,35,134,23,138,15,145,13,149,20,157,13,145,4,134,10,122,22,129,33,123,43,127,49,138,67,149,57,169,40,178,31,175,22,168,21" onclick="spanidrestore('新北市');" onmouseover="spanid('新北市','257','3395');" alt="新北市" title="新北市">
+<area shape="poly" coords="125,33,119,42,137,69,128,77,112,53,91,40,104,24,118,20" onclick="spanidrestore('桃園縣');" onmouseover="spanid('桃園縣','64','1113');" alt="桃園縣" title="桃園縣">
+<area shape="poly" coords="90,39,113,53,128,78,118,88,102,81,98,72,87,61,100,58,88,48,93,40" onclick="spanidrestore('新竹縣');" onmouseover="spanid('新竹縣','50','834');" alt="新竹縣" title="新竹縣">
+<area shape="poly" coords="84,60,96,57,88,48,84,58" onclick="spanidrestore('新竹市');" onmouseover="spanid('新竹市','23','352');" alt="新竹市" title="新竹市">
+<area shape="poly" coords="95,70,99,81,119,89,100,100,75,103,58,86,81,60"  onclick="spanidrestore('苗栗縣');" onmouseover="spanid('苗栗縣','51','866');" alt="苗栗縣" title="苗栗縣">
+<area title="台中市" alt="台中市" onmouseover="spanid('台中市','70','1034');" onclick="spanidrestore('台中市');"  coords="76,104,102,101,121,91,132,94,128,108,80,121,73,133,59,122,53,117,46,110,59,88,76,104" shape="poly">
+<area shape="poly" coords="60,126,73,135,80,122,127,110,110,169,100,188,77,184,73,173,59,156,59,146"  onclick="spanidrestore('南投縣');" onmouseover="spanid('南投縣','162','1629');" alt="南投縣" title="南投縣">
+<area shape="poly" coords="44,112,59,127,57,152,24,148" onclick="spanidrestore('彰化縣');" onmouseover="spanid('彰化縣','34','435');" alt="彰化縣" title="彰化縣">
+<area shape="poly" coords="11,178,32,171,74,179,56,154,23,149,15,162,12,181" onclick="spanidrestore('雲林縣');" onmouseover="spanid('雲林縣','107','459');" alt="雲林縣" title="雲林縣">
+<area shape="poly" coords="31,172,70,179,82,188,61,212,49,205,48,182,38,180,34,185,40,191,21,202,12,196,13,179" onclick="spanidrestore('嘉義縣');" onmouseover="spanid('嘉義縣','59','359');" alt="嘉義縣" title="嘉義縣">
+<area shape="poly" coords="34,185,40,182,46,183,47,195,40,189" onclick="spanidrestore('嘉義市');" onmouseover="spanid('嘉義市','7','17');" alt="嘉義市" title="嘉義市">
+<area title="台南市" alt="台南市" onmouseover="spanid('台南市','98','833');" onclick="spanidrestore('');" coords="12,198,21,203,42,192,48,196,49,206,61,212,39,239,24,241,16,243,15,232,6,226" shape="poly">
+<area title="高雄市" alt="高雄市" onmouseover="spanid('高雄市','138','984');" onclick="spanidrestore('高雄市');"  coords="17,243,40,240,85,186,101,189,96,200,77,247,46,248,43,288,28,272,24,257" shape="poly">
+<area shape="poly" coords="46,250,75,248,82,254,78,261,68,269,72,302,79,306,84,306,78,339,64,337,61,308,39,287" onmouseover="spanid('屏東縣','113','732');" alt="屏東縣" title="屏東縣" onclick="spanidrestore('屏東縣');">
+<area shape="poly" coords="78,245,86,253,72,271,75,301,83,305,100,264,131,220,138,188,132,189,119,221,96,203" onclick="spanidrestore('台東縣');" onmouseover="spanid('台東縣','141','912');" alt="台東縣" title="台東縣">
+<area shape="poly" coords="161,102,132,94,112,164,96,202,117,219,136,186"  onclick="spanidrestore('花蓮縣');" onmouseover="spanid('花蓮縣','167','1320');" alt="花蓮縣" title="花蓮縣">
+<area shape="poly" coords="180,32,141,66,120,89,161,100,172,76,170,55" onclick="spanidrestore('宜蘭縣');" onmouseover="spanid('宜蘭縣','108','1433');" alt="宜蘭縣" title="宜蘭縣"></map>
 
 </div><!-- container:end -->
-      
        <div style="position:absolute; top:0; left:0; width: 241px;"><h1>Step 1 選擇旅遊區塊</h1></div>
     </div>
 
@@ -198,11 +200,7 @@
   var id = <%= spot.id %>
   <% string_path = '/img/' + spot.id.to_s %> 
   var image =  '<%= string_path%>';
-<<<<<<< HEAD
-=======
-         //<%= image_tag(string_path, :size => "50x50")%>
- 
->>>>>>> 0401367b9ddc03745f630a1c1bea3a8fba1d2bad
+
   console.log(image);
   var pos = new google.maps.LatLng(lat1, log1);
   var i = 0;

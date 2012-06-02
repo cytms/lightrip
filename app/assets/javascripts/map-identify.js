@@ -20,14 +20,23 @@ function MM_swapImage() { //v3.0
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
 function spanid(CityName,point1,point2){
-	alert('hello');
-        document.getElementById('CityName').innerHTML=CityName;
-        document.getElementById('point1').innerHTML="";
-        document.getElementById('point2').innerHTML="";
+	//alert('hello');
+        document.getElementById('CityName').innerHTML = CityName;
+        
 }
-function spanidrestore(){
-        document.getElementById('CityName').innerHTML='';
-        document.getElementById('point1').innerHTML='';
-        document.getElementById('point2').innerHTML='';
+function spanidrestore(CityName){
+        
+        if ( !$("area[title='" + CityName + "']").attr('class') ){
+          $("area[title='" + CityName + "']").addClass('selected');
+          document.getElementById('chosenSpots').innerHTML += CityName + " ";
+        }
+        else {
+          var deleteChar = CityName + " ";
+
+          document.getElementById('chosenSpots').innerHTML = document.getElementById('chosenSpots').innerHTML.replace(new RegExp(deleteChar),"");
+          $("area[title='" + CityName + "']").removeClass;
+          //alert('suc!');
+        } 
+        //alert("selected");
 }
 //-->
