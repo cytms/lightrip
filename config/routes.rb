@@ -1,6 +1,7 @@
 LightripD1::Application.routes.draw do
   get '/save' => 'schedules#save'
   get '/open' => 'schedules#show_user_schedule'
+  get '/post' => 'schedules#postSchedule'
   resources :schedules
 
   #post '/save' => 'schedules#save'
@@ -15,6 +16,7 @@ LightripD1::Application.routes.draw do
   get "/lightrip" => "lightrip#index"
   #post "/" => "home#smart"
   get "home/index"
+
   #post "/attr" => "home#attr"
 
   # The priority is based upon order of creation:
