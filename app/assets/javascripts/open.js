@@ -92,7 +92,11 @@ function openschedule(){
           });
 
 
-        one_schedule += "</ul></div>";
+        one_schedule += "</ul>";
+
+        one_schedule +="<div onclick='schedule_append();'>open the schedule</div>"
+
+        one_schedule += "</div>";
         
 
 
@@ -115,3 +119,18 @@ function openschedule(){
 	
 
 }
+
+
+
+function schedule_append(){
+
+  alert("schedule_append");
+  /*詢問是否要儲存現在的schedule??*/
+  /*消去lightbox*/
+  clearschedule();
+    $(".lightbox").remove();//處裡消掉的東西
+    $(".bg").remove();//嵌入body裡面會不會比較好
+
+
+
+} 
