@@ -1,5 +1,5 @@
 LightripD1::Application.routes.draw do
-  get '/save' => 'schedules#save'
+  post '/save' => 'schedules#save'
   get '/open' => 'schedules#show_user_schedule'
   get '/post' => 'schedules#postSchedule'
   resources :schedules

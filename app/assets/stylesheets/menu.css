@@ -1,0 +1,42 @@
+
+#map_area {
+	position: absolute;
+	left:30px;
+	top:40px;
+	width:260px;
+}
+.scenic {
+	position: absolute;
+	left:100px;
+	top:230px;
+}
+#menu {
+	width:610px;
+	height:450px;
+}
+#mapFrame {
+	float:right;
+	width:100%;
+	height:50px;
+}
+#myMap {
+	float:right;
+	background-color:#dedede;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:1;
+}
+
+#map {
+	float:right;
+	background-color:#000;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:1;
+}

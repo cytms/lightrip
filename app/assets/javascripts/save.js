@@ -8,7 +8,7 @@
       //console.log(save_json());
       //alert("Handler for .click() called.");
       $.ajax({
-        type: 'GET',
+        type: 'POST',
         data: { user: $('p#userid').html(),
          schedule_name: $('h2#schedule_name').html(),//,
          content: JSON.stringify(content)
@@ -65,9 +65,10 @@ function save_json(){
     else
     {
       //console.log(counter);
-        temp['method'] = $(this).children().first().html();
-        temp['time_text'] = $(this).children('.duration').html();
-        temp['time_value'] = $(this).children('.duration_value').html();
+        console.log("$(this).children().first()",$(this).children().first());
+        temp['method'] = $(this).children().first().children('.traffic_right').children().first().html();
+        temp['time_text'] = $(this).children().first().children('.traffic_right').children('.duration').html();
+        temp['time_value'] = $(this).children().first().children('.traffic_right').children('.duration_value').html();
       schedule_array.push(temp);
       //i ++;
       //console.log(temp);

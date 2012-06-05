@@ -11,3 +11,4 @@ function information(id, spotName, lat, lon, text, address, spotIn, image){
       infowindow.close();});   
 	
 }
+

@@ -446,12 +446,12 @@ ul#mySchedule li.trans{
 	border: 2px solid gray;
 	cursor: pointer;
 }
-#right{
+.traffic_right{
 	position:absolute;
 	left:50px;
 	width: 60px;
 }
-#left{
+.traffic_left{
 	position:absolute;
 	left: 0px;
 }
