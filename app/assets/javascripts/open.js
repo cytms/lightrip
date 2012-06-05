@@ -11,7 +11,7 @@ function openschedule(){
      //attr5: $( "#amount5" ).val()
     },
     //$( "#amount" ).html(),
-    url: "http://localhost:3000/open",
+    url: "/open",
     //url: "http://lightrip-cytms.herokuapp.com/step3",
     datatype: 'json',
     success: function(data, textSatus){
