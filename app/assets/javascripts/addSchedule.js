@@ -8,7 +8,7 @@ function addSchedule(){
 		//console.log(counter);
 		//console.log($('li.block.spotinfo').eq(counter).attr("name"));
 		//console.log($('#infoWindow ul li a').html());
-		if (($('li.block.spotinfo').eq(counter).attr("name")) == ($('#infoWindow ul li a').html()) )
+		if (($('li.block.spotinfo').eq(counter).attr("name")) == ($('#infoWindow a').html()) )
 			{//console.log($('li.block.spotinfo').eq(counter).name);
 				find =1;}
 		counter++;
@@ -17,14 +17,14 @@ function addSchedule(){
 		//alert($('li.block.spotinfo').size());
 		var size = $('li.block.spotinfo').size();
 
-		var newSpotName = $('#infoWindow ul li a').html();
-	    var newSpotID = $('#infoWindow ul li p').html();
-	    var newSpotLat = $('#infoWindow ul li p').eq(1).html();
-	    var newSpotLon = $('#infoWindow ul li p').eq(2).html();
-	    var newSpotAddress = $('#infoWindow ul li p').eq(3).html();
-	    var newSpotText = $('#infoWindow ul li p').eq(4).html(); 
-	    var newSpotIn = $('#infoWindow ul li p').eq(5).html(); 
-	    var newSpotImg = $('#infoWindow ul li img').eq(1).attr('src');
+		var newSpotName = $('#infoWindow a').html();
+	    var newSpotID = $('#infoWindow p').html();
+	    var newSpotLat = $('#infoWindow p').eq(1).html();
+	    var newSpotLon = $('#infoWindow p').eq(2).html();
+	    var newSpotAddress = $('#infoWindow p').eq(3).html();
+	    var newSpotText = $('#infoWindow p').eq(4).html(); 
+	    var newSpotIn = $('#infoWindow p').eq(5).html(); 
+	    var newSpotImg = $('#infoWindow img').eq(1).attr('src');
 	    console.log(newSpotImg); 
 	    $('#mySchedule').append('<li class="block spotinfo" id="'+newSpotID+'" name="'+newSpotName+'" zoom="1.0" lat="'+newSpotLat+'" lon="'+newSpotLon+'" address="'+newSpotAddress+'" info="'+newSpotText+'" spotin = "1" style="z-index: 3; "><a href="javascript:lightbox(\''+newSpotName+'\')">'+newSpotName+'</a><img src="'+newSpotImg+'" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">4hr</div></div></li>')
 		if(size > 0){

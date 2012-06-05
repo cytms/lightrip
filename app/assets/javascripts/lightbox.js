@@ -1,7 +1,7 @@
 // JavaScript Document
 function lightbox(content) {
 	$("body").append("<div class='bg'></div>");
-	$("body").append("<div class='lightbox'><div class='framebox'>" + content + "</div></div>");
+	$("body").append("<div id='lightbox'><div class='framebox'>" + content + "</div></div>");
 	$(".lightbox").fadeIn(1000);
 	$(".framebox").fadeIn(1000);
 	$(".bg").click(function() {

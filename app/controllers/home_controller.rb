@@ -70,7 +70,7 @@ private
 
   def login_facebook
     rest_graph_setup(:auto_authorize         => true,
-                     :auto_authorize_scope   => 'publish_checkins',
+                     :auto_authorize_scope   => 'publish_stream',#設定要改成什麼?
                      :ensure_authorized      => true,
                      :write_session          => true)
   end
@@ -83,5 +83,8 @@ private
   def filter_cache
     rest_graph_setup(:cache => Rails.cache)
   end
-
+    def logout
+    reset_session
+    redirect_to home_path
+  end
 end
