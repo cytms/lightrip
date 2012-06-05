@@ -27,6 +27,8 @@ function openschedule(){
       //$("li.block:even").append()
       //$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
       console.log("open data",data);
+     // $.cookie("open_schedule_data", data);
+     // $.cookie("open_schedule_data","111");//bug
 
       $(data).each(function(index, element){
 
@@ -94,13 +96,10 @@ function openschedule(){
 
         one_schedule += "</ul>";
 
-        one_schedule +="<div onclick='schedule_append();'>open the schedule</div>"
+        //one_schedule +="<div onclick='schedule_append();'>open the schedule</div>"
+        one_schedule += "<div id='open_schdule_" + index + "'>open the schedule</div>";
 
         one_schedule += "</div>";
-        
-
-
-
 
 
 
@@ -112,6 +111,16 @@ function openschedule(){
 
 
       lightbox(content);	
+
+      $(data).each(function(index,element){
+
+      $("#open_schdule_" + index).click(function() {
+          console.log(data[index]);
+        })
+
+
+      })
+
 
     }
   });
@@ -128,8 +137,14 @@ function schedule_append(){
   /*詢問是否要儲存現在的schedule??*/
   /*消去lightbox*/
   clearschedule();
-    $(".lightbox").remove();//處裡消掉的東西
-    $(".bg").remove();//嵌入body裡面會不會比較好
+  $(".lightbox").remove();//處裡消掉的東西
+  $(".bg").remove();//嵌入body裡面會不會比較好
+
+  var data = $.cookie("open_schedule_data");
+  console.log("data", data);
+
+
+  $.cookie("open_schedule_data", null);  //清空上次用來占存server回傳data的cookie
 
 
 
