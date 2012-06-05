@@ -130,8 +130,25 @@ function openschedule(){
           //console.log("sid(html):" + $('#sid').html());
           
           var opendata = JSON.parse(data[index]['content']);
+          console.log("opendata",opendata);
           
-          $(opendata).each(function(i, e){
+          $(opendata).each(function(i, onedata){
+
+            if(onedata['method'] != null)
+            {
+              //spot!!
+              //$('ul#mySchedule').append('<li class="block spotinfo" spotid="' + opendata['spotid'] + '" name="' + opendata['name'] + '" zoom="' + data[i]['zoom'] + '" lat="' + data[i]['lat'] + '" lon="' + data[i]['lon'] + '" address="' + data[i]['address'] + '" spotin="' + data[i]['attr1'] + '" info="' + data[i]['info']+ '" ><a href=javascript:lightbox("' + data[i]['name'] + '")>' + data[i]['name'] + '</a></li>');
+              $('ul#mySchedule').append('<li class="block spotinfo">'+onedata['name']+'</li>');
+              console.log("onedata---name", onedata['name']);
+
+              $('ul#mySchedule').append('<li class="trans ui-state-disabled" id="1">'+onedata['time_text']+'</li>');
+            }
+            else
+            {
+              //traffic info
+              $('ul#mySchedule').append('<li class="block spotinfo">'+'lastone'+onedata['name']+'</li>');
+
+            }
             
 
           })
