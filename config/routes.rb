@@ -16,7 +16,7 @@ LightripD1::Application.routes.draw do
   get "/lightrip" => "lightrip#index"
   #post "/" => "home#smart"
   get "home/index"
-
+  get '/:sid'=>"home#reload"
   #post "/attr" => "home#attr"
 
   # The priority is based upon order of creation:
