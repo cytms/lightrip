@@ -1,13 +1,13 @@
 class SchedulesController < ApplicationController
   include RestGraph::RailsUtil
-  before_filter :load_facebook
+  before_filter :load_facebook     
 
  #before_filter :filter_setup_rest_graph, :only => [:postSchedule]
   # GET /schedules
   # GET /schedules.json
   def index
     @schedules = Schedule.all
-    @friends = rest_graph.get('/me/friends')
+    #@friends = rest_graph.get('/me/friends') #lead to error  deleted by Peter
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @schedules }

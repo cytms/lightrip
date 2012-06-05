@@ -1,178 +1,3 @@
-<<<<<<< HEAD
-@charset "utf-8";
-/* CSS Document */
-
-#infoWindow{
-	background-color:#CCC;
-	font-size:13px;
-	text-align:center;
-	list-style-type: none;
-	background-color: #fff;
-}
-#infoWindow li{
-	height: 100%;
-	width: 100%;
-	list-style-type: none;
-	background-color: #fff;
-}
-
-#infoWindow h1{
-	text-align:left;
-	font-family: sans-serif;
-  font-size: 18px;
-  color: #000;
-}
-
-#main li {
-	list-style-type:none;
-}
-
-#main a {
-	color:#000;
-	text-decoration:none;
-}
-
-#main h2 {
-	margin:5px;
-	text-align:center;
-}
-#main {
-	font-family: "新微軟正黑體","微軟正黑體", Arial, Helvetica, sans-serif;
-	color:#FFFFFF;
-	margin:0 auto;
-	width:1000px;
-	height:560px;
-}
-
-
-
-.bg {
-	width:100%;
-	height:100%;
-	background-color:#000000;
-	position:absolute;
-	top:0;
-	left:0;
-	opacity:0.7;
-	z-index:1111;
-}
-.framebox {
-	display:none;
-	z-index:5;
-	width:100%;
-	height:100%;
-	background-color:#FFFFFF;
-}
-.lightbox {
-	display:none;
-	background-color:#000;
-	width:700px;
-	height:450px;
-	position:absolute;
-	top: 10%;
-	left: 20%;
-	padding-top:20px;
-	padding-left:20px;
-	padding-right:20px;
-	padding-bottom:20px;
-	text-align:center;
-	border-radius:15px;
-	z-index:1111;
-}
-
-.firstpage {
-	position:absolute;
-	background-color: #000;
-	opacity: .3;
-	-moz-opacity: 0.3;
-	filter:alpha(opacity=.3);
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	z-index:1000;	
-}
-
-.menu {
-	position:absolute;
-	background-color:#333333;
-	position:absolute;
-	left:100px;
-	top:20px;
-	z-index:1111;
-	border-radius:2px;
-	padding:10px;
-	/*text-shadow: 0 1px 1px rgba(255,255,255,.7);*/
-	-moz-box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
-	-webkit-box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
-	box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
-}
-.menu h1	{
-	font-size:20px;
-	line-height:20px;
-	text-align:center;
-}
-.menu div {
-	padding:2px;
-	border-radius:2px;
-}
-
-.title {
-	position:absolute;
-	top:10px;
-	left:10px;
-	right:10px;
-	height:40px;
-	color:#FFFFFF;
-	border-bottom: 2px solid #CCC;
-}
-.map {
-	position:absolute;
-	top:55px;
-	left:10px;
-	height: 400px;
-	width: 300px;
-}
-.attri {
-	position:absolute;
-	top:70px;
-	right:0;
-	left:320px;
-	height:180px;
-	width: 290px;
-	background-color: #666;
-}
-.guider {
-	position:absolute;
-	top:265px;
-	left:320px;
-	height:115px;
-	right:0;
-	width: 290px;
-	background-color: #666;
-}
-
-.active {
-	position:absolute;
-	top:395px;
-	right:0;
-	left:320px;
-	height:50px;
-	background-color: #CCC;
-	width: 290px;
-}
-
-.infoWindow {
-	font-family: "新微軟正黑體","微軟正黑體", Arial, Helvetica, sans-serif;
-	font-size:10px;
-}
-
-.infoWindow img {
-	border-radius:5px;
-	height:60%;
-	width:90%;
-}
-=======
 @charset "utf-8";
 /* CSS Document */
 #infoWindow{
@@ -621,12 +446,12 @@ ul#mySchedule li.trans{
 	border: 2px solid gray;
 	cursor: pointer;
 }
-#right{
+.traffic_right{
 	position:absolute;
 	left:50px;
 	width: 60px;
 }
-#left{
+.traffic_left{
 	position:absolute;
 	left: 0px;
 }
@@ -663,4 +488,3 @@ ul#mySchedule li.trans{
 	padding-right:5px;
 	padding-bottom:5px;
 }
->>>>>>> d3a8e91c7ed0a2bfd61369c7b61373f592f2da78

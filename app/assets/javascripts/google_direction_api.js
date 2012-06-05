@@ -78,7 +78,7 @@
             //console.log(results)              //顯示回傳的物件內容
             for (var j = 0; j < results.length; j++) {
              // addMarker(destinations[j], true);   //可以當作按下交通資訊時的事件
-              outputDiv.innerHTML += "<div style='position:relative;'><div id = 'left' ><img src=assets/car.jpg width=50 height=40/></div><div id ='right'><div onclick='change_to_walking(\""+ id +"\");'>driving</div>"+"<div class='distance' style='display:none;'>" + results[j].distance.text + "</div>" +"<div class='duration'>"+ results[j].duration.text + "</div>" +"<div class='duration_value' style='display:none;'>"+ results[j].duration.value + "</div></div></div>";
+              outputDiv.innerHTML += "<div style='position:relative;'><div class='traffic_left' ><img src=assets/car.jpg width=50 height=40/></div><div class='traffic_right'><div onclick='change_to_walking(\""+ id +"\");'>driving</div>"+"<div class='distance' style='display:none;'>" + results[j].distance.text + "</div>" +"<div class='duration'>"+ results[j].duration.text + "</div>" +"<div class='duration_value' style='display:none;'>"+ results[j].duration.value + "</div></div></div>";
               //
               //console.log("outputDiv.innerHTML:" +outputDiv.innerHTML);
             
@@ -119,7 +119,7 @@
 
              /*add traffic info into the schedule include 4 div method, distance, dutration text, duration value */
              /*duration.value (in seconds)*/ 
-              outputDiv.innerHTML += "<div style='position:relative;'><div id = 'left' ><img src=assets/walk.jpg width=50 height=40/></div><div id ='right'><div onclick='change_to_driving(\""+ id +"\");'>walking</div>"+"<div class='distance' style='display:none;'>" + results[j].distance.text + "</div>" +"<div class='duration'>"+ results[j].duration.text + "</div>" +"<div class='duration_value' style='display:none;'>"+ results[j].duration.value + "</div></div></div>";
+              outputDiv.innerHTML += "<div style='position:relative;'><div class='traffic_left' ><img src=assets/walk.jpg width=50 height=40/></div><div class='traffic_right'><div onclick='change_to_driving(\""+ id +"\");'>walking</div>"+"<div class='distance' style='display:none;'>" + results[j].distance.text + "</div>" +"<div class='duration'>"+ results[j].duration.text + "</div>" +"<div class='duration_value' style='display:none;'>"+ results[j].duration.value + "</div></div></div>";
              
 
             //console.log("duration");
