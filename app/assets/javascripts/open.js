@@ -35,24 +35,61 @@ function openschedule(){
           var schedule = JSON.parse(element['content']);
           
           $.each(schedule, function(index, element){
-            one_schedule += '<li>';
+            //one_schedule += '<li>';
+            // one_schedule += '<ul>';
             //one_schedule +=
-            one_schedule += '<div class="spot">' + schedule[index]['name'] + '</div>';
-            //undone!!
+            
+            if(schedule[index]['method'] != null)
+            {
+                one_schedule += '<li class="spot_node">';  //顯示景點
 
+                  one_schedule += '<div class="spot_name">';
+                  one_schedule += schedule[index]['name'];
+                  one_schedule += '</div>';
+
+                one_schedule += '</li>';
+
+
+
+                one_schedule += '<li class="spot_traffic">';  //顯示交通資訊
+
+                  one_schedule += '<div class="traffic_info">';
+                    one_schedule += '<div class="traffic_method">';
+                    one_schedule += schedule[index]['method'];
+                    one_schedule += '</div>';
+
+                    one_schedule += '<div class="traffic_duration">';
+                    one_schedule += schedule[index]['time_text'];
+                    one_schedule += '</div>';
+                  one_schedule += '</div>';
+
+
+                one_schedule += '</li>';
+
+
+            }
+            else
+            {
+               one_schedule += '<li class="spot_node">';  //顯示景點
+
+                  one_schedule += '<div class="spot_name">';
+                  one_schedule += schedule[index]['name'];
+                  one_schedule += '</div>';
+
+                one_schedule += '</li>';
+              //one_schedule += schedule[index]['name'];
+
+            }
+            
             //one_schedule += '<div class="name">' + schedule[index]['content'] + '</div>';
             //one_schedule += '<div class="name">' + schedule[index]['name'] + '</div>';
 
 
-
-            one_schedule += '</li>';
+            // one_schedule += '</ul>';
+            // one_schedule += '</li>';
 
 
           });
-         
-
-
-
 
 
         one_schedule += "</ul></div>";
