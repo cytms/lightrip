@@ -16,11 +16,15 @@
          //attr5: $( "#amount5" ).val()
         },
         //$( "#amount" ).html(),
-        url: "http://localhost:3000/save",
+        url: "/save",
         //url: "http://lightrip-cytms.herokuapp.com/step3",
         datatype: 'json',
         success: function(data, textSatus){
-          alert("Save successfully!");
+          console.log("data",data);
+          //createCookie("sid",data['id'],365);
+          $('#sid').html(data['id']);
+          alert("Save successfully! sid: " + $("#sid").html() + "is saved");
+
           //$(".firstpage").hide();//處裡消掉的東西
           //$(".menu").hide();//嵌入body裡面會不會比較好
           //$("#scheduleFrame").show();

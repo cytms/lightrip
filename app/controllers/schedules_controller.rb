@@ -102,7 +102,7 @@ class SchedulesController < ApplicationController
         # format.json { render json: @schedule.errors, status: :unprocessable_entity }
       # end
     # end
-     render json: params
+     render json: @schedule
   end
 
   def show_user_schedule
