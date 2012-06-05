@@ -70,7 +70,7 @@ private
 
   def login_facebook
     rest_graph_setup(:auto_authorize         => true,
-                     :auto_authorize_scope   => 'publish_stream',#設定要改成什麼?
+                     :auto_authorize_scope   => 'publish_checkins',#設定要改成什麼?
                      :ensure_authorized      => true,
                      :write_session          => true)
   end
