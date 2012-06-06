@@ -1,4 +1,3 @@
-
 // function openschedule(){
 
 // 	alert("open!!");
@@ -84,7 +83,6 @@
 
 //           });
 
-
 //         one_schedule += "</ul>";
 
 //         //one_schedule +="<div onclick='schedule_append();'>open the schedule</div>"
@@ -103,13 +101,18 @@
 //       alert('new');
 //       lightbox(content);	
 
+
 //       $(data).each(function(index,element){
 
 //       $("#open_schdule_" + index).click(function() {
-          
+
+          //warning("Loading schedule");
+            /*詢問是否要儲存現在的schedule??*/
+
 //           console.log(data[index]);
 //           alert("schedule_append");
 //             /*詢問是否要儲存現在的schedule??*/
+
           
 //           clearschedule();
 //           $(".lightbox").remove();//處裡消掉的東西
@@ -189,6 +192,7 @@
 //   clearschedule();
 //   $(".lightbox").remove();//處裡消掉的東西
 //   $(".bg").remove();//嵌入body裡面會不會比較好
+
 
 //   var data = $.cookie("open_schedule_data");
 //   console.log("data", data);

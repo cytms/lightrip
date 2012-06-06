@@ -1,17 +1,13 @@
 function save(){
-
       if ($('#userid').html()!=null){
       var content = save_json();
-
       if($('#sid').html()== '')
       {
-      
               $.ajax({
                 type: 'POST',
                 data: { user: $('p#userid').html(),
                  schedule_name: $('h2#schedule_name').html(),//,
                  content: JSON.stringify(content)
-                
                 },
                 
                 url: "/save",
@@ -21,7 +17,7 @@ function save(){
                   console.log("data",data);
                   
                   $('#sid').html(data['id']);
-                  alert("Save successfully! sid: " + $("#sid").html() + "is saved");
+                  warning("Save successfully!");
 
                  
                 }
@@ -52,17 +48,12 @@ function save(){
                   }
                   else
                   {
-                  
-                  //$('#sid').html(data['id']);
-                  alert("(rewrite)Save successfully! sid: " + $("#sid").html() + "is saved");
-
+                  warning("Rewrite successfully!");
                   }
                 }
               });
 
       }
-
-
     }
     else{
       console.log($('#userid').html());
