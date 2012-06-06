@@ -427,12 +427,8 @@ function lightbox(content) {
 	$(document).ready(function(){
 		$('.active').click(function(){
 			clearschedule();   // 清空schedule
-			$(".firstpage").hide();
-			$(".menu").hide();
-			$("#scheduleFrame").show();
-			$("#buttonFrame").show();
-			//alert("Handler for .click() called.");
-			//alert(getcityvalue());
+			
+			
 
 			var city_value;
 			//afunction();
@@ -440,11 +436,18 @@ function lightbox(content) {
 			if(city_value == 0)
 			{
 				alert("尚未選擇城市或選擇了無效縣市(請選擇 台北、台中、高雄)")
-				$(".firstpage").show();
-				$(".menu").show();
-				$("#scheduleFrame").hide();
-				$("#buttonFrame").hide();
-			}	
+				// $(".firstpage").show();
+				// $(".menu").show();
+				// $("#scheduleFrame").hide();
+				// $("#buttonFrame").hide();
+			}
+			else
+			{
+				$(".firstpage").hide();
+				$(".menu").hide();
+				$("#scheduleFrame").show();
+				$("#buttonFrame").show();
+				
 
 			$.ajax({
 				type: 'GET',
@@ -470,6 +473,10 @@ function lightbox(content) {
 					//$("li.block:even").append()
 					//$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
 					for ( var i = 0; i < data.length ; i++) {
+						if( data[i]['attr1'] == 0)
+						{
+							continue;
+						}
 						$('ul#mySchedule').append('<li class="block spotinfo" spotid="' + data[i]['id'] + '" name="' + data[i]['name'] + '" zoom="' + data[i]['zoom'] + '" lat="' + data[i]['lat'] + '" lon="' + data[i]['lon'] + '" address="' + data[i]['address'] + '" spotin="' + data[i]['attr1'] + '" info="' + data[i]['info']+ '" ><a href=javascript:lightbox("' + data[i]['name'] + '")>' + data[i]['name'] + '</a></li>');
 						if( i != (data.length - 1)){
 							var origin1 = data[i]['address'];
@@ -490,6 +497,8 @@ function lightbox(content) {
 
 				}
 			});
+
+			}
 		});
 	});
 })(jQuery);
