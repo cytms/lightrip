@@ -4,7 +4,7 @@ function spanid(CityName,point1,point2){
         
 }
 function spanidrestore(CityName){
-        document.getElementById('chosenSpots').innerHTML = '<p style="font-size:36px; line-height:0px; text-align:right;">' + CityName + '</p>';
+        document.getElementById('chosenSpots').innerHTML = CityName;
 
         //複選!! 之後可以考慮加上去
 

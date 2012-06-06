@@ -246,7 +246,7 @@ function openschedule(){
 
 function openschedule_share(s1){
 
-  alert("open_share!!");
+  // alert("open_share!!");
   clearschedule();   // 清空schedule
   $(".firstpage").hide();
   $(".menu").hide();
@@ -260,7 +260,7 @@ function openschedule_share(s1){
   //console.log("schedule[0]",schedule[0]);
 
   //console.log(data[index]);
-  alert("schedule_append");
+  // alert("schedule_append");
 
   $(schedule).each(function(i, onedata){
 
