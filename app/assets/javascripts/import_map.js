@@ -308,8 +308,8 @@ google.setOnLoadCallback(function() {
 			$(".menu").hide();
 			//$(".firstpage").show();
 			$("#insert-spots").show();
-			$("#map").show();
-			$("#myMap").hide();
+			//$("#map").show();
+			//$("#myMap").hide();
 			$(".firstpage").hide();
 			//嵌入body裡面會不會比較好
 		});
