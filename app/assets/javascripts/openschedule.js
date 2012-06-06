@@ -32,7 +32,7 @@ function openschedule(){
 
               $(data).each(function(index, element){
 
-                  one_schedule += "<li class='record'><div class='content'><h3>";
+                  one_schedule += "<li class='record' id='record_"+index+"'><div class='content'><h3>";
                   one_schedule += element['schedule_name'];
                   one_schedule += "</h3>";
                   var schedule = JSON.parse(element['content']);
@@ -115,6 +115,36 @@ function openschedule(){
       lightbox(content);
 
                               $(data).each(function(index,element){
+
+                                                      $("#delete_schedule_" + index).click(function() {
+                                                        
+                                                        //add alert!
+                                                        $("#record_" + index).remove();
+                                                        $.ajax({
+                                                                    type: 'POST',
+                                                                    data: { 
+                                                                  
+                                                                     sid: element['id']
+                                                                                    
+                                                                    },
+                                                                    
+                                                                    url: "/remove",
+                                                                   
+                                                                    datatype: 'json',
+                                                                    success: function(data, textSatus){
+
+                                                                      alert("remove success");
+                                                                      //console.log("data",data);
+                                                                      
+                                                                      //$('#sid').html(data['id']);
+                                                                      //alert("Save successfully! sid: " + $("#sid").html() + "is saved");
+
+                                                                     
+                                                                    }
+                                                        });
+                                                     });
+
+
 
                                                     $("#open_schedule_" + index).click(function() {
 

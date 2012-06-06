@@ -157,4 +157,18 @@ def postSchedule
        redirect_to home_path, :notice => 'Post successfully!'
   end
 
+
+  def remove
+     @schedule = Schedule.find(params[:sid])
+     @schedule.destroy
+
+     render json: @schedule
+
+    # respond_to do |format|
+    #   format.html { redirect_to schedules_url }
+    #   format.json { head :no_content }
+    # end
+
+  end
+
 end
