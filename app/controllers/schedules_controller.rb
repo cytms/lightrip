@@ -105,6 +105,38 @@ class SchedulesController < ApplicationController
      render json: @schedule
   end
 
+   def save_rewrite
+    @schedule = Schedule.where(:id => params[:sid])
+    if @schedule[0] == nil  #Avoid saving a not existed schedule in DB
+
+    else
+
+      @schedule[0][:user] = params[:user]
+      @schedule[0][:schedule_name] = params[:schedule_name]
+      @schedule[0][:content] = params[:content]
+      @schedule[0].save
+
+    end
+
+    
+
+    # respond_to do |format|
+      # if @schedule.save
+        # format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
+        # format.json { render json: @schedule, status: :created, location: @schedule }
+      # else
+        # format.html { render action: "new" }
+        # format.json { render json: @schedule.errors, status: :unprocessable_entity }
+      # end
+    # end
+     render json: @schedule[0]
+  end
+
+
+
+
+
+
   def show_user_schedule
     @schedule = Schedule.where(:user => params[:user])
 
