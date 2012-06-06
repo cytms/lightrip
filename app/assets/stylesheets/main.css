@@ -217,3 +217,23 @@
 	height:50px;
 	width:100px;
 }
+
+.clickme {
+	height:30px;
+	width:40px;
+	border: 0px;
+	border-radius:5px;
+	background-color:#67D838;
+	color: #fff;
+	margin: 0px 0px 0px 2px;
+}
+.clickme:hover {
+	background-color: #eee;
+	color: #67D838;
+	border-color: 1px solid #67D838;
+}
+
+.clickme:active {
+	background-color:#67D838;
+	color: #fff;
+}

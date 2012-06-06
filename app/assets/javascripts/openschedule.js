@@ -32,8 +32,9 @@ function openschedule(){
 
               $(data).each(function(index, element){
 
-                  one_schedule += "<li class='record'><div class='content'>";
+                  one_schedule += "<li class='record'><div class='content'><h3>";
                   one_schedule += element['schedule_name'];
+                  one_schedule += "</h3>";
                   var schedule = JSON.parse(element['content']);
                   
                                           $.each(schedule, function(index, element){
@@ -43,17 +44,17 @@ function openschedule(){
                                             
                                             if(schedule[index]['method'] != null)
                                             {
-                                                one_schedule += '<p class="spot_node">';  //顯示景點
+                                                //one_schedule += '<p class="spot_node">';  //顯示景點
 
                                                   one_schedule += '<div class="spot_name">';
                                                   one_schedule += schedule[index]['name'];
                                                   one_schedule += '</div>';
 
-                                                one_schedule += '</p>';
+                                               // one_schedule += '</p>';
 
 
 
-                                                one_schedule += '<p class="spot_traffic">';  //顯示交通資訊
+                                                /*one_schedule += '<p class="spot_traffic">';  //顯示交通資訊
 
                                                   one_schedule += '<div class="traffic_info">';
                                                     one_schedule += '<div class="traffic_method">';
@@ -66,19 +67,19 @@ function openschedule(){
                                                   one_schedule += '</div>';
 
 
-                                                one_schedule += '</p>';
+                                                one_schedule += '</p>';*/
 
 
                                             }
                                             else
                                             {
-                                               one_schedule += '<p class="spot_node">';  //顯示景點
+                                               //one_schedule += '<p class="spot_node">';  //顯示景點
 
                                                   one_schedule += '<div class="spot_name">';
                                                   one_schedule += schedule[index]['name'];
                                                   one_schedule += '</div>';
 
-                                                one_schedule += '</p>';
+                                                //one_schedule += '</p>';
                                               //one_schedule += schedule[index]['name'];
 
                                             }
@@ -97,7 +98,7 @@ function openschedule(){
                 
 
                 //one_schedule +="<div onclick='schedule_append();'>open the schedule</div>"
-                one_schedule += "<p class='open_schedule_button' id='open_schedule_" + index + "'>open the schedule</p>";
+                one_schedule += "<ul class='icon-frame'><li class='ui-state-default ui-corner-all' id='open_schedule_" + index + "'><span class='ui-icon ui-icon-check'></span></li><li class='ui-state-default ui-corner-all' id='delete_schedule_" + index + "'><span class='ui-icon ui-icon-close'></span></li></ul>";
 
                 one_schedule += "</div>";
 
@@ -111,13 +112,7 @@ function openschedule(){
               });
 
       content += '</ul></div>';
-
       lightbox(content);
-
-
-
-
-
 
                               $(data).each(function(index,element){
 
