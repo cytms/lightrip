@@ -304,15 +304,6 @@ google.setOnLoadCallback(function() {
 			$(".firstpage").hide();
 		});*/
 		$("#map").hide();
-		$("#b1").click(function() {
-			$(".menu").hide();
-			//$(".firstpage").show();
-			$("#insert-spots").show();
-			$("#map").show();
-			$("#myMap").hide();
-			$(".firstpage").hide();
-			//嵌入body裡面會不會比較好
-		});
 		$("#b2").click(function() {
 			$(".menu").hide();
 			

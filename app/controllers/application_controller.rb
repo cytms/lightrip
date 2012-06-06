@@ -3,10 +3,7 @@ class ApplicationController < ActionController::Base
     redirect_to home_path
   end
 
-  def logout
-    reset_session
-    redirect_to home_path
-  end
+
 
 
 private
@@ -29,8 +26,5 @@ private
   def filter_cache
     rest_graph_setup(:cache => Rails.cache)
   end
-    def logout
-    reset_session
-    redirect_to home_path
-  end
+
 end

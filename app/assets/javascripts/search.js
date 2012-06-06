@@ -1,211 +1,14 @@
-var MAPFILES_URL = "http://maps.gstatic.com/intl/en_us/mapfiles/";
-
-var map = null;
-var geocoder = null;
-var shadow = null;
-var clickIcon = null;
-var clickMarker = null;
-var markers = null;
-var selected = null;
-var infowindow = null;
-var boundsOverlay = null;
-var viewportOverlay = null;
-var initialized = false;
-var hashFragment = "";
-
-var GeocoderStatusDescription = {
-  "OK": "The request did not encounter any errors",
-  "UNKNOWN_ERROR": "A geocoding or directions request could not be successfully processed, yet the exact reason for the failure is not known",
-  "OVER_QUERY_LIMIT": "The webpage has gone over the requests limit in too short a period of time",
-  "REQUEST_DENIED": "The webpage is not allowed to use the geocoder for some reason",
-  "INVALID_REQUEST": "This request was invalid",
-  "ZERO_RESULTS": "The request did not encounter any errors but returns zero results",
-  "ERROR": "There was a problem contacting the Google servers"
-};
-
-var GeocoderLocationTypeDescription = {
-  "ROOFTOP": "The returned result reflects a precise geocode.",
-  "RANGE_INTERPOLATED": "The returned result reflects an approximation (usually on a road) interpolated between two precise points (such as intersections). Interpolated results are generally returned when rooftop geocodes are unavilable for a street address.",
-  "GEOMETRIC_CENTER": "The returned result is the geometric center of a result such a line (e.g. street) or polygon (region).",
-  "APPROXIMATE": "The returned result is approximate."
-}
-
-init();
-
-function init() {
-  var params = parseUrlParams();
-  clearOptions();
-  setOptions(params);
-
-  var mapOptions = {
-    'zoom': 8,
-    'center': (params.center ? params.center : new google.maps.LatLng(23.996733, 120.212465)),
-    'mapTypeId': google.maps.MapTypeId.ROADMAP,
-    'scaleControl': true
-  }
-  map = new google.maps.Map(document.getElementById("myMap"), mapOptions);
-  
-  geocoder = new google.maps.Geocoder();
-  
-  infowindow = new google.maps.InfoWindow({
-    'size': new google.maps.Size(292, 120)
-  });
-  
-  shadow = new google.maps.MarkerImage(
-    MAPFILES_URL + "shadow50.png",
-    new google.maps.Size(37, 34),
-    new google.maps.Point(0, 0),
-    new google.maps.Point(10, 34)
-  );
-   
-  clickIcon = new google.maps.MarkerImage(
-    MAPFILES_URL + 'dd-start.png',
-    new google.maps.Size(20, 34),
-    new google.maps.Point(0, 0),
-    new google.maps.Point(10, 34)
-  );
-    
-  google.maps.event.addListener(map, 'click', onClickCallback);
-  
-  // Bounds changes are asynchronous in v3, so we have to wait for the idle
-  // event to ensure that viewport biasing picks up the correct viewport
-  google.maps.event.addListener(map, 'idle', function() {
-    if (document.getElementById("query").value && ! initialized) {
-      submitQuery();
-    }
-    initialized = true;
-  });
-  
-  document.getElementById('query').onkeyup = function(e) {
-    if (!e) var e = window.event;
-    if (e.keyCode != 13) return;
-    document.getElementById("query").blur();
-    submitQuery();
-  }
-  
-  setInterval(checkHashFragment, 200);
-}
-
-function onClickCallback(event){
-    document.getElementById("query").value = event.latLng.toUrlValue(6);
-    geocode({ 'latLng': event.latLng });
-
-}
-
-function checkHashFragment() {
-  if (unescape(window.location.hash) != unescape(hashFragment)) {
-    var params = parseUrlParams();
-    clearOptions();
-    setOptions(params);
-    if (params.zoom && params.center) {
-      map.setZoom(params.zoom);
-      map.setCenter(params.center);
-      initialized = false;
-    } else if (document.getElementById("query").value) {
-      submitQuery();
-    }
-  }
-}
-
-function parseUrlParams() {
-  var params = {};
-  
-  if (window.location.search) {
-    params.query = unescape(window.location.search.substring(1));
-  }
-  
-  if (window.location.hash) {
-    hashFragment = unescape(window.location.hash);
-    var args = hashFragment.substring(1).split('&');
-    for (var i in args) {
-      var param = args[i].split('=');
-      switch (param[0]) {
-        case 'q':
-          params.query = unescape(param[1]);
-          break;
-        case 'vpcenter':
-          var center = parseLatLng(param[1]);
-          if (center != null) {
-            params.center = center;
-          }
-          break;
-        case 'vpzoom':
-          var zoom = parseInt(param[1]);
-          if (! isNaN(zoom)) {
-            params.zoom = zoom;
-          }
-          break;
-        case 'country':
-          params.country = unescape(param[1]);
-          break;
-        case 'language':
-          params.language = unescape(param[1]);
-          break;
-      }
-    }
-  }
-  
-  return params;
-}
-
-function clearOptions() {
-  document.getElementById("query").value = '';
-  document.getElementById("biasViewport").checked = false;
-  document.getElementById("country").value = '';
-  document.getElementById("language").value = '';  
-}
-
-function setOptions(params) {
-  if (params.query) {
-    document.getElementById("query").value = params.query;
-  }
-  
-  if (params.zoom && params.center) {
-    document.getElementById("biasViewport").checked = true;
-  }
-  
-  if (params.country) {
-    document.getElementById("country").value = params.country;
-  }
-
-  if (params.language) {
-    document.getElementById("language").value = params.language;
-  }
-}
-
-function submitQuery() {
+/*search*/
+function search() {
   var query = document.getElementById("query").value;
-  if (/\s*^\-?\d+(\.\d+)?\s*\,\s*\-?\d+(\.\d+)?\s*$/.test(query)) {
-    var latlng = parseLatLng(query);
-    if (latlng == null) {
-      document.getElementById("query").value = "";
-    } else {
-      geocode({ 'latLng': latlng });
-    }
-  } else {
     geocode({ 'address': query });
-  }
 }
 
 function geocode(request) {  
   resetMap();
-  var hash = '';
+  var hash = 'q=' + request.address;
   
-  if (request.latLng) {
-    clickMarker = new google.maps.Marker({
-      'position': request.latLng,
-      'map': map,
-      'title': request.latLng.toString(),
-      'clickable': false,
-      'icon': clickIcon,
-      'shadow': shadow
-    });
-    hash = 'q=' + request.latLng.toUrlValue(6);
-  } else {
-    hash = 'q=' + request.address;
-  }
-  
-  var vpbias = document.getElementById("biasViewport").checked;
+  /*var vpbias = document.getElementById("biasViewport").checked;
   var country = document.getElementById("country").value;
   var language = document.getElementById("language").value;
   
@@ -223,14 +26,14 @@ function geocode(request) {
   if (language) {
     hash += '&language=' + language;
     request.language = language;
-  }
+  }*/
 
   hashFragment = '#' + escape(hash);
   window.location.hash = escape(hash);
   geocoder.geocode(request, showResults);
 }
 
-function parseLatLng(value) {
+/*function parseLatLng(value) {
   value.replace('/\s//g');
   var coords = value.split(',');
   var lat = parseFloat(coords[0]);
@@ -240,7 +43,7 @@ function parseLatLng(value) {
   } else {
     return new google.maps.LatLng(lat, lng);
   }
-}
+}*/
 
 function resetMap() {
   infowindow.close();
