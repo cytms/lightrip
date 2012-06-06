@@ -158,10 +158,11 @@
 <script type="text/javascript">
   alert(<%= @reload%>);
   <% if @reload == true %>
-      var s= '<%= @schedulereload%>';
-      var s1 = s.replace(/asdfdsa/g, "\"")
-      console.log(s1);
-      reload(s1);  
+       var s= '<%= @schedulereload%>';
+       var s1 = s.replace(/asdfdsa/g, "\"")
+       console.log("s1",s1);
+       reload(s1);  
+      openschedule_share(s1);
   <% end %>
 
 
