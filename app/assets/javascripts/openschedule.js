@@ -1,7 +1,22 @@
 function openschedule(){
+  if ($('#userid').html()!=null){
+	//alert("open!!");
+    warning2("Save the schedule?"); 
+  }
+      else{
+      console.log($('#userid').html());
+      warning("Please login first");
+      $(".menu").hide();
+      $(".firstpage").show();
+      $("#menu").show();
+    }
 
-	alert("open!!");
-    $.ajax({
+	
+
+}
+
+function opentrasmit(){
+  $.ajax({
     type: 'GET',
     data: { user: $('p#userid').html()//,
      // schedule_name: $('h2#schedule_name').html(),//,
@@ -14,7 +29,7 @@ function openschedule(){
     //url: "http://lightrip-cytms.herokuapp.com/step3",
     datatype: 'json',
     success: function(data, textSatus){
-      alert("open successfully!");
+      //alert("open successfully!");
 
       var content = "";
       var one_schedule = "";
@@ -107,7 +122,7 @@ function openschedule(){
 
 
 
-              	content += one_schedule;
+                content += one_schedule;
                 one_schedule = ""; 
               });
 
@@ -121,7 +136,9 @@ function openschedule(){
                                                                    // $(#sid).html(data[index]['id']);
                                                                     
                                                                     console.log(data[index]);
-                                                                    alert("schedule_append");
+                                                                    warning("Schedule load");
+                                  
+                                                                    //$(".warning").remove();
 
                                                                       /*詢問是否要儲存現在的schedule??*/
                                                                     
@@ -212,9 +229,6 @@ function openschedule(){
 
     }
   });
-
-	
-
 }
 
 

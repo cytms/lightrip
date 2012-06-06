@@ -1,7 +1,5 @@
-
 function openschedule(){
-
-	alert("open!!");
+   if ($('#userid').html()!=null){
     $.ajax({
     type: 'GET',
     data: { user: $('p#userid').html()//,
@@ -15,7 +13,7 @@ function openschedule(){
     //url: "http://lightrip-cytms.herokuapp.com/step3",
     datatype: 'json',
     success: function(data, textSatus){
-      alert("open successfully!");
+      warning("Open successfully!");
 
       var content = "";
       var one_schedule = "";
@@ -86,21 +84,15 @@ function openschedule(){
 
 
         one_schedule += "</ul>";
-
         //one_schedule +="<div onclick='schedule_append();'>open the schedule</div>"
         one_schedule += "<div id='open_schdule_" + index + "'>open the schedule</div>";
-
         one_schedule += "</div>";
-
-
-
-
       	content += one_schedule;
         one_schedule = ""; 
       });
 
 
-      alert('new');
+      //alert('new');
       lightbox(content);	
 
       $(data).each(function(index,element){
@@ -108,7 +100,7 @@ function openschedule(){
       $("#open_schdule_" + index).click(function() {
           
           console.log(data[index]);
-          alert("schedule_append");
+          //warning("Loading schedule");
             /*詢問是否要儲存現在的schedule??*/
           
           clearschedule();
@@ -173,8 +165,14 @@ function openschedule(){
 
 
     }
-  });
-
+  });}
+      else{
+      console.log($('#userid').html());
+      warning("Please login first");
+      $(".menu").hide();
+      $(".firstpage").show();
+      $("#menu").show();
+    }
 	
 
 }
@@ -183,7 +181,7 @@ function openschedule(){
 
 function schedule_append(){
 
-  alert("schedule_append");
+  warning("schedule_append");
   /*詢問是否要儲存現在的schedule??*/
   /*消去lightbox*/
   clearschedule();

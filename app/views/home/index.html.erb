@@ -143,8 +143,7 @@
       <input type="button" class="clickme" value="New" onclick="clearschedule()"/>
       <input type="button" class="clickme" value="Open" onclick="openschedule();"/>
       <input id="save_button" class="clickme" type="button" value="Save" onclick="save()"/>
-      <input type="button" class="clickme" value="另存新檔" onclick="share_backstage('ab', 'bb',3);"/>
-     <input type="button" class="clickme" value="share" onclick="openschedule();"/>
+      <input type="button" class="clickme" value="Save as" onclick="share_backstage('ab', 'bb',3);"/>
 </div>
 
   </div> <!-- End of #scheduleFrame -->
@@ -157,11 +156,7 @@
 <script type="text/javascript">
   setCookie();
   var result = loadfromCookie();
-  var value = $('#mySchedule').html(result);
-  alert('reload<%= @reload%>');
-  
-  
-    
+  var value = $('#mySchedule').html(result);    
        //ajax >> show the person initiate the schedule and the schedule name
 
     //accept the sharing or not? (KEN)
@@ -239,7 +234,6 @@
   //init();
 
 $("#schedule_name").click(function(){
- // alert("click!!");
   $(this).parent(["#scheduleFrame"]).prepend("<h2><input class='input_travel_time' align='center 'value='請輸入你的行程名稱' size='35'></h2>");
   $(this).css("display","none");
    $(".input_travel_time").keypress(function(e){
@@ -252,23 +246,6 @@ $("#schedule_name").click(function(){
       }
     }); 
 })
-
-/*$(".travel_time_content").click(function(){
- // alert("click!!");
-  $(this).parent([".travel_time_space"]).prepend("<h3><input class='input_travel_time' align='center 'value='請輸入你想要玩幾小時' size='35'></h3>");
-  $(this).css("display","none");
-   $(".input_travel_time").keypress(function(e){
-      if(e.keyCode == 13){
-        $(".travel_time_content").html($(this).val());
-        $(".travel_time_content").css("display","block");
-        $(this).blur();
-       // $(this).after('<h2 id="schedule_name" style="color:#fff;">' + $(this).val() + '</h2>');
-        $(this).remove();
-      }
-    }); 
-})*/
-
-
 </script>
 </div>
 
