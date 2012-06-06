@@ -1,10 +1,9 @@
 <%= javascript_include_tag "google_direction_api.js" %>
+<%= javascript_include_tag "map-identify.js" %>
 <%= javascript_include_tag "import_map.js" %>
 <%= javascript_include_tag "change_trans.js" %>
-<%= javascript_include_tag "create_spots.js" %>
 <%= javascript_include_tag "google_direction_api.js" %>
 <%= javascript_include_tag "save.js" %>
-<%= javascript_include_tag "map-identify.js" %>
 <%= javascript_include_tag "openschedule.js" %>
 <%= javascript_include_tag "new.js" %>
 <%= javascript_include_tag "postSchedule.js" %>
@@ -12,13 +11,14 @@
 
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <div id="main">
+
   <ul id="buttonFrame" style="display:none;">
     <li id="b3" class="button">主要選單</li>
     
     <li id="b2" class="button">我的行程</li>
     <li id="b1" class="button"><%= link_to "Log out", logout_path %></li>
   </ul>
-
+<div class="menu" id="droppable" style="display:none;"><h1>刪除</h1></div>
   <div id="menu" class="menu">
     <h2>LighTrip! 來去旅遊吧!</h2>
     <div class="map">
@@ -39,7 +39,7 @@
               <li>縣市名：<span id="CityName"></span>&nbsp;</li>
               </ul>
               <div id="chosenSpots">
-                已選擇的旅遊地區：</br>
+                </br>
               </div>
             </div>
             
@@ -61,7 +61,7 @@
 <area shape="poly" coords="11,178,32,171,74,179,56,154,23,149,15,162,12,181" onclick="spanidrestore('雲林縣');" onmouseover="spanid('雲林縣','107','459');" alt="雲林縣" title="雲林縣">
 <area shape="poly" coords="31,172,70,179,82,188,61,212,49,205,48,182,38,180,34,185,40,191,21,202,12,196,13,179" onclick="spanidrestore('嘉義縣');" onmouseover="spanid('嘉義縣','59','359');" alt="嘉義縣" title="嘉義縣">
 <area shape="poly" coords="34,185,40,182,46,183,47,195,40,189" onclick="spanidrestore('嘉義市');" onmouseover="spanid('嘉義市','7','17');" alt="嘉義市" title="嘉義市">
-<area title="台南市" alt="台南市" onmouseover="spanid('台南市','98','833');" onclick="spanidrestore('');" coords="12,198,21,203,42,192,48,196,49,206,61,212,39,239,24,241,16,243,15,232,6,226" shape="poly">
+<area title="台南市" alt="台南市" onmouseover="spanid('台南市','98','833');" onclick="spanidrestore('台南市');" coords="12,198,21,203,42,192,48,196,49,206,61,212,39,239,24,241,16,243,15,232,6,226" shape="poly">
 <area title="高雄市" alt="高雄市" onmouseover="spanid('高雄市','138','984');" onclick="spanidrestore('高雄市');"  coords="17,243,40,240,85,186,101,189,96,200,77,247,46,248,43,288,28,272,24,257" shape="poly">
 <area shape="poly" coords="46,250,75,248,82,254,78,261,68,269,72,302,79,306,84,306,78,339,64,337,61,308,39,287" onmouseover="spanid('屏東縣','113','732');" alt="屏東縣" title="屏東縣" onclick="spanidrestore('屏東縣');">
 <area shape="poly" coords="78,245,86,253,72,271,75,301,83,305,100,264,131,220,138,188,132,189,119,221,96,203" onclick="spanidrestore('台東縣');" onmouseover="spanid('台東縣','141','912');" alt="台東縣" title="台東縣">
@@ -128,42 +128,6 @@
     </form>
   </div> <!-- end of .menu -->
 
-  <div class="firstpage"></div>
-  <div class="menu" id="insert-spots" style="display:none;">
-    <h2>搜尋景點</h2>
-    <div id="inputForm">
-      <div id="instructions">你可以輸入地址或直接於地圖上點選</div>
-      <div>
-        <input type="text" size="20" id="query"/>
-        <input type="button" value="搜尋" onclick="submitQuery()"/>
-      </div>
-      <div id="options">
-        <span style="font-weight: bold">Bias this viewport:</span>
-        <input type="checkbox" id="biasViewport"/>
-        <span style="font-weight: bold">Country bias:</span>
-        <input type="text" size="2" id="country"/>
-        <span style="font-weight: bold">Language:</span>
-        <input type="text" size="2" id="language"/>
-      </div>
-    </div>
-    <div id="responseInfo">
-      <div id="responseStatus">
-        <div>
-          <span style="font-weight: bold">Geocoder response: </span></br>
-          <span id="statusValue"></span> (<span id="statusDescription"></span>)
-        </div>
-      </div>
-      <div id="responseCount">
-        <span style="font-weight: bold;">Matches returned: </span>
-        <span id="matchCount"></span>
-      </div>
-    </div>
-    <div id="mapcontainer">
-      <div id="boundsLegend">Bounds</div>
-      <div id="viewportLegend">Viewport</div>
-    </div>
-    <div id="matches"></div>
-  </div> <!-- end of #insert-spots -->
 
   <div id="scheduleFrame" class="menu" style="display:none;">
     <h2 id="schedule_name">我的行程</h2>
@@ -188,7 +152,6 @@
 
 </div><!-- End of #main -->
 <div id="myMap"></div><!-- End of #myMap -->
-<div id="map"></div><!-- End of #myMap -->
 
 
 <div>
@@ -198,10 +161,11 @@
   var value = $('#mySchedule').html(result);
   alert(<%= @reload%>);
   <% if @reload == true %>
-      var s= '<%= @schedulereload%>';
-      var s1 = s.replace(/asdfdsa/g, "\"")
-      console.log(s1);
-      reload(s1);  
+       var s= '<%= @schedulereload%>';
+       var s1 = s.replace(/asdfdsa/g, "\"")
+       console.log("s1",s1);
+       reload(s1);  
+      openschedule_share(s1);
   <% end %>
 
 

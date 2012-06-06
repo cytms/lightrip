@@ -1,38 +1,112 @@
-	function save(){
-// (function ($){
-  //$(document).ready(function(){
-    //$('#save_button').click(function(){
-      //console.log("click!!")
+function save(){
+
       if ($('#userid').html()!=null){
       var content = save_json();
-      //console.log(save_json());
-      //alert("Handler for .click() called.");
+
+      if($('#sid').html()== '')
+      {
+      
+              $.ajax({
+                type: 'POST',
+                data: { user: $('p#userid').html(),
+                 schedule_name: $('h2#schedule_name').html(),//,
+                 content: JSON.stringify(content)
+                
+                },
+                
+                url: "/save",
+               
+                datatype: 'json',
+                success: function(data, textSatus){
+                  console.log("data",data);
+                  
+                  $('#sid').html(data['id']);
+                  alert("Save successfully! sid: " + $("#sid").html() + "is saved");
+
+                 
+                }
+              });
+
+      }
+      else{
+              $.ajax({
+                type: 'POST',
+                data: { 
+                 sid: $('#sid').html(),
+                 user: $('p#userid').html(),
+                 schedule_name: $('h2#schedule_name').html(),//,
+                 content: JSON.stringify(content)
+                
+                },
+                
+                url: "/save_rewrite",
+               
+                datatype: 'json',
+                success: function(data, textSatus){
+                  console.log("data",data);
+                  if(data == null)
+                  {
+                    alert("the schedule missed")
+                    $('#sid').html('');
+                    save();
+                  }
+                  else
+                  {
+                  
+                  //$('#sid').html(data['id']);
+                  alert("(rewrite)Save successfully! sid: " + $("#sid").html() + "is saved");
+
+                  }
+                }
+              });
+
+      }
+
+
+    }
+    else{
+      console.log($('#userid').html());
+      alert("please login first");
+      $(".menu").hide();
+      $(".firstpage").show();
+      $("#menu").show();
+    }
+}
+
+function save_new()
+{
+  $('#sid').html('');
+  save();
+
+}
+
+
+
+//另存新檔
+/*
+	function save(){
+
+      if ($('#userid').html()!=null){
+      var content = save_json();
+      
       $.ajax({
         type: 'POST',
         data: { user: $('p#userid').html(),
          schedule_name: $('h2#schedule_name').html(),//,
          content: JSON.stringify(content)
-         //attr4: $( "#amount4" ).val(),
-         //attr5: $( "#amount5" ).val()
+        
         },
-        //$( "#amount" ).html(),
+        
         url: "/save",
-        //url: "http://lightrip-cytms.herokuapp.com/step3",
+       
         datatype: 'json',
         success: function(data, textSatus){
           console.log("data",data);
-          //createCookie("sid",data['id'],365);
+          
           $('#sid').html(data['id']);
           alert("Save successfully! sid: " + $("#sid").html() + "is saved");
 
-          //$(".firstpage").hide();//處裡消掉的東西
-          //$(".menu").hide();//嵌入body裡面會不會比較好
-          //$("#scheduleFrame").show();
-          //$("#buttonFrame").show();
-          //$("li.block:even").append()
-          //$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
-          //console.log(data);
-
+         
         }
       });
     }
@@ -43,8 +117,10 @@
       $(".firstpage").show();
       $("#menu").show();
     }
-  //});
 }
+*/
+
+
 
 function save_json(){
   console.log("save_json");

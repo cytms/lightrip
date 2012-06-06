@@ -16,12 +16,23 @@ class HomeController < ApplicationController
     end
     if (params[:sid].to_i>0)
       counter = params[:sid].to_i
-      @schedulereload = Schedule.find(counter).content
+       # if (Schedule.where(:id =>counter)) 
+        @schedule_open = Schedule.where(:id =>counter)
+      #
+      if @schedule_open[0] == nil
+        puts "CAN NOT be found!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        # render index 
+
+      else # record can be found
+      
+      @schedulereload = @schedule_open[0].content
       puts("==================================")
       puts(params[:sid])
       @schedulereload = @schedulereload.gsub("\"","asdfdsa")
       puts(@schedulereload)
-      @reload= true    
+      @reload= true 
+      end   
+    
     end 
       #params[:reload]  
       #@schedule = params[:schedule]
@@ -29,6 +40,8 @@ class HomeController < ApplicationController
     #end
     @spots=Spot.all
   end
+  
+
   def attr
     respond_to do |format|
       format.html # show.html.erb
@@ -53,6 +66,8 @@ class HomeController < ApplicationController
     #end
     
      @spots = Spot.limit(2)
+     puts "--------------------------------------------------------------"
+     puts params['city']
     #@spots = Spot.find(2)
      # @spots.each{|hashelement|
        # if(rand(2) == 1 )

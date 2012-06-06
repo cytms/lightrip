@@ -25,10 +25,24 @@ google.setOnLoadCallback(function() {
 	// 所有行程
 	$(function() {
 		//$( "#main" ).tabs();
-
+		$( "#droppable" ).droppable({
+			drop: function( event, ui ) {
+				$( '.ui-sortable-helper' ).remove();
+				if ( $('ul#mySchedule li:last').attr('class') == "trans ui-state-disabled" ) {
+				$('ul#mySchedule li:last').remove();
+				};
+				
+				if ( $('ul#mySchedule li:first').attr('class') == "trans ui-state-disabled" ) {
+					$('ul#mySchedule li:first').remove();
+				};
+				}
+		});
 		$( "#mapFrame, #mySchedule" ).sortable({ 
 			connectWith: ".connectedSortable",
 			cancel: ".ui-state-disabled",
+			sort: function(event, ui) {
+				$('#droppable').show();
+			},
 			start: function(event, ui) {
 				$('#infoWindow').parent().attr('style');
 			//alert("activate!!")
@@ -159,6 +173,7 @@ google.setOnLoadCallback(function() {
 			},*/
 
 			stop: function(event, ui) {
+			$('#droppable').hide();
 			//alert("stop!!");
 			console.log("ui-item=============:",ui.item);
 			temp_counter = 0;	
@@ -415,13 +430,29 @@ function lightbox(content) {
 			$("#scheduleFrame").show();
 			$("#buttonFrame").show();
 			//alert("Handler for .click() called.");
+			//alert(getcityvalue());
+
+			var city_value;
+			//afunction();
+			city_value = getcityvalue();  //To translate city into city_value >> In map-identify.js 
+			if(city_value == 0)
+			{
+				alert("尚未選擇城市或選擇了無效縣市(請選擇 台北、台中、高雄)")
+				$(".firstpage").show();
+				$(".menu").show();
+				$("#scheduleFrame").hide();
+				$("#buttonFrame").hide();
+			}	
+
 			$.ajax({
 				type: 'GET',
-				data: { attr1: $( "#amount" ).val(),
+				data: { 
+				 attr1: $( "#amount" ).val(),
 				 attr2: $( "#amount2" ).val(),
 				 attr3: $( "#amount3" ).val(),
 				 attr4: $( "#amount4" ).val(),
-				 attr5: $( "#amount5" ).val()
+				 attr5: $( "#amount5" ).val(),
+				 city: city_value
 				},
 				//$( "#amount" ).html(),
 				url: "/step3",

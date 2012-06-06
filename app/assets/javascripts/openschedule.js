@@ -1,4 +1,3 @@
-
 function openschedule(){
 
 	alert("open!!");
@@ -120,118 +119,100 @@ function openschedule(){
 
 
 
-      $(data).each(function(index,element){
+                              $(data).each(function(index,element){
 
-      $("#open_schedule_" + index).click(function() {
-          
-          console.log(data[index]);
-          alert("schedule_append");
-            /*詢問是否要儲存現在的schedule??*/
-          
-          clearschedule();
-          $(".lightbox").remove();//處裡消掉的東西
-          $(".bg").remove();//嵌入body裡面會不會比較好
+                                                    $("#open_schedule_" + index).click(function() {
 
-          $('#sid').html(data[index]['id']); //data[index]['id']
-          //console.log('sid',data[index]['id']);
+                                                                   // $(#sid).html(data[index]['id']);
+                                                                    
+                                                                    console.log(data[index]);
+                                                                    alert("schedule_append");
 
-          //console.log("sid(html):" + $('#sid').html());
-          
-          var opendata = JSON.parse(data[index]['content']);
-          console.log("opendata",opendata);
-          
-          $(opendata).each(function(i, onedata){
+                                                                      /*詢問是否要儲存現在的schedule??*/
+                                                                    
+                                                                    clearschedule();
+                                                                    $(".lightbox").remove();//處裡消掉的東西
+                                                                    $(".bg").remove();//嵌入body裡面會不會比較好
 
-            if(onedata['method'] != null)
-            {
-              
-              var temp_string = '<li class="block spotinfo" spotid="' + onedata['spotid'] + '" name="' + onedata['name'] + '" zoom="' + onedata['zoom'] + '" lat="' + onedata['lat'] + '" lon="' + onedata['lon'] + '" address="' + onedata['address'] + '" spotin="' + onedata['spotin'] + '" info="' + onedata['info']+ '" ><a href=javascript:lightbox("' + onedata['name'] + '")>' + onedata['name'] + '</a></li>'
-              console.log("temp====" , temp_string);
-              $('ul#mySchedule').append(temp_string);
+                                                                    $('#sid').html(data[index]['id']); //data[index]['id']
+                                                                    //console.log('sid',data[index]['id']);
 
-              var origin1 = onedata['address'];
-              var destinationA = opendata[i+1]['address'];
-              var traffic_id = "";
-              traffic_id = "traffic_" + origin1;
-              traffic_id += "_";
-              traffic_id += destinationA;
-              return_value = 0;
-                //$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '"><div id="outputDiv_'+origin1+'_'+destinationA+'">default</div></li>');
-                $('ul#mySchedule').append('<li class="trans ui-state-disabled" id="' + traffic_id + '"></li>');
-              if(onedata['method'] == 'walking')
-              {
-                  calculateDistances_walking(origin1,destinationA,traffic_id);
-              }
-              else
-              {
-                  calculateDistances_driving(origin1,destinationA,traffic_id);
+                                                                    //console.log("sid(html):" + $('#sid').html());
+                                                                    
+                                                                    var opendata = JSON.parse(data[index]['content']);
+                                                                    console.log("opendata",opendata);
+                                                                    
+                                                                                  $(opendata).each(function(i, onedata){
 
-              }
-              
+                                                                                                      if(onedata['method'] != null)
+                                                                                                      {
+                                                                                                        
+                                                                                                        var temp_string = '<li class="block spotinfo" spotid="' + onedata['spotid'] + '" name="' + onedata['name'] + '" zoom="' + onedata['zoom'] + '" lat="' + onedata['lat'] + '" lon="' + onedata['lon'] + '" address="' + onedata['address'] + '" spotin="' + onedata['spotin'] + '" info="' + onedata['info']+ '" ><a href=javascript:lightbox("' + onedata['name'] + '")>' + onedata['name'] + '</a></li>'
+                                                                                                        console.log("temp====" , temp_string);
+                                                                                                        $('ul#mySchedule').append(temp_string);
 
-              $('li[spotid = "' + onedata['spotid'] + '"]' ).append('<img src="/img/' + onedata['spotid'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+onedata['travel_time_content']+'</div></div>');
+                                                                                                        var origin1 = onedata['address'];
+                                                                                                        var destinationA = opendata[i+1]['address'];
+                                                                                                        var traffic_id = "";
+                                                                                                        traffic_id = "traffic_" + origin1;
+                                                                                                        traffic_id += "_";
+                                                                                                        traffic_id += destinationA;
+                                                                                                        return_value = 0;
+                                                                                                          //$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '"><div id="outputDiv_'+origin1+'_'+destinationA+'">default</div></li>');
+                                                                                                          $('ul#mySchedule').append('<li class="trans ui-state-disabled" id="' + traffic_id + '"></li>');
+                                                                                                        if(onedata['method'] == 'walking')
+                                                                                                        {
+                                                                                                            calculateDistances_walking(origin1,destinationA,traffic_id);
+                                                                                                        }
+                                                                                                        else
+                                                                                                        {
+                                                                                                            calculateDistances_driving(origin1,destinationA,traffic_id);
 
+                                                                                                        }
+                                                                                                        
 
-
-             // $('ul#mySchedule').append('<li class="block spotinfo" spotid="' + onedata['spotid'] + '" name="' + onedata['name'] + '" zoom="' + onedata['zoom'] + '" lat="' + onedata['lat'] + '" lon="' + onedata['lon'] + '" address="' + onedata['address'] + '" spotin="' + onedata['spotin'] + '" info="' + onedata['info']+ '" ><a href=javascript:lightbox("' + onedata['name'] + '")>' + onedata['name'] + '</a></li>');  +'>'+onedata['name']+'</li>');
-              //console.log("onedata---name", onedata['name']);
-
-              //$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="1">'+onedata['time_text']+'</li>');
-            }
-            else
-            {
-              var temp_string = '<li class="block spotinfo" spotid="' + onedata['spotid'] + '" name="' + onedata['name'] + '" zoom="' + onedata['zoom'] + '" lat="' + onedata['lat'] + '" lon="' + onedata['lon'] + '" address="' + onedata['address'] + '" spotin="' + onedata['spotin'] + '" info="' + onedata['info']+ '" ><a href=javascript:lightbox("' + onedata['name'] + '")>' + onedata['name'] + '</a></li>'
-              //console.log("temp====" , temp_string);
-              $('ul#mySchedule').append(temp_string);
-
-              /*var origin1 = onedata['address'];
-              var destinationA = opendata[i+1]['address'];
-              var traffic_id = "";
-              traffic_id = "traffic_" + origin1;
-              traffic_id += "_";
-              traffic_id += destinationA;
-              return_value = 0;
-                //$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '"><div id="outputDiv_'+origin1+'_'+destinationA+'">default</div></li>');
-                $('ul#mySchedule').append('<li class="trans ui-state-disabled" id="' + traffic_id + '"></li>');
-              calculateDistances_walking(origin1,destinationA,traffic_id);
-              */
-              $('li[spotid = "' + onedata['spotid'] + '"]' ).append('<img src="/img/' + onedata['spotid'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+onedata['travel_time_content']+'</div></div>');
-
-
-              //$('ul#mySchedule').append('<li class="block spotinfo">'+'lastone'+onedata['name']+'</li>');
-
-
-            }
-            
-
-          })
-
-          // for ( var i = 0; i < data[index].length ; i++) {
-            
-          //   $('ul#mySchedule').append('<li class="block spotinfo" spotid="' + data[i]['id'] + '" name="' + data[i]['name'] + '" zoom="' + data[i]['zoom'] + '" lat="' + data[i]['lat'] + '" lon="' + data[i]['lon'] + '" address="' + data[i]['address'] + '" spotin="' + data[i]['attr1'] + '" info="' + data[i]['info']+ '" ><a href=javascript:lightbox("' + data[i]['name'] + '")>' + data[i]['name'] + '</a></li>');
-          //   if( i != (data.length - 1)){
-          //     var origin1 = data[i]['address'];
-          //     var destinationA = data[(i+1)]['address'];
-          //     var traffic_id = "";
-          //     traffic_id = "traffic_" + origin1;
-          //     traffic_id += "_";
-          //     traffic_id += destinationA;
-          //     return_value = 0;
-                
-          //       $('ul#mySchedule').append('<li class="trans ui-state-disabled" id="' + traffic_id + '"></li>');
-          //     calculateDistances_walking(origin1,destinationA,traffic_id);
-              
-
-          //   }
-          //   $('li[spotid = "' + data[i]['id'] + '"]' ).append('<img src="/img/' + data[i]['id'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+data[i]['MinTime']+'~'+data[i]['MinTime']+'hr</div></div>');
-          // }
+                                                                                                        $('li[spotid = "' + onedata['spotid'] + '"]' ).append('<img src="/img/' + onedata['spotid'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+onedata['travel_time_content']+'</div></div>');
 
 
 
-        })
+                                                                                                       // $('ul#mySchedule').append('<li class="block spotinfo" spotid="' + onedata['spotid'] + '" name="' + onedata['name'] + '" zoom="' + onedata['zoom'] + '" lat="' + onedata['lat'] + '" lon="' + onedata['lon'] + '" address="' + onedata['address'] + '" spotin="' + onedata['spotin'] + '" info="' + onedata['info']+ '" ><a href=javascript:lightbox("' + onedata['name'] + '")>' + onedata['name'] + '</a></li>');  +'>'+onedata['name']+'</li>');
+                                                                                                        //console.log("onedata---name", onedata['name']);
+
+                                                                                                        //$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="1">'+onedata['time_text']+'</li>');
+                                                                                                      }
+                                                                                                      else
+                                                                                                      {
+                                                                                                        var temp_string = '<li class="block spotinfo" spotid="' + onedata['spotid'] + '" name="' + onedata['name'] + '" zoom="' + onedata['zoom'] + '" lat="' + onedata['lat'] + '" lon="' + onedata['lon'] + '" address="' + onedata['address'] + '" spotin="' + onedata['spotin'] + '" info="' + onedata['info']+ '" ><a href=javascript:lightbox("' + onedata['name'] + '")>' + onedata['name'] + '</a></li>'
+                                                                                                        //console.log("temp====" , temp_string);
+                                                                                                        $('ul#mySchedule').append(temp_string);
+
+                                                                                                        /*var origin1 = onedata['address'];
+                                                                                                        var destinationA = opendata[i+1]['address'];
+                                                                                                        var traffic_id = "";
+                                                                                                        traffic_id = "traffic_" + origin1;
+                                                                                                        traffic_id += "_";
+                                                                                                        traffic_id += destinationA;
+                                                                                                        return_value = 0;
+                                                                                                          //$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '"><div id="outputDiv_'+origin1+'_'+destinationA+'">default</div></li>');
+                                                                                                          $('ul#mySchedule').append('<li class="trans ui-state-disabled" id="' + traffic_id + '"></li>');
+                                                                                                        calculateDistances_walking(origin1,destinationA,traffic_id);
+                                                                                                        */
+                                                                                                        $('li[spotid = "' + onedata['spotid'] + '"]' ).append('<img src="/img/' + onedata['spotid'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+onedata['travel_time_content']+'</div></div>');
 
 
-      })
+                                                                                                        //$('ul#mySchedule').append('<li class="block spotinfo">'+'lastone'+onedata['name']+'</li>');
+
+
+                                                                                                      }
+                                                                                    
+
+                                                                                  })
+
+
+                                                      })
+
+
+                              })
 
 
     }
@@ -243,21 +224,118 @@ function openschedule(){
 
 
 
-function schedule_append(){
-
-  alert("schedule_append");
-  /*詢問是否要儲存現在的schedule??*/
-  /*消去lightbox*/
-  clearschedule();
-  $(".lightbox").remove();//處裡消掉的東西
-  $(".bg").remove();//嵌入body裡面會不會比較好
-
-  var data = $.cookie("open_schedule_data");
-  console.log("data", data);
-
-
-  $.cookie("open_schedule_data", null);  //清空上次用來占存server回傳data的cookie
 
 
 
-} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function openschedule_share(s1){
+
+  // alert("open_share!!");
+  clearschedule();   // 清空schedule
+  $(".firstpage").hide();
+  $(".menu").hide();
+  $("#scheduleFrame").show();
+  $("#buttonFrame").show();
+
+
+
+  var schedule = JSON.parse(s1);
+
+  //console.log("schedule[0]",schedule[0]);
+
+  //console.log(data[index]);
+  // alert("schedule_append");
+
+  $(schedule).each(function(i, onedata){
+
+        if(onedata['method'] != null)
+        {
+
+                                                                      var temp_string = '<li class="block spotinfo" spotid="' + onedata['spotid'] + '" name="' + onedata['name'] + '" zoom="' + onedata['zoom'] + '" lat="' + onedata['lat'] + '" lon="' + onedata['lon'] + '" address="' + onedata['address'] + '" spotin="' + onedata['spotin'] + '" info="' + onedata['info']+ '" ><a href=javascript:lightbox("' + onedata['name'] + '")>' + onedata['name'] + '</a></li>'
+                                                                      console.log("temp====" , temp_string);
+                                                                      $('ul#mySchedule').append(temp_string);
+
+                                                                      var origin1 = onedata['address'];
+                                                                      var destinationA = schedule[i+1]['address'];
+                                                                      var traffic_id = "";
+                                                                      traffic_id = "traffic_" + origin1;
+                                                                      traffic_id += "_";
+                                                                      traffic_id += destinationA;
+                                                                      return_value = 0;
+                                                                       $('ul#mySchedule').append('<li class="trans ui-state-disabled" id="' + traffic_id + '"></li>');
+                                                                                                        if(onedata['method'] == 'walking')
+                                                                                                        {
+                                                                                                          calculateDistances_walking(origin1,destinationA,traffic_id);
+                                                                                                        }
+                                                                                                        else
+                                                                                                        {
+                                                                                                          calculateDistances_driving(origin1,destinationA,traffic_id);
+
+                                                                                                        }
+
+
+                                                                                                        $('li[spotid = "' + onedata['spotid'] + '"]' ).append('<img src="/img/' + onedata['spotid'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+onedata['travel_time_content']+'</div></div>');
+
+
+
+
+
+
+
+
+
+        }
+        else
+        {
+                                                                                                      var temp_string = '<li class="block spotinfo" spotid="' + onedata['spotid'] + '" name="' + onedata['name'] + '" zoom="' + onedata['zoom'] + '" lat="' + onedata['lat'] + '" lon="' + onedata['lon'] + '" address="' + onedata['address'] + '" spotin="' + onedata['spotin'] + '" info="' + onedata['info']+ '" ><a href=javascript:lightbox("' + onedata['name'] + '")>' + onedata['name'] + '</a></li>'
+                                                                                                      //console.log("temp====" , temp_string);
+                                                                                                      $('ul#mySchedule').append(temp_string);
+
+                                                                                                      /*var origin1 = onedata['address'];
+                                                                                                      var destinationA = opendata[i+1]['address'];
+                                                                                                      var traffic_id = "";
+                                                                                                      traffic_id = "traffic_" + origin1;
+                                                                                                      traffic_id += "_";
+                                                                                                      traffic_id += destinationA;
+                                                                                                      return_value = 0;
+                                                                                                        //$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '"><div id="outputDiv_'+origin1+'_'+destinationA+'">default</div></li>');
+                                                                                                        $('ul#mySchedule').append('<li class="trans ui-state-disabled" id="' + traffic_id + '"></li>');
+                                                                                                      calculateDistances_walking(origin1,destinationA,traffic_id);
+                                                                                                      */
+                                                                                                      $('li[spotid = "' + onedata['spotid'] + '"]' ).append('<img src="/img/' + onedata['spotid'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+onedata['travel_time_content']+'</div></div>');
+
+
+                                                                                                      //$('ul#mySchedule').append('<li class="block spotinfo">'+'lastone'+onedata['name']+'</li>');
+
+
+         }
+  
+
+
+
+
+
+
+
+  })  
+                                 
+                                                           
+  
+
+}
