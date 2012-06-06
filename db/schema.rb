@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530205851) do
+ActiveRecord::Schema.define(:version => 20120606195833) do
 
   create_table "schedules", :force => true do |t|
     t.string   "user"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20120530205851) do
     t.text     "content"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.text     "share_uid"
   end
 
   create_table "spots", :force => true do |t|
@@ -40,6 +41,14 @@ ActiveRecord::Schema.define(:version => 20120530205851) do
     t.decimal  "MinTime"
     t.decimal  "MaxTime"
     t.decimal  "city"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "fid"
+    t.string   "name"
+    t.text     "share_sid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

@@ -1,4 +1,6 @@
 LightripD1::Application.routes.draw do
+  resources :users
+  post '/share_backstage' => 'home#share_backstage'
   post '/save' => 'schedules#save'
   post '/save_rewrite' => 'schedules#save_rewrite'
   get '/open' => 'schedules#show_user_schedule'
@@ -13,11 +15,14 @@ LightripD1::Application.routes.draw do
   get "/img/:id" => "spots#showing"
   resources :spots
   get "/step3" => "home#step3"
-  get ':sid'=>"home#index"
+  
   #get "lightrip/index"
   get "/lightrip" => "lightrip#index"
   #post "/" => "home#smart"
   get "home/index"
+  get "/share/:sid" => "home#share_schedule"
+  get '/:sid'=>"home#index"
+
 
   #post "/attr" => "home#attr"
 

@@ -80,10 +80,54 @@ class HomeController < ApplicationController
     hash = {:test => "YOYO"}
     render json: @spots
   end
-    def reload
+  def reload  # Can be deleted?!
     @schedule  = Schedule.find(params[:sid])
     @reload_or_not = true
     redirect_to :action => "index", :reload => @reload_or_not, :schedule=> @schedule
     #redirect_to home_path()
   end
+  
+  def share_schedule # Can be deleted?!
+    #@reload = 22
+    redirect_to home_path :share => params[:sid] 
+        #render :partial => "index", :locals => { :name => "david" }
+    
+  end
+
+  def share_backstage
+    @shareuser = User.where(:fid => params[:fid])
+
+    if( @shareuser[0] == nil)
+        @user = User.new()
+        @user[:fid] = params[:fid]
+        @user[:name] = params[:uname]
+
+    else
+        @user = @shareuser[0]
+    end
+
+    if @user[:share_sid] == nil
+      array = []
+      array.push(params[:sid])
+      @user[:share_sid] = array.to_json
+    else
+      @user[:share_sid] = params[:sid];
+
+    end 
+    @user.save
+
+    # respond_to do |format|
+      # if @schedule.save
+        # format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
+        # format.json { render json: @schedule, status: :created, location: @schedule }
+      # else
+        # format.html { render action: "new" }
+        # format.json { render json: @schedule.errors, status: :unprocessable_entity }
+      # end
+    # end
+     render json: @schedule
+  end
+
+
+
 end
