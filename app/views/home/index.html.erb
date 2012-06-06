@@ -157,7 +157,29 @@
   setCookie();
   var result = loadfromCookie();
   var value = $('#mySchedule').html(result);
-  alert(<%= @reload%>);
+  alert('reload<%= @reload%>');
+  
+  
+    
+       //ajax >> show the person initiate the schedule and the schedule name
+
+    //accept the sharing or not? (KEN)
+
+    //accept >> fb login
+        //ajax >> rewrite user & schedule
+        //open share id
+        //set share id
+        
+
+    //not accept
+        //ajax >> open share id
+        // do not set sid!
+
+
+
+ 
+
+
   <% if @reload == true %>
        var s= '<%= @schedulereload%>';
        var s1 = s.replace(/asdfdsa/g, "\"")

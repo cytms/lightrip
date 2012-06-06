@@ -80,10 +80,19 @@ class HomeController < ApplicationController
     hash = {:test => "YOYO"}
     render json: @spots
   end
-    def reload
+  def reload
     @schedule  = Schedule.find(params[:sid])
     @reload_or_not = true
     redirect_to :action => "index", :reload => @reload_or_not, :schedule=> @schedule
     #redirect_to home_path()
   end
+  def share_schedule
+    #@reload = 22
+    redirect_to home_path :share => params[:sid] 
+        #render :partial => "index", :locals => { :name => "david" }
+    
+  end
+
+
+
 end
