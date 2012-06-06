@@ -65,18 +65,33 @@ class HomeController < ApplicationController
     #  end
     #end
     
-     @spots = Spot.limit(2)
+     @spots = Spot.where(:city => params['city'])
      puts "--------------------------------------------------------------"
      puts params['city']
     #@spots = Spot.find(2)
-     # @spots.each{|hashelement|
-       # if(rand(2) == 1 )
-        # 
-          # hashelement.pop()
-        # end
-       # hashelement['attr1'] = 1 
+      @spots.each{|hashelement|
+        
+         hashelement['attr1'] = hashelement['attr1'] * params['attr1'].to_i
+         hashelement['attr2'] = hashelement['attr2'] * params['attr2'].to_i
+         hashelement['attr3'] = hashelement['attr3'] * params['attr3'].to_i
+         hashelement['attr4'] = hashelement['attr4'] * params['attr4'].to_i
+         hashelement['attr5'] = hashelement['attr5'] * params['attr5'].to_i
+         puts hashelement['attr1']
+         puts hashelement['attr2']
+         puts hashelement['attr3']
+         puts hashelement['attr4']
+         puts hashelement['attr5']
 
-     # }
+         
+         if (hashelement['attr1'] > 100)
+           hashelement['attr1'] = 1 
+         else
+           hashelement['attr1'] = 0 
+         end    
+       
+     #    #hashelement['attr1'] = 1 
+
+       }
     hash = {:test => "YOYO"}
     render json: @spots
   end
