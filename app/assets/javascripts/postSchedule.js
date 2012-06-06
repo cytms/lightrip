@@ -25,9 +25,9 @@ function postSchedule(){
     }
 }
 function post(title, description, src){
-	alert(title);
-  alert(description);
-  alert(src);
+	//alert(title);
+  //alert(description);
+  //alert(src);
     var sid = $('#sid').html();
     alert(sid);
       $.ajax({

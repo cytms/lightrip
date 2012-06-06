@@ -85,7 +85,7 @@
           </div>
           <% else %>
           <div style="position:absolute; left:20px; top:30px;">
-          <p><%= link_to "Click me to login!", login_path %></br>當然你也可以選擇忽略該步驟！</p>
+          <p><div id = 'cookie_or_not'><%= link_to "Click me to login!", login_path %></div></br>當然你也可以選擇忽略該步驟！</p>
       
         </div>
         <% end %>
@@ -193,6 +193,9 @@
 
 <div>
 <script type="text/javascript">
+  setCookie();
+  var result = loadfromCookie();
+  var value = $('#mySchedule').html(result);
   alert(<%= @reload%>);
   <% if @reload == true %>
       var s= '<%= @schedulereload%>';
