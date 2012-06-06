@@ -28,6 +28,7 @@ google.setOnLoadCallback(function() {
 		$( "#droppable" ).droppable({
 			drop: function( event, ui ) {
 				$( '.ui-sortable-helper' ).remove();
+				$( '.ui-sortable-placeholder' ).remove();
 				if ( $('ul#mySchedule li:last').attr('class') == "trans ui-state-disabled" ) {
 				$('ul#mySchedule li:last').remove();
 				};
@@ -35,6 +36,7 @@ google.setOnLoadCallback(function() {
 				if ( $('ul#mySchedule li:first').attr('class') == "trans ui-state-disabled" ) {
 					$('ul#mySchedule li:first').remove();
 				};
+				$( "#droppable" ).hide();
 				}
 		});
 		$( "#mapFrame, #mySchedule" ).sortable({ 

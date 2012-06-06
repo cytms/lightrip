@@ -22,8 +22,9 @@ function openschedule(){
 
       $(data).each(function(index, element){
 
-        one_schedule += "<div class='record'><ul>";
+        one_schedule += "<div class='record'><ul><h2>";
           one_schedule += element['schedule_name'];
+          one_schedule += "</h2>"
           var schedule = JSON.parse(element['content']);
           
           $.each(schedule, function(index, element){
@@ -43,7 +44,7 @@ function openschedule(){
 
 
 
-                one_schedule += '<li class="spot_traffic">';  //顯示交通資訊
+                /*one_schedule += '<li class="spot_traffic">';  //顯示交通資訊
 
                   one_schedule += '<div class="traffic_info">';
                     one_schedule += '<div class="traffic_method">';
@@ -53,7 +54,7 @@ function openschedule(){
                     one_schedule += '<div class="traffic_duration">';
                     one_schedule += schedule[index]['time_text'];
                     one_schedule += '</div>';
-                  one_schedule += '</div>';
+                  one_schedule += '</div>';*/
 
 
                 one_schedule += '</li>';
@@ -99,7 +100,7 @@ function openschedule(){
       });
 
 
-
+      alert('new');
       lightbox(content);	
 
       $(data).each(function(index,element){
