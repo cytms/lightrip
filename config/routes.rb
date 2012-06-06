@@ -1,6 +1,6 @@
 LightripD1::Application.routes.draw do
   resources :users
-
+  post '/share_backstage' => 'home#share_backstage'
   post '/save' => 'schedules#save'
   post '/save_rewrite' => 'schedules#save_rewrite'
   get '/open' => 'schedules#show_user_schedule'

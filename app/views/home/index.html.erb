@@ -8,6 +8,7 @@
 <%= javascript_include_tag "new.js" %>
 <%= javascript_include_tag "postSchedule.js" %>
 <%= javascript_include_tag "cookie.js" %>
+<%= javascript_include_tag "shareSchedule.js" %>
 
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <div id="main">
@@ -144,7 +145,7 @@
 
       <input id="save_button" class="clickme" type="button" value="Save" onclick="save()"/>
 
-      <input type="button" class="clickme" value="另存新檔" onclick="openschedule();"/>
+      <input type="button" class="clickme" value="另存新檔" onclick="share_backstage('ab', 'bb',3);"/>
 
       <input type="button" class="clickme" value="share" onclick="openschedule();"/>
 
