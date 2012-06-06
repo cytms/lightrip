@@ -145,9 +145,8 @@
       <input type="button" value="Open" onclick="openschedule();"/>
 
       <input id="save_button" type="button" value="Save" onclick="save()"/>
-
-
-</div>
+      <div class="fb-send" data-href="http://lightrip.herokuapp.com/"></div>
+    </div>
   </div> <!-- End of #scheduleFrame -->
 
 </div><!-- End of #main -->
@@ -250,3 +249,12 @@ $("#schedule_name").click(function(){
 
 </script>
 </div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=404169532959396";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

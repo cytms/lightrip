@@ -66,7 +66,7 @@ function save(){
     }
     else{
       console.log($('#userid').html());
-      alert("please login first");
+      warning("Please login first");
       $(".menu").hide();
       $(".firstpage").show();
       $("#menu").show();
