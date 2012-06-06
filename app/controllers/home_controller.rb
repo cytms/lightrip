@@ -53,6 +53,8 @@ class HomeController < ApplicationController
     #end
     
      @spots = Spot.limit(2)
+     puts "--------------------------------------------------------------"
+     puts params['city']
     #@spots = Spot.find(2)
      # @spots.each{|hashelement|
        # if(rand(2) == 1 )
