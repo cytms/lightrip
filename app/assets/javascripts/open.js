@@ -20,16 +20,6 @@ function openschedule(){
       var content = "";
       var one_schedule = "";
 
-      //$(".firstpage").hide();//處裡消掉的東西
-      //$(".menu").hide();//嵌入body裡面會不會比較好
-      //$("#scheduleFrame").show();
-      //$("#buttonFrame").show();
-      //$("li.block:even").append()
-      //$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
-      console.log("open data",data);
-     // $.cookie("open_schedule_data", data);
-     // $.cookie("open_schedule_data","111");//bug
-
       $(data).each(function(index, element){
 
         one_schedule += "<div class='record'><ul>";

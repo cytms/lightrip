@@ -11,12 +11,12 @@ LightripD1::Application.routes.draw do
   get "/img/:id" => "spots#showing"
   resources :spots
   get "/step3" => "home#step3"
-
+  get ':sid'=>"home#index"
   #get "lightrip/index"
   get "/lightrip" => "lightrip#index"
   #post "/" => "home#smart"
   get "home/index"
-  get '/:sid'=>"home#reload"
+
   #post "/attr" => "home#attr"
 
   # The priority is based upon order of creation:

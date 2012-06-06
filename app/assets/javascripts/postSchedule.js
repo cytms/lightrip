@@ -1,5 +1,6 @@
 function postSchedule(){
       if ($('#userid').html()!=null){
+        save();
       	$("body").append("<div class='bg'></div>");
         alert($('#mySchedule img').first().attr('src'));
 		$("body").append("<div class='postForm'><h2 class = 'header'>"+$('#schedule_name').html()+"</h2><img src='"+$('#mySchedule img').first().attr('src')+"'/><p>為您的行程加點註解</p><textarea class='description' row='2' cols ='25'></textarea><input class ='postfb' type='button' value='Post the schedule to facebook' onclick=''/></div>");
@@ -26,13 +27,15 @@ function postSchedule(){
 function post(title, description, src){
 	//alert(description);
 	//alert(tags);
+    var sid = $('#sid').html();
       var content = "test";//content要加入行程資訊嘛!?
       $.ajax({
         type: 'GET',
         data: { user: $('p#userid').html(),
             title: title, 
         		description: description,
-         		src: src
+         		src: src,
+            sid: sid
         },
         url: "/post",
         datatype: 'json',
