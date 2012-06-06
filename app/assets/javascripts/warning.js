@@ -18,3 +18,4 @@ function omit(){
 	$(".bg").remove();//嵌入body裡面會不會比較好
 	opentrasmit();
 }
+
