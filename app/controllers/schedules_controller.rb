@@ -116,6 +116,7 @@ def postSchedule
       message = params[:description]
       schedule_name = params[:title]
       sid = params[:sid]
+      #website = "http://localhost3000/"+sid
       rest_graph.post('/me/feed', :message => schedule_name, :name => "lightrip", :description => message, :picture => "http://www.dnac.org/images/Paris_Effel.jpg", :link => "/"+sid)
         #:picture => "http://www.dnac.org/images/Paris_Effel.jpg", :name => "name", :caption => {}"caption", :description => "description", :link => "http://google.com/paris",:actions=>{"name": "View on Zombo", "link": "http://www.zombo.com"}) 
     end

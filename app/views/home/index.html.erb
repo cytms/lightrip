@@ -215,7 +215,9 @@
   var address = '<%= spot.address %>';
   var lat1 = <%= spot.lat %>;
   var log1 = <%= spot.lon %>;
-  var id = <%= spot.id %>
+  var id = <%= spot.id %>;
+  var min = <%= spot.MinTime %>
+  var max = <%= spot.MaxTime %>
   <% string_path = '/img/' + spot.id.to_s %> 
   var image =  '<%= string_path%>';
   console.log(image);
@@ -240,7 +242,7 @@
   }  
 //}
   //console.log(spotName, lat1, log1, text, address);
-  information(id, spotName, lat1, log1, text, address, spotIn, image);
+  information(id, spotName, lat1, log1, text, address, spotIn, image, min, max);
 
   <% end %>
   //addSchedule();
@@ -250,7 +252,7 @@
 
 $("#schedule_name").click(function(){
  // alert("click!!");
-  $(this).parentsUntil("#main").append("<input class='input_travel_time' align='center 'value='請輸入你的行程' size='28'>");
+  $(this).parent(["#scheduleFrame"]).prepend("<h2><input class='input_travel_time' align='center 'value='請輸入你的行程名稱' size='35'></h2>");
   $(this).css("display","none");
    $(".input_travel_time").keypress(function(e){
       if(e.keyCode == 13){
