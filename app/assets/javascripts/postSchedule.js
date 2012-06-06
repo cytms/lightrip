@@ -25,9 +25,11 @@ function postSchedule(){
     }
 }
 function post(title, description, src){
-	alert(description);
+	alert(title);
+  alert(description);
+  alert(src);
     var sid = $('#sid').html();
-      var content = "test";//content要加入行程資訊嘛!?
+    alert(sid);
       $.ajax({
         type: 'GET',
         data: { user: $('p#userid').html(),

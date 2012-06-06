@@ -3,9 +3,6 @@ class ApplicationController < ActionController::Base
     redirect_to home_path
   end
 
-
-
-
 private
   def load_facebook
     rest_graph_setup(:write_session => true)
