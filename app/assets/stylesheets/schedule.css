@@ -23,6 +23,12 @@
 	cursor:move;
 	z-index:3;
 }
+.block a {
+	font-size: 24px;
+	color:#fff;
+}
+
+
 #buttonFrame {
 	position:absolute;
 	left:20px;

@@ -23,6 +23,17 @@
 	margin: 0px;
 	overflow-y:auto;
 	background-color:#FFFFFF;
+	color: #67D838;
+}
+
+.framebox img {
+	width:25%;
+	height:auto;
+}
+
+.framebox textarea {
+	width:60%;
+	height:auto;
 }
 #open_schedule_frame {
 	margin: 0px 0px 0px 0px;
