@@ -8,12 +8,13 @@
 <%= javascript_include_tag "open.js" %>
 <%= javascript_include_tag "new.js" %>
 <%= javascript_include_tag "postSchedule.js" %>
+<%= javascript_include_tag "cookie.js" %>
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <div id="main">
   <ul id="buttonFrame" style="display:none;">
     <li id="b3" class="button">主要選單</li>
-    <!--<li id="b1" class="button">搜尋景點</li>-->
-    <li id="b2" class="button">我的行程</li>
+    <!--<li id="b1" class="button">搜尋景點</li>
+    <li id="b2" class="button">我的行程</li>-->
   </ul>
 
   <div id="menu" class="menu">
@@ -161,6 +162,7 @@
 
   <div id="scheduleFrame" class="menu" style="display:none;">
     <h2 id="schedule_name">我的行程</h2>
+    <div id='sid' style='display:none;'></div>
     <!--<div id="schedule_name">幫行程取個名字吧(click)</div> --> 
     <ul id='mySchedule' class='connectedSortable'>
       </ul>

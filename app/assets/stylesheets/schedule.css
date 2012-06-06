@@ -111,12 +111,11 @@ ul#mySchedule li.travel_time_content {
 	left: 0px;
 }
 
-.right{
-	position:relative;
+.traffic_right{
+	position:absolute;
 	left:70px;
 }
-
-.left{
-	position:relative;
+.traffic_left{
+	position:absolute;
 	left: 0px;
 }

@@ -8,7 +8,7 @@
       //console.log(save_json());
       //alert("Handler for .click() called.");
       $.ajax({
-        type: 'GET',
+        type: 'POST',
         data: { user: $('p#userid').html(),
          schedule_name: $('h2#schedule_name').html(),//,
          content: JSON.stringify(content)
@@ -16,11 +16,15 @@
          //attr5: $( "#amount5" ).val()
         },
         //$( "#amount" ).html(),
-        url: "http://localhost:3000/save",
+        url: "/save",
         //url: "http://lightrip-cytms.herokuapp.com/step3",
         datatype: 'json',
         success: function(data, textSatus){
-          alert("Save successfully!");
+          console.log("data",data);
+          //createCookie("sid",data['id'],365);
+          $('#sid').html(data['id']);
+          alert("Save successfully! sid: " + $("#sid").html() + "is saved");
+
           //$(".firstpage").hide();//處裡消掉的東西
           //$(".menu").hide();//嵌入body裡面會不會比較好
           //$("#scheduleFrame").show();
@@ -65,9 +69,10 @@ function save_json(){
     else
     {
       //console.log(counter);
-        temp['method'] = $(this).children().first().html();
-        temp['time_text'] = $(this).children('.duration').html();
-        temp['time_value'] = $(this).children('.duration_value').html();
+        console.log("$(this).children().first()",$(this).children().first());
+        temp['method'] = $(this).children().first().children('.traffic_right').children().first().html();
+        temp['time_text'] = $(this).children().first().children('.traffic_right').children('.duration').html();
+        temp['time_value'] = $(this).children().first().children('.traffic_right').children('.duration_value').html();
       schedule_array.push(temp);
       //i ++;
       //console.log(temp);

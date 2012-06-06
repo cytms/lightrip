@@ -196,10 +196,11 @@
 	width:90%;
 }
 
+
 .postForm{
 	background-color:#fff;
-	width:400px;
-	height:400px;
+	width:200px;
+	height:300px;
 	border: 5px solid gray;
 	position:absolute;
 	top: 10%;

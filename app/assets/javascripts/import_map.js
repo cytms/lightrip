@@ -1,3 +1,4 @@
+
 /**import_map.js**/
 /*$(function(){ 
   $('#myMap').tinyMap({ 
@@ -436,6 +437,7 @@ function lightbox(content) {
 				//url: "http://lightrip-cytms.herokuapp.com/step3",
 				datatype: 'json',
 				success: function(data, textSatus){
+					console.log(data);
 					//alert("ajax success");
 					//$(".firstpage").hide();//處裡消掉的東西
 					//$(".menu").hide();//嵌入body裡面會不會比較好
@@ -459,7 +461,7 @@ function lightbox(content) {
 							//console.log("traffic_id: " + traffic_id);
 
 						}
-						$('li#' + data[i]['id'] ).append('<img src="/img/' + data[i]['id'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">4hr</div></div>');
+						$('li[spotid = "' + data[i]['id'] + '"]' ).append('<img src="/img/' + data[i]['id'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+data[i]['MinTime']+'~'+data[i]['MinTime']+'hr</div></div>');
 					}
 
 				}
