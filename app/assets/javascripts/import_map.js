@@ -320,12 +320,14 @@ google.setOnLoadCallback(function() {
 			$("#map").hide();
 			$("#myMap").show();
 			$(".firstpage").hide();
+			$("#buttonFrame").show();
 			//嵌入body裡面會不會比較好
 		});
 		$("#b3").click(function() {
 			$(".menu").hide();
 			$(".firstpage").show();
 			$("#menu").show();
+			$("#buttonFrame").hide();
 			
 			//嵌入body裡面會不會比較好
 		});

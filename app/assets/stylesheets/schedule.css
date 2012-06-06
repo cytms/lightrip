@@ -1,13 +1,13 @@
 #scheduleFrame {
-	height:550px;
-	width:220px;
+	height:90%;
+	width:300px;
 }
 #mySchedule {
 	float:left;
-	margin: 0px;
+	margin: 10px auto;
 	padding: 0px;
-	height:480px;
-	width:220px;
+	height:80%;
+	width:100%;
 	z-index:3;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -38,11 +38,11 @@
 	height:30px;
 	text-align: center;
 	line-height:30px;
-	margin-bottom:55px;
-	border-top-left-radius:2px;
-	border-top-right-radius:2px;
-	background-color:#666666;
-	color:#CCCCCC;
+	margin-bottom:60px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	background-color:#67D838;
+	color:#fff;
 	cursor:pointer;
 	-moz-transform-origin:right bottom;
 	-moz-transform:rotate(-90deg);
@@ -56,39 +56,38 @@
 	transform:rotate(-90deg);
 }
 .button:hover {
-	background-color:#999;
-	color:#333;
+	background-color:#E3FAE2;
+	color:#67D838;
 }
 
 ul#mySchedule li.spotinfo
 {
-	height: 104px;
-	width: 150px;
-	margin: 0px 0px 5px 0px;
+	height: 100px;
+	width: 85%;
+	margin: 0px 0px 5px 10px;
 	padding: 10px;
 	margin-bottom: 8px;
-	background: white;  
+	background: #67D838;  
 	color: white;
 	text-align: center;
-	border-radius: 3px;
+	border-radius: 5px;
 	line-height: 1.6em;
-	border: 2px solid white;
 
 }
 
 ul#mySchedule li.spotinfo img
 {
 	border-radius: 5px;
-	height: 60%;
-	width: 90%;
+	height: 80px;
+	width: 80px;
 
 }
 
 ul#mySchedule li.trans{
 	height: 40px;
-	width: 150px;
+	width: 85%;
 	padding: 10px;
-	margin: 0px 0px 5px 0px;
+	margin: 0px 0px 5px 10px;
 	background: white; 
 	color: black;
 	text-align: center;
@@ -98,6 +97,9 @@ ul#mySchedule li.trans{
 	border: 2px solid white;
 	cursor: pointer;
 }
+ul#mySchedule li.travel_time_content {
+	position:relative;
+}
 
 #right{
 	position:absolute;
@@ -106,5 +108,15 @@ ul#mySchedule li.trans{
 }
 #left{
 	position:absolute;
+	left: 0px;
+}
+
+.right{
+	position:relative;
+	left:70px;
+}
+
+.left{
+	position:relative;
 	left: 0px;
 }

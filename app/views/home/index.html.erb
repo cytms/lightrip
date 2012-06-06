@@ -10,14 +10,14 @@
 <%= javascript_include_tag "postSchedule.js" %>
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <div id="main">
-  <ul id="buttonFrame">
+  <ul id="buttonFrame" style="display:none;">
     <li id="b3" class="button">主要選單</li>
-    <li id="b1" class="button">搜尋景點</li>
+    <!--<li id="b1" class="button">搜尋景點</li>-->
     <li id="b2" class="button">我的行程</li>
   </ul>
 
   <div id="menu" class="menu">
-    <h2 style="color:#fff;">LighTrip! 來去旅遊吧!</h2>
+    <h2>LighTrip! 來去旅遊吧!</h2>
     <div class="map">
 
 
@@ -70,18 +70,20 @@
     </div>
 
     <div class="guider">
-        <% if @access_token %>
-        <h1>Step 2 <span style="font-size:20px;">1/2 </span> FB登入</h1>
+        
+        <h1>Optional: FB login</h1>
         <div style="position:absolute; left:85px; top:45px;">
           <img src="https://graph.facebook.com/me/picture?access_token=<%= @access_token %>" />
         </div>
         <div style="position:absolute; left:145px; top:60px;">
+          <% if @access_token %>
           <%= @me['name'] %>
           <p id='userid' hidden= 'true'><%= @me['id'] %></p>
-        </div>
-      <% else %>
-        <p><%= link_to "Click me to login!", login_path %></br>當然你也可以選擇忽略該步驟！</p>
+          <% else %>
+          <p><%= link_to "Click me to login!", login_path %></br>當然你也可以選擇忽略該步驟！</p>
       <% end %>
+        </div>
+
     </div>
 
     <form accept-charset="UTF-8" action="/" class="new_attr" id="new_attr" method="post">
@@ -115,13 +117,14 @@
            <div id="slider5" style="position:absolute; top:10px; left:250px; width:10px; height:80px"></div>
          </div>
       </div>
-      <div class="active"><h1 style="color:#000;">Step 3 確認送出</h1></div>
+      <div class="active"><h1>Submit</h1></div>
+      <div class="skip"><h1>Skip</h1></div>
     </form>
   </div> <!-- end of .menu -->
 
   <div class="firstpage"></div>
   <div class="menu" id="insert-spots" style="display:none;">
-    <h2 style="color:#fff;">搜尋景點</h2>
+    <h2>搜尋景點</h2>
     <div id="inputForm">
       <div id="instructions">你可以輸入地址或直接於地圖上點選</div>
       <div>
@@ -157,12 +160,10 @@
   </div> <!-- end of #insert-spots -->
 
   <div id="scheduleFrame" class="menu" style="display:none;">
-    <h2 id="schedule_name" style="color:#fff;">我的行程</h2>
+    <h2 id="schedule_name">我的行程</h2>
     <!--<div id="schedule_name">幫行程取個名字吧(click)</div> --> 
-    <div style="position:absolute; left:20px; top:40px; height:400px;">
     <ul id='mySchedule' class='connectedSortable'>
       </ul>
-    </div>
 
     <div style="position:absolute; right:5px; left:5px; bottom:20px; height:30px; text-align:center;">
       <hr>
