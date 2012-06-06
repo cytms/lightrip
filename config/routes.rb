@@ -6,6 +6,7 @@ LightripD1::Application.routes.draw do
 
   #post '/save' => 'schedules#save'
   get '/login' => 'home#login'
+  get '/logout' => 'home#logout'
   get '/' => 'home#index', :as => :home
   get "/spots/new_backstage" => "spots#new_backstage"
   get "/img/:id" => "spots#showing"
