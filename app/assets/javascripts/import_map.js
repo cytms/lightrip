@@ -25,10 +25,24 @@ google.setOnLoadCallback(function() {
 	// 所有行程
 	$(function() {
 		//$( "#main" ).tabs();
-
+		$( "#droppable" ).droppable({
+			drop: function( event, ui ) {
+				$( '.ui-sortable-helper' ).remove();
+				if ( $('ul#mySchedule li:last').attr('class') == "trans ui-state-disabled" ) {
+				$('ul#mySchedule li:last').remove();
+				};
+				
+				if ( $('ul#mySchedule li:first').attr('class') == "trans ui-state-disabled" ) {
+					$('ul#mySchedule li:first').remove();
+				};
+				}
+		});
 		$( "#mapFrame, #mySchedule" ).sortable({ 
 			connectWith: ".connectedSortable",
 			cancel: ".ui-state-disabled",
+			sort: function(event, ui) {
+				$('#droppable').show();
+			},
 			start: function(event, ui) {
 				$('#infoWindow').parent().attr('style');
 			//alert("activate!!")
@@ -159,6 +173,7 @@ google.setOnLoadCallback(function() {
 			},*/
 
 			stop: function(event, ui) {
+			$('#droppable').hide();
 			//alert("stop!!");
 			console.log("ui-item=============:",ui.item);
 			temp_counter = 0;	

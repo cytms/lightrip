@@ -1,10 +1,10 @@
 # config/rest-graph.yaml
 development:
+    app_id: '404169532959396'
+    secret: '9d33a37fc6d1848e84675c11f7a05eb2'
+    callback_host: 'http://localhost:3000'
+
+production:
     app_id: '178908542238211'
     secret: '6e36841de8b3ba2b609f87735641cebe'
     callback_host: 'http://lightrip.herokuapp.com'
-
-production:
-    app_id: '342980775774066'
-    secret: 'e58f779058ccc8511c8ded59e42d25dd'
-    callback_host: 'http://localhost:3000'

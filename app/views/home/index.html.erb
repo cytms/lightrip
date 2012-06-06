@@ -11,13 +11,14 @@
 
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <div id="main">
+
   <ul id="buttonFrame" style="display:none;">
     <li id="b3" class="button">主要選單</li>
     
     <li id="b2" class="button">我的行程</li>
     <li id="b1" class="button"><%= link_to "Log out", logout_path %></li>
   </ul>
-
+<div class="menu" id="droppable" style="display:none;"><h1>刪除</h1></div>
   <div id="menu" class="menu">
     <h2>LighTrip! 來去旅遊吧!</h2>
     <div class="map">
@@ -151,7 +152,6 @@
 
 </div><!-- End of #main -->
 <div id="myMap"></div><!-- End of #myMap -->
-<div id="map"></div><!-- End of #myMap -->
 
 
 <div>
