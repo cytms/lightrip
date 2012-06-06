@@ -98,7 +98,7 @@ function openschedule(){
                 
 
                 //one_schedule +="<div onclick='schedule_append();'>open the schedule</div>"
-                one_schedule += "<div class='ui-state-default ui-corner-all' id='open_schedule_" + index + "'><span class='ui-icon ui-icon-closethick'></span></div>";
+                one_schedule += "<ul class='icon-frame'><li class='ui-state-default ui-corner-all' id='open_schedule_" + index + "'><span class='ui-icon ui-icon-check'></span></li><li class='ui-state-default ui-corner-all' id='delete_schedule_" + index + "'><span class='ui-icon ui-icon-close'></span></li></ul>";
 
                 one_schedule += "</div>";
 
