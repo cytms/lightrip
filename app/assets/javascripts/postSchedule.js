@@ -19,6 +19,7 @@ function postSchedule(){
       console.log($('#userid').html());
       warning("please login first");
       $(".menu").hide();
+      $("#buttonFrame").hide();
       $(".firstpage").show();
       $("#menu").show();
     }

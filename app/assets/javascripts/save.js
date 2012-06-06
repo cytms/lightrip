@@ -59,6 +59,7 @@ function save(){
       console.log($('#userid').html());
       warning("Please login first");
       $(".menu").hide();
+      $("#buttonFrame").hide();
       $(".firstpage").show();
       $("#menu").show();
     }
