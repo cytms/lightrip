@@ -115,7 +115,8 @@ def postSchedule
     unless rest_graph.access_token.nil?
       message = params[:description]
       schedule_name = params[:title]
-      rest_graph.post('/me/feed', :message => schedule_name, :name => "lightrip", :description => message, :picture => "http://www.dnac.org/images/Paris_Effel.jpg", :link => "http://google.com/")
+      sid = params[:sid]
+      rest_graph.post('/me/feed', :message => schedule_name, :name => "lightrip", :description => message, :picture => "http://www.dnac.org/images/Paris_Effel.jpg", :link => "/"+sid)
         #:picture => "http://www.dnac.org/images/Paris_Effel.jpg", :name => "name", :caption => {}"caption", :description => "description", :link => "http://google.com/paris",:actions=>{"name": "View on Zombo", "link": "http://www.zombo.com"}) 
     end
        redirect_to home_path, :notice => 'Post successfully!'

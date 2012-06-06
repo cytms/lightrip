@@ -193,6 +193,14 @@
 
 <div>
 <script type="text/javascript">
+  alert(<%= @reload%>);
+  <% if @reload == true %>
+      var s= '<%= @schedulereload%>';
+      var s1 = s.replace(/asdfdsa/g, "\"")
+      console.log(s1);
+      reload(s1);  
+  <% end %>
+
 
   var pos = new google.maps.LatLng(23.996733, 120.212465);
   var myOptions = {

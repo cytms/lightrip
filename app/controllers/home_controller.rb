@@ -14,7 +14,19 @@ class HomeController < ApplicationController
     if @access_token
       @me = rest_graph.get('/me')
     end
-
+    if (params[:sid].to_i>0)
+      counter = params[:sid].to_i
+      @schedulereload = Schedule.find(counter).content
+      puts("==================================")
+      puts(params[:sid])
+      @schedulereload = @schedulereload.gsub("\"","asdfdsa")
+      puts(@schedulereload)
+      @reload= true    
+    end 
+      #params[:reload]  
+      #@schedule = params[:schedule]
+      #@reload = params[:reload]  
+    #end
     @spots=Spot.all
   end
   def attr
@@ -54,6 +66,9 @@ class HomeController < ApplicationController
     render json: @spots
   end
     def reload
-    @schedule  = Schedule.where(:user => params[:sid])
+    @schedule  = Schedule.find(params[:sid])
+    @reload_or_not = true
+    redirect_to :action => "index", :reload => @reload_or_not, :schedule=> @schedule
+    #redirect_to home_path()
   end
 end
