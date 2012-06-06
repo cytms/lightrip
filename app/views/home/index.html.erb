@@ -1,7 +1,6 @@
 <%= javascript_include_tag "google_direction_api.js" %>
 <%= javascript_include_tag "import_map.js" %>
 <%= javascript_include_tag "change_trans.js" %>
-<%= javascript_include_tag "create_spots.js" %>
 <%= javascript_include_tag "google_direction_api.js" %>
 <%= javascript_include_tag "save.js" %>
 <%= javascript_include_tag "map-identify.js" %>
@@ -128,42 +127,6 @@
     </form>
   </div> <!-- end of .menu -->
 
-  <div class="firstpage"></div>
-  <div class="menu" id="insert-spots" style="display:none;">
-    <h2>搜尋景點</h2>
-    <div id="inputForm">
-      <div id="instructions">你可以輸入地址或直接於地圖上點選</div>
-      <div>
-        <input type="text" size="20" id="query"/>
-        <input type="button" value="搜尋" onclick="submitQuery()"/>
-      </div>
-      <div id="options">
-        <span style="font-weight: bold">Bias this viewport:</span>
-        <input type="checkbox" id="biasViewport"/>
-        <span style="font-weight: bold">Country bias:</span>
-        <input type="text" size="2" id="country"/>
-        <span style="font-weight: bold">Language:</span>
-        <input type="text" size="2" id="language"/>
-      </div>
-    </div>
-    <div id="responseInfo">
-      <div id="responseStatus">
-        <div>
-          <span style="font-weight: bold">Geocoder response: </span></br>
-          <span id="statusValue"></span> (<span id="statusDescription"></span>)
-        </div>
-      </div>
-      <div id="responseCount">
-        <span style="font-weight: bold;">Matches returned: </span>
-        <span id="matchCount"></span>
-      </div>
-    </div>
-    <div id="mapcontainer">
-      <div id="boundsLegend">Bounds</div>
-      <div id="viewportLegend">Viewport</div>
-    </div>
-    <div id="matches"></div>
-  </div> <!-- end of #insert-spots -->
 
   <div id="scheduleFrame" class="menu" style="display:none;">
     <h2 id="schedule_name">我的行程</h2>
