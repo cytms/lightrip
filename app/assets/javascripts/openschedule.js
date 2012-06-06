@@ -29,88 +29,96 @@ function openschedule(){
       console.log("open data",data);
      // $.cookie("open_schedule_data", data);
      // $.cookie("open_schedule_data","111");//bug
+     content += '<ul id="open_schdule_frame">';
 
-      $(data).each(function(index, element){
+              $(data).each(function(index, element){
 
-        one_schedule += "<div class='record'><ul>";
-          one_schedule += element['schedule_name'];
-          var schedule = JSON.parse(element['content']);
-          
-          $.each(schedule, function(index, element){
-            //one_schedule += '<li>';
-            // one_schedule += '<ul>';
-            //one_schedule +=
-            
-            if(schedule[index]['method'] != null)
-            {
-                one_schedule += '<li class="spot_node">';  //顯示景點
+                  one_schedule += "<li class='record'><ul class='open_schedule'>";
+                  one_schedule += element['schedule_name'];
+                  var schedule = JSON.parse(element['content']);
+                  
+                                          $.each(schedule, function(index, element){
+                                            //one_schedule += '<li>';
+                                            // one_schedule += '<ul>';
+                                            //one_schedule +=
+                                            
+                                            if(schedule[index]['method'] != null)
+                                            {
+                                                one_schedule += '<li class="spot_node">';  //顯示景點
 
-                  one_schedule += '<div class="spot_name">';
-                  one_schedule += schedule[index]['name'];
-                  one_schedule += '</div>';
+                                                  one_schedule += '<div class="spot_name">';
+                                                  one_schedule += schedule[index]['name'];
+                                                  one_schedule += '</div>';
 
-                one_schedule += '</li>';
-
-
-
-                one_schedule += '<li class="spot_traffic">';  //顯示交通資訊
-
-                  one_schedule += '<div class="traffic_info">';
-                    one_schedule += '<div class="traffic_method">';
-                    one_schedule += schedule[index]['method'];
-                    one_schedule += '</div>';
-
-                    one_schedule += '<div class="traffic_duration">';
-                    one_schedule += schedule[index]['time_text'];
-                    one_schedule += '</div>';
-                  one_schedule += '</div>';
-
-
-                one_schedule += '</li>';
-
-
-            }
-            else
-            {
-               one_schedule += '<li class="spot_node">';  //顯示景點
-
-                  one_schedule += '<div class="spot_name">';
-                  one_schedule += schedule[index]['name'];
-                  one_schedule += '</div>';
-
-                one_schedule += '</li>';
-              //one_schedule += schedule[index]['name'];
-
-            }
-            
-            //one_schedule += '<div class="name">' + schedule[index]['content'] + '</div>';
-            //one_schedule += '<div class="name">' + schedule[index]['name'] + '</div>';
-
-
-            // one_schedule += '</ul>';
-            // one_schedule += '</li>';
-
-
-          });
-
-
-        one_schedule += "</ul>";
-
-        //one_schedule +="<div onclick='schedule_append();'>open the schedule</div>"
-        one_schedule += "<div id='open_schdule_" + index + "'>open the schedule</div>";
-
-        one_schedule += "</div>";
+                                                one_schedule += '</li>';
 
 
 
+                                                one_schedule += '<li class="spot_traffic">';  //顯示交通資訊
 
-      	content += one_schedule;
-        one_schedule = ""; 
-      });
+                                                  one_schedule += '<div class="traffic_info">';
+                                                    one_schedule += '<div class="traffic_method">';
+                                                    one_schedule += schedule[index]['method'];
+                                                    one_schedule += '</div>';
+
+                                                    one_schedule += '<div class="traffic_duration">';
+                                                    one_schedule += schedule[index]['time_text'];
+                                                    one_schedule += '</div>';
+                                                  one_schedule += '</div>';
+
+
+                                                one_schedule += '</li>';
+
+
+                                            }
+                                            else
+                                            {
+                                               one_schedule += '<li class="spot_node">';  //顯示景點
+
+                                                  one_schedule += '<div class="spot_name">';
+                                                  one_schedule += schedule[index]['name'];
+                                                  one_schedule += '</div>';
+
+                                                one_schedule += '</li>';
+                                              //one_schedule += schedule[index]['name'];
+
+                                            }
+                                            
+                                            //one_schedule += '<div class="name">' + schedule[index]['content'] + '</div>';
+                                            //one_schedule += '<div class="name">' + schedule[index]['name'] + '</div>';
+
+
+                                            // one_schedule += '</ul>';
+                                            // one_schedule += '</li>';
+
+
+                                          });
+
+
+                
+
+                //one_schedule +="<div onclick='schedule_append();'>open the schedule</div>"
+                one_schedule += "<li class='open_schdule_button' id='open_schdule_" + index + "'>open the schedule</li>";
+
+                one_schedule += "</ul>";
+
+                one_schedule += "</li>";
 
 
 
-      lightbox(content);	
+
+              	content += one_schedule;
+                one_schedule = ""; 
+              });
+
+      content += '</ul>';
+
+      lightbox(content);
+
+
+
+
+
 
       $(data).each(function(index,element){
 
@@ -140,10 +148,26 @@ function openschedule(){
               var temp_string = '<li class="block spotinfo" spotid="' + onedata['spotid'] + '" name="' + onedata['name'] + '" zoom="' + onedata['zoom'] + '" lat="' + onedata['lat'] + '" lon="' + onedata['lon'] + '" address="' + onedata['address'] + '" spotin="' + onedata['spotin'] + '" info="' + onedata['info']+ '" ><a href=javascript:lightbox("' + onedata['name'] + '")>' + onedata['name'] + '</a></li>'
               console.log("temp====" , temp_string);
               $('ul#mySchedule').append(temp_string);
+
+              var origin1 = onedata['address'];
+              var destinationA = opendata[i+1]['address'];
+              var traffic_id = "";
+              traffic_id = "traffic_" + origin1;
+              traffic_id += "_";
+              traffic_id += destinationA;
+              return_value = 0;
+                //$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '"><div id="outputDiv_'+origin1+'_'+destinationA+'">default</div></li>');
+                $('ul#mySchedule').append('<li class="trans ui-state-disabled" id="' + traffic_id + '"></li>');
+              calculateDistances_walking(origin1,destinationA,traffic_id);
+
+              $('li[spotid = "' + onedata['spotid'] + '"]' ).append('<img src="/img/' + onedata['spotid'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+onedata['travel_time_content']+'</div></div>');
+
+
+
              // $('ul#mySchedule').append('<li class="block spotinfo" spotid="' + onedata['spotid'] + '" name="' + onedata['name'] + '" zoom="' + onedata['zoom'] + '" lat="' + onedata['lat'] + '" lon="' + onedata['lon'] + '" address="' + onedata['address'] + '" spotin="' + onedata['spotin'] + '" info="' + onedata['info']+ '" ><a href=javascript:lightbox("' + onedata['name'] + '")>' + onedata['name'] + '</a></li>');  +'>'+onedata['name']+'</li>');
               //console.log("onedata---name", onedata['name']);
 
-              $('ul#mySchedule').append('<li class="trans ui-state-disabled" id="1">'+onedata['time_text']+'</li>');
+              //$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="1">'+onedata['time_text']+'</li>');
             }
             else
             {
