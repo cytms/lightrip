@@ -4,9 +4,10 @@ function spanid(CityName,point1,point2){
         
 }
 function spanidrestore(CityName){
-        document.getElementById('chosenSpots').innerHTML = CityName;
+        document.getElementById('chosenSpots').innerHTML = '<p style="font-size:36px; line-height:0px; text-align:right;">' + CityName + '</p>';
 
         //複選!! 之後可以考慮加上去
+
         /*if ( !$("area[title='" + CityName + "']").attr('class') ){
           $("area[title='" + CityName + "']").addClass('selected');
           document.getElementById('chosenSpots').innerHTML += CityName + " ";
