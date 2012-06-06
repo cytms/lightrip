@@ -38,9 +38,7 @@
               <ul class="city">
               <li>縣市名：<span id="CityName"></span>&nbsp;</li>
               </ul>
-              <div id="chosenSpots">
-                請選擇旅遊區塊！</br>
-              </div>
+              <div id="chosenSpots"></div>
             </div>
             
             <!-- 景點計數:end -->
@@ -139,12 +137,12 @@
     <div style="position:absolute; right:5px; left:5px; bottom:20px; height:30px; text-align:center;">
       <hr>
 
-      <input type="button" value="Post" onclick="postSchedule()"/>
+      <input type="button" class="clickme" value="Post" onclick="postSchedule()"/>
 
-      <input type="button" value="New" onclick="clearschedule()"/>
-      <input type="button" value="Open" onclick="openschedule();"/>
+      <input type="button" class="clickme" value="New" onclick="clearschedule()"/>
+      <input type="button" class="clickme" value="Open" onclick="openschedule();"/>
 
-      <input id="save_button" type="button" value="Save" onclick="save()"/>
+      <input id="save_button" class="clickme" type="button" value="Save" onclick="save()"/>
 
 
 </div>

@@ -201,3 +201,22 @@
 	height:50px;
 	width:100px;
 }
+
+.clickme {
+	height:40px;
+	width:80px;
+	border: 0px;
+	border-radius:5px;
+	background-color:#67D838;
+	color: #fff;
+	margin: 0px 10px 0px 10px;
+}
+.clickme:hover {
+	background-color: #ccc;
+	color: #67D838;
+}
+
+.clickme:active {
+	background-color:#67D838;
+	color: #fff;
+}
