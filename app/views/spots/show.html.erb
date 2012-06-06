@@ -67,7 +67,8 @@
 
 <p>
   <b>Photo:</b>
-  <%= @spot.picture %>
+  <% string_path = '/img/' + @spot.id.to_s %> 
+  <%= image_tag(string_path, :size => "50x50")%>
 </p>
 
 
