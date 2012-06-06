@@ -72,3 +72,10 @@
 	line-height:10px;
 }
 
+.icon-frame li{
+	float: left;
+	height:18px;
+	width:18px;
+	display: inline;
+}
+
