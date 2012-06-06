@@ -60,6 +60,13 @@ function save_json(){
         temp = {
           'spotid' : $(this).attr('spotid'),
           'name' : $(this).attr('name'),
+          'zoom' : $(this).attr('zoom'),
+          'lat' : $(this).attr('lat'),
+          'lon' : $(this).attr('lon'),
+          'info' : $(this).attr('info'),
+          'spotin' : $(this).attr('spotin'),
+          'address' : $(this).attr('address'),
+          'travel_time_content' : $(this).children().children('.travel_time_content').html(),
           'method': null,
           'time_text': null,
           'time_value': null

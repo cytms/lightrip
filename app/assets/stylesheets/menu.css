@@ -11,8 +11,10 @@
 	top:230px;
 }
 #menu {
+	left:27%;
+	top:10%;
 	width:610px;
-	height:450px;
+	height:500px;
 }
 #mapFrame {
 	float:right;
