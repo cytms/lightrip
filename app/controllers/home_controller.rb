@@ -73,18 +73,81 @@ class HomeController < ApplicationController
     #  end
     #end
     
-     @spots = Spot.limit(2)
+     @spots = Spot.where(:city => params['city'])
      puts "--------------------------------------------------------------"
      puts params['city']
     #@spots = Spot.find(2)
-     # @spots.each{|hashelement|
-       # if(rand(2) == 1 )
-        # 
-          # hashelement.pop()
-        # end
-       # hashelement['attr1'] = 1 
+    temp_hash = {}
+    count = 0
 
-     # }
+      @spots.each{|hashelement|
+        
+         hashelement['attr1'] = hashelement['attr1'] * params['attr1'].to_i
+         hashelement['attr2'] = hashelement['attr2'] * params['attr2'].to_i
+         hashelement['attr3'] = hashelement['attr3'] * params['attr3'].to_i
+         hashelement['attr4'] = hashelement['attr4'] * params['attr4'].to_i
+         hashelement['attr5'] = hashelement['attr5'] * params['attr5'].to_i
+         puts hashelement['attr1']
+         puts hashelement['attr2']
+         puts hashelement['attr3']
+         puts hashelement['attr4']
+         puts hashelement['attr5']
+
+         hashelement['attr1'] += hashelement['attr2']
+         hashelement['attr1'] += hashelement['attr3']
+         hashelement['attr1'] += hashelement['attr4']
+         hashelement['attr1'] += hashelement['attr5']
+         value= hashelement['attr1']
+
+         count++
+         temp_hash[value.to_i] = hashelement['MaxTime'].to_i
+
+         puts "MaxTime"
+         puts hashelement['MaxTime']
+         
+         if (hashelement['attr1'] > 1000)
+           hashelement['attr1'] = 1 
+         else
+           hashelement['attr1'] = 0 
+         end    
+       
+     #    #hashelement['attr1'] = 1 
+
+       }
+       puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhh "
+       puts temp_hash
+
+       array = []
+       array = temp_hash.keys
+
+       puts "aaaaaaaaaaaaaaaaa"
+       puts array
+
+       array.sort!
+
+       puts array
+
+       cumulate_hour = 0
+
+       hour_for_schedule = 16
+
+       while(cumulate_hour < hour_for_schedule)
+       
+          if array.empty?
+            break
+          end
+          finder = array.pop
+          puts "finderrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          puts finder
+          cumulate_hour += temp_hash[finder]
+       end
+
+       puts array.empty?
+       puts "cumu hrrrrrrrrrrrrrrr"
+       puts cumulate_hour
+
+
+
     hash = {:test => "YOYO"}
     render json: @spots
   end

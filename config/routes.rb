@@ -22,6 +22,7 @@ LightripD1::Application.routes.draw do
   #post "/" => "home#smart"
   get "home/index"
   get "/share/:sid" => "home#share_schedule"
+  post "/remove" => "schedules#remove"
   get '/:sid'=>"home#index"
 
 

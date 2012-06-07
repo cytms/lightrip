@@ -1,6 +1,28 @@
 function warning(message){
-	lightbox('<div class="ui-widget" style="margin:150px; "><div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"><p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span><strong>Alert:</strong> Sample ui-state-error style.</p></div></div>');
 
-	//$("body").append("<div class='bg'></div>");
-	//$("body").append("<div class='warning'><h1>" + message + "</h1></div>");
+	$("body").append("<div class='bg'></div>");
+	$("body").append("<div class='warning'><h1>" + message + "</h1></div>");
+	$(".warning").fadeOut(3000);
+	$(".bg").fadeOut(3000);
+	$(".body").click(function() {
+		$(".warning").remove();//處裡消掉的東西
+		$(".bg").remove();//嵌入body裡面會不會比較好
+	});
 }
+
+function warning2(message){
+	$("body").append("<div class='bg'></div>");
+	$("body").append("<div class='warning'><h1>" + message + "</h1><input class='clickme' type='button' value='save' onclick='save();opentrasmit();'/><input class='clickme' type='button' value='ignore' onclick='omit()' ></div>");
+}
+function warning3(message){
+	$("body").append("<div class='bg'></div>");
+	$("body").append("<div class='warning'><h1>" + message + "</h1></div>");
+	$(".warning").fadeOut(3000);
+}
+
+function omit(){
+	$(".warning").remove();//處裡消掉的東西
+	$(".bg").remove();//嵌入body裡面會不會比較好
+	opentrasmit();
+}
+

@@ -1,7 +1,23 @@
 function openschedule(){
+  if ($('#userid').html()!=null){
+	//alert("open!!");
+    warning2("Save the schedule?"); 
+  }
+      else{
+      console.log($('#userid').html());
+      warning("Please login first");
+      $(".menu").hide();
+      $("#buttonFrame").hide();
+      $(".firstpage").show();
+      $("#menu").show();
+    }
 
-	alert("open!!");
-    $.ajax({
+	
+
+}
+
+function opentrasmit(){
+  $.ajax({
     type: 'GET',
     data: { user: $('p#userid').html()//,
      // schedule_name: $('h2#schedule_name').html(),//,
@@ -14,7 +30,7 @@ function openschedule(){
     //url: "http://lightrip-cytms.herokuapp.com/step3",
     datatype: 'json',
     success: function(data, textSatus){
-      alert("open successfully!");
+      //alert("open successfully!");
 
       var content = "";
       var one_schedule = "";
@@ -32,7 +48,7 @@ function openschedule(){
 
               $(data).each(function(index, element){
 
-                  one_schedule += "<li class='record'><div class='content'><h3>";
+                  one_schedule += "<li class='record' id='record_"+index+"'><div class='content'><h3>";
                   one_schedule += element['schedule_name'];
                   one_schedule += "</h3>";
                   var schedule = JSON.parse(element['content']);
@@ -107,7 +123,7 @@ function openschedule(){
 
 
 
-              	content += one_schedule;
+                content += one_schedule;
                 one_schedule = ""; 
               });
 
@@ -116,12 +132,44 @@ function openschedule(){
 
                               $(data).each(function(index,element){
 
+                                                      $("#delete_schedule_" + index).click(function() {
+                                                        
+                                                        //add alert!
+                                                        $("#record_" + index).remove();
+                                                        $.ajax({
+                                                                    type: 'POST',
+                                                                    data: { 
+                                                                  
+                                                                     sid: element['id']
+                                                                                    
+                                                                    },
+                                                                    
+                                                                    url: "/remove",
+                                                                   
+                                                                    datatype: 'json',
+                                                                    success: function(data, textSatus){
+
+                                                                      alert("remove success");
+                                                                      //console.log("data",data);
+                                                                      
+                                                                      //$('#sid').html(data['id']);
+                                                                      //alert("Save successfully! sid: " + $("#sid").html() + "is saved");
+
+                                                                     
+                                                                    }
+                                                        });
+                                                     });
+
+
+
                                                     $("#open_schedule_" + index).click(function() {
 
                                                                    // $(#sid).html(data[index]['id']);
                                                                     
                                                                     console.log(data[index]);
-                                                                    alert("schedule_append");
+                                                                    warning("Schedule load");
+                                  
+                                                                    //$(".warning").remove();
 
                                                                       /*詢問是否要儲存現在的schedule??*/
                                                                     
@@ -212,9 +260,6 @@ function openschedule(){
 
     }
   });
-
-	
-
 }
 
 

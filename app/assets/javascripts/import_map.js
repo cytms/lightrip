@@ -364,75 +364,28 @@ function lightbox(content) {
 }
 
 	$(function() {
-		$( "#slider" ).slider({
-			orientation: "vertical",
-			value:50,
-			min: 0,
-			max: 100,
-			step: 20,
-			slide: function( event, ui ) {
-				$( "#amount" ).val( ui.value );
-			}
+		$( "#eq > span" ).each(function() {
+			// read initial values from markup and remove that
+			var value = parseInt( $( this ).text(), 10 );
+			$( this ).empty().slider({
+				value: value,
+				range: "min",
+				animate: true,
+				orientation: "vertical",
+				stop: function(event, ui) {
+					$(this).attr('val',ui.value);
+
+				}
+			});
 		});
-		$( "#amount" ).val( $( "#slider" ).slider( "value" ) );
-		
-		$( "#slider2" ).slider({
-			orientation: "vertical",
-			value:50,
-			min: 0,
-			max: 100,
-			step: 20,
-			slide: function( event, ui ) {
-				$( "#amount2" ).val( ui.value );
-			}
-		});
-		$( "#amount2" ).val( $( "#slider2" ).slider( "value2" ) );
-		
-		$( "#slider3" ).slider({
-			orientation: "vertical",
-			value:50,
-			min: 0,
-			max: 100,
-			step: 20,
-			slide: function( event, ui ) {
-				$( "#amount3" ).val( ui.value );
-			}
-		});
-		$( "#amount3" ).val( $( "#slider3" ).slider( "value3" ) );
-		$( "#slider4" ).slider({
-			orientation: "vertical",
-			value:50,
-			min: 0,
-			max: 100,
-			step: 20,
-			slide: function( event, ui ) {
-				$( "#amount4" ).val( ui.value );
-			}
-		});
-		$( "#amount4" ).val( $( "#slider4" ).slider( "value4" ) );
-		$( "#slider5" ).slider({
-			orientation: "vertical",
-			value:50,
-			min: 0,
-			max: 100,
-			step: 20,
-			slide: function( event, ui ) {
-				$( "#amount5" ).val( ui.value );
-			}
-		});
-		$( "#amount5" ).val( $( "#slider5" ).slider( "value5" ) );
 	});
 
 (function($){
 	$(document).ready(function(){
 		$('.active').click(function(){
 			clearschedule();   // 清空schedule
-			$(".firstpage").hide();
-			$(".menu").hide();
-			$("#scheduleFrame").show();
-			$("#buttonFrame").show();
-			//alert("Handler for .click() called.");
-			//alert(getcityvalue());
+			
+			
 
 			var city_value;
 			//afunction();
@@ -440,20 +393,27 @@ function lightbox(content) {
 			if(city_value == 0)
 			{
 				alert("尚未選擇城市或選擇了無效縣市(請選擇 台北、台中、高雄)")
-				$(".firstpage").show();
-				$(".menu").show();
-				$("#scheduleFrame").hide();
-				$("#buttonFrame").hide();
-			}	
+				// $(".firstpage").show();
+				// $(".menu").show();
+				// $("#scheduleFrame").hide();
+				// $("#buttonFrame").hide();
+			}
+			else
+			{
+				$(".firstpage").hide();
+				$(".menu").hide();
+				$("#scheduleFrame").show();
+				$("#buttonFrame").show();
+				
 
 			$.ajax({
 				type: 'GET',
 				data: { 
-				 attr1: $( "#amount" ).val(),
-				 attr2: $( "#amount2" ).val(),
-				 attr3: $( "#amount3" ).val(),
-				 attr4: $( "#amount4" ).val(),
-				 attr5: $( "#amount5" ).val(),
+				 attr1: $( "#amount1" ).attr('val'),
+				 attr2: $( "#amount2" ).attr('val'),
+				 attr3: $( "#amount3" ).attr('val'),
+				 attr4: $( "#amount4" ).attr('val'),
+				 attr5: $( "#amount5" ).attr('val'),
 				 city: city_value
 				},
 				//$( "#amount" ).html(),
@@ -470,6 +430,10 @@ function lightbox(content) {
 					//$("li.block:even").append()
 					//$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
 					for ( var i = 0; i < data.length ; i++) {
+						if( data[i]['attr1'] == 0)
+						{
+							continue;
+						}
 						$('ul#mySchedule').append('<li class="block spotinfo" spotid="' + data[i]['id'] + '" name="' + data[i]['name'] + '" zoom="' + data[i]['zoom'] + '" lat="' + data[i]['lat'] + '" lon="' + data[i]['lon'] + '" address="' + data[i]['address'] + '" spotin="' + data[i]['attr1'] + '" info="' + data[i]['info']+ '" ><a href=javascript:lightbox("' + data[i]['name'] + '")>' + data[i]['name'] + '</a></li>');
 						if( i != (data.length - 1)){
 							var origin1 = data[i]['address'];
@@ -490,6 +454,8 @@ function lightbox(content) {
 
 				}
 			});
+
+			}
 		});
 	});
 })(jQuery);

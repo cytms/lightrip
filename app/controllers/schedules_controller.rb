@@ -149,12 +149,29 @@ def postSchedule
       message = params[:description]
       schedule_name = params[:title]
       sid = params[:sid]
+      src = params[:src]
+      puts src
+      puts"=================================="
       website = '/'+sid
       #website = "http://localhost3000/"+sid
       rest_graph.post('/me/feed', :message => schedule_name, :name => "lightrip", :description => message, :picture => "http://www.dnac.org/images/Paris_Effel.jpg", :link => 'http://lightrip.herokuapp.com/'+sid)
         #:picture => "http://www.dnac.org/images/Paris_Effel.jpg", :name => "name", :caption => {}"caption", :description => "description", :link => "http://google.com/paris",:actions=>{"name": "View on Zombo", "link": "http://www.zombo.com"}) 
     end
        redirect_to home_path, :notice => 'Post successfully!'
+  end
+
+
+  def remove
+     @schedule = Schedule.find(params[:sid])
+     @schedule.destroy
+
+     render json: @schedule
+
+    # respond_to do |format|
+    #   format.html { redirect_to schedules_url }
+    #   format.json { head :no_content }
+    # end
+
   end
 
 end
