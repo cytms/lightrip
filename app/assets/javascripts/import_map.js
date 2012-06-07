@@ -371,7 +371,11 @@ function lightbox(content) {
 				value: value,
 				range: "min",
 				animate: true,
-				orientation: "vertical"
+				orientation: "vertical",
+				stop: function(event, ui) {
+					$(this).attr('val',ui.value);
+
+				}
 			});
 		});
 	});
@@ -405,11 +409,11 @@ function lightbox(content) {
 			$.ajax({
 				type: 'GET',
 				data: { 
-				 attr1: $( "#amount1" ).val(),
-				 attr2: $( "#amount2" ).val(),
-				 attr3: $( "#amount3" ).val(),
-				 attr4: $( "#amount4" ).val(),
-				 attr5: $( "#amount5" ).val(),
+				 attr1: $( "#amount1" ).attr('val'),
+				 attr2: $( "#amount2" ).attr('val'),
+				 attr3: $( "#amount3" ).attr('val'),
+				 attr4: $( "#amount4" ).attr('val'),
+				 attr5: $( "#amount5" ).attr('val'),
 				 city: city_value
 				},
 				//$( "#amount" ).html(),
