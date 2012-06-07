@@ -410,10 +410,10 @@ function lightbox(content) {
 				type: 'GET',
 				data: { 
 				 attr1: $( "#amount1" ).attr('val'),
-				 attr2: $( "#amount2" ).attr('val'),
-				 attr3: $( "#amount3" ).attr('val'),
-				 attr4: $( "#amount4" ).attr('val'),
-				 attr5: $( "#amount5" ).attr('val'),
+				 attr2: $( "#amount2" ).attr('val'),	
+				 attr3: $( "#amount3" ).attr('val'),	
+				 attr4: $( "#amount4" ).attr('val'),	
+				 attr5: $( "#amount5" ).attr('val'),	
 				 city: city_value
 				},
 				//$( "#amount" ).html(),
@@ -430,7 +430,7 @@ function lightbox(content) {
 					//$("li.block:even").append()
 					//$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
 					for ( var i = 0; i < data.length ; i++) {
-						if( data[i]['attr1'] == 0)
+						if( data[i]['attr1'] != 1)
 						{
 							continue;
 						}

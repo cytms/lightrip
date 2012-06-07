@@ -24,6 +24,7 @@ LightripD1::Application.routes.draw do
   get "/share/:sid" => "home#share_schedule"
   post "/remove" => "schedules#remove"
   get '/:sid'=>"home#index"
+  #get '/' => 'home#info'
 
 
   #post "/attr" => "home#attr"
