@@ -1,5 +1,9 @@
 function save(){
       if ($('#userid').html()!=null){
+      if ($('#mySchedule').html().trim()==""){
+          warning("No spots");
+          }
+      else{
       var content = save_json();
       if($('#sid').html()== '')
       {
@@ -54,7 +58,7 @@ function save(){
               });
 
       }
-    }
+    }}
     else{
       console.log($('#userid').html());
       warning("Please login first");

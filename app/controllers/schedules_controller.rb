@@ -150,6 +150,8 @@ def postSchedule
       schedule_name = params[:title]
       sid = params[:sid]
       src = params[:src]
+      puts src
+      puts"=================================="
       website = '/'+sid
       #website = "http://localhost3000/"+sid
       rest_graph.post('/me/feed', :message => schedule_name, :name => "lightrip", :description => message, :picture => "http://www.dnac.org/images/Paris_Effel.jpg", :link => 'http://lightrip.herokuapp.com/'+sid)
