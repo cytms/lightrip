@@ -6,10 +6,11 @@ LightripD1::Application.routes.draw do
   get '/open' => 'schedules#show_user_schedule'
   get '/post' => 'schedules#postSchedule'
   resources :schedules
-
+  get '/lightrip' => 'home#lightrip'
   #post '/save' => 'schedules#save'
   get '/login' => 'home#login'
   get '/logout' => 'home#logout'
+  get '/info' => 'home#info'
   get '/' => 'home#index', :as => :home
   get "/spots/new_backstage" => "spots#new_backstage"
   get "/img/:id" => "spots#showing"
@@ -23,6 +24,7 @@ LightripD1::Application.routes.draw do
   get "/share/:sid" => "home#share_schedule"
   post "/remove" => "schedules#remove"
   get '/:sid'=>"home#index"
+  #get '/' => 'home#info'
 
 
   #post "/attr" => "home#attr"

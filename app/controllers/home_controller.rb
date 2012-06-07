@@ -4,6 +4,14 @@ class HomeController < ApplicationController
   before_filter :load_facebook, :except => [:login]
   before_filter :filter_setup_rest_graph
   before_filter :filter_cache, :only => [:cache]
+  
+  def info
+
+  end
+
+  def lightrip
+  end
+
   def logout
     reset_session
     redirect_to home_path
@@ -97,11 +105,12 @@ class HomeController < ApplicationController
          puts "MaxTime"
          puts hashelement['MaxTime']
          
-         if (hashelement['attr1'] > 1000)
-           hashelement['attr1'] = 1 
-         else
-           hashelement['attr1'] = 0 
-         end    
+         # if (hashelement['attr1'] > 1000)
+         #   hashelement['attr1'] = 1 
+         # else
+         #   hashelement['attr1'] = 0 
+         # end    
+         #hashelement['attr1'] = 0 
        
      #    #hashelement['attr1'] = 1 
 
@@ -129,6 +138,17 @@ class HomeController < ApplicationController
             break
           end
           finder = array.pop
+          @spots.each{|hh|
+              puts "spooooooooooooooooooooooooooot"
+              puts "hh"
+              puts hh['attr1']
+
+              if(hh['attr1'] == finder)
+                hh['attr1'] = 1
+              end
+          }  
+
+
           puts "finderrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
           puts finder
           cumulate_hour += temp_hash[finder]
