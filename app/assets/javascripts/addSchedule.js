@@ -26,7 +26,7 @@ function addSchedule(){
 	    var newSpotIn = $('#infoWindow p').eq(5).html(); 
 	    var newSpotMin = $('#infoWindow p').eq(6).html(); 
 	    var newSpotMax = $('#infoWindow p').eq(7).html(); 
-	    var newSpotImg = $('#infoWindow img').eq(1).attr('src');
+	    var newSpotImg = $('#infoWindow img').eq(0).attr('src');
 	    console.log(newSpotImg); 
 	    $('#mySchedule').append('<li class="block spotinfo" spotid="'+newSpotID+'" name="'+newSpotName+'" zoom="1.0" lat="'+newSpotLat+'" lon="'+newSpotLon+'" address="'+newSpotAddress+'"spotin = "1" info="'+newSpotText+'"><a href="javascript:lightbox(\''+newSpotName+'\')">'+newSpotName+'</a><img src="'+newSpotImg+'"height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+newSpotMin+'~'+newSpotMax+'hr</div></div></li>')
 		if(size > 0){

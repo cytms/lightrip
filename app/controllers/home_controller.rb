@@ -4,6 +4,14 @@ class HomeController < ApplicationController
   before_filter :load_facebook, :except => [:login]
   before_filter :filter_setup_rest_graph
   before_filter :filter_cache, :only => [:cache]
+  
+  def info
+
+  end
+
+  def lightrip
+  end
+
   def logout
     reset_session
     redirect_to home_path
