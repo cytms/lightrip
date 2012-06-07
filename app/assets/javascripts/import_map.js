@@ -364,63 +364,16 @@ function lightbox(content) {
 }
 
 	$(function() {
-		$( "#slider" ).slider({
-			orientation: "vertical",
-			value:50,
-			min: 0,
-			max: 100,
-			step: 20,
-			slide: function( event, ui ) {
-				$( "#amount" ).val( ui.value );
-			}
+		$( "#eq > span" ).each(function() {
+			// read initial values from markup and remove that
+			var value = parseInt( $( this ).text(), 10 );
+			$( this ).empty().slider({
+				value: value,
+				range: "min",
+				animate: true,
+				orientation: "vertical"
+			});
 		});
-		$( "#amount" ).val( $( "#slider" ).slider( "value" ) );
-		
-		$( "#slider2" ).slider({
-			orientation: "vertical",
-			value:50,
-			min: 0,
-			max: 100,
-			step: 20,
-			slide: function( event, ui ) {
-				$( "#amount2" ).val( ui.value );
-			}
-		});
-		$( "#amount2" ).val( $( "#slider2" ).slider( "value2" ) );
-		
-		$( "#slider3" ).slider({
-			orientation: "vertical",
-			value:50,
-			min: 0,
-			max: 100,
-			step: 20,
-			slide: function( event, ui ) {
-				$( "#amount3" ).val( ui.value );
-			}
-		});
-		$( "#amount3" ).val( $( "#slider3" ).slider( "value3" ) );
-		$( "#slider4" ).slider({
-			orientation: "vertical",
-			value:50,
-			min: 0,
-			max: 100,
-			step: 20,
-			slide: function( event, ui ) {
-				$( "#amount4" ).val( ui.value );
-			}
-		});
-		$( "#amount4" ).val( $( "#slider4" ).slider( "value4" ) );
-		$( "#slider5" ).slider({
-			orientation: "vertical",
-			value:50,
-			min: 0,
-			max: 100,
-			step: 20,
-			slide: function( event, ui ) {
-				$( "#amount5" ).val( ui.value );
-			}
-		});
-		$( "#amount5" ).val( $( "#slider5" ).slider( "value5" ) );
 	});
 
 (function($){
@@ -452,7 +405,7 @@ function lightbox(content) {
 			$.ajax({
 				type: 'GET',
 				data: { 
-				 attr1: $( "#amount" ).val(),
+				 attr1: $( "#amount1" ).val(),
 				 attr2: $( "#amount2" ).val(),
 				 attr3: $( "#amount3" ).val(),
 				 attr4: $( "#amount4" ).val(),

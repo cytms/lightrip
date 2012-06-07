@@ -1,4 +1,6 @@
-
+#eq span {
+	height:95px; float:left; margin:0px 20px 0px 20px;
+}
 #map_area {
 	position: absolute;
 	left:30px;
