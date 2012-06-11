@@ -14,7 +14,7 @@
 }
 .block {
 	width:150px;
-	height:100px;
+	height:130px;
 	background-color:#CCC;
 	margin:5px;
 	line-height:40px;
@@ -68,7 +68,7 @@
 
 ul#mySchedule li.spotinfo
 {
-	height: 100px;
+	height: 130px;
 	width: 85%;
 	margin: 0px 0px 5px 10px;
 	padding: 10px;
