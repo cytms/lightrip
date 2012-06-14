@@ -16,6 +16,7 @@ class HomeController < ApplicationController
     reset_session
     redirect_to home_path
   end
+  
   def index
     @access_token = rest_graph.access_token
 
@@ -29,6 +30,7 @@ class HomeController < ApplicationController
       #
       if @schedule_open[0] == nil
         puts "CAN NOT be found!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        @reload = false
         # render index 
 
       else # record can be found
@@ -39,7 +41,10 @@ class HomeController < ApplicationController
       @schedulereload = @schedulereload.gsub("\"","asdfdsa")
       puts(@schedulereload)
       @reload= true 
-      end   
+      end
+    else
+    @reload = false
+    @schedulereload = nil   
     
     end 
       #params[:reload]  
@@ -47,6 +52,8 @@ class HomeController < ApplicationController
       #@reload = params[:reload]  
     #end
     @spots=Spot.all
+  
+
   end
   
 
