@@ -9,7 +9,7 @@ gem 'json'
 
 #gem 'sqlite3'
 
-gem 'sqlite3', :group => [:development, :test]
+#gem 'sqlite3', :group => [:development, :test]
 
 group :development do
   gem 'sqlite3'
@@ -18,6 +18,7 @@ end
 group :production do
   gem 'thin'
   gem 'pg'
+  gem 'therubyracer'
 end
 
 
