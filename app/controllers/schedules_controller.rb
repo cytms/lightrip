@@ -154,7 +154,7 @@ def postSchedule
       puts"=================================="
       website = '/'+sid
       #website = "http://localhost3000/"+sid
-      rest_graph.post('/me/feed', :message => schedule_name, :name => "lightrip", :description => message, :picture => src, :link => 'http://lightrip.herokuapp.com/'+sid)
+      rest_graph.post('/me/feed', :message => schedule_name, :name => "lightrip", :description => message, :picture => (('http://lightrip.herokuapp.com'+src)), :link => ('//'+sid))
         #:picture => "http://www.dnac.org/images/Paris_Effel.jpg", :name => "name", :caption => {}"caption", :description => "description", :link => "http://google.com/paris",:actions=>{"name": "View on Zombo", "link": "http://www.zombo.com"}) 
     end
        redirect_to home_path, :notice => 'Post successfully!'
