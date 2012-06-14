@@ -449,7 +449,7 @@ function lightbox(content) {
 							//console.log("traffic_id: " + traffic_id);
 
 						}
-						$('li[spotid = "' + data[i]['id'] + '"]' ).append('<img src="/img/' + data[i]['id'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+data[i]['MinTime']+'~'+data[i]['MinTime']+'hr</div></div>');
+						$('li[spotid = "' + data[i]['id'] + '"]' ).append('<img src="/img/' + data[i]['id'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">'+data[i]['MinTime']+'~'+data[i]['MaxTime']+'hr</div></div>');
 					}
 
 				}
